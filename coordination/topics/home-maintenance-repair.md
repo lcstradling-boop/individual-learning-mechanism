@@ -7,7 +7,10 @@ Household systems, common failure modes, safe inspection, maintenance, repair lo
 Assume general mechanical curiosity but no durable inventory of household repair skills. Connect to pressure, electricity, materials, and feedback only when the mechanism benefits.
 
 ## Published
-None.
+- [When the house is quiet, why is the meter moving?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/meter-at-rest) · `meter-at-rest` · 24 minutes, two written activities.
+- [The toilet that refills itself at midnight](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/toilet-after-midnight) · `toilet-after-midnight` · 22 minutes, two written activities.
+- [Which side of the window is wet?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/water-on-the-glass) · `water-on-the-glass` · 20 minutes, two written activities.
+- [Why the draft starts at the latch](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/gap-at-the-door) · `gap-at-the-door` · 18 minutes, two written activities.
 
 ## Active work
 None.

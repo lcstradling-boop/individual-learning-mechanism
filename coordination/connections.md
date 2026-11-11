@@ -16,3 +16,11 @@ navigate between them.
 | Proposed | Representation and finite structure | Foundation for Discrete Mathematics ↔ Hardware Components and Functions ↔ AI Literacy | Discrete representations connect logic gates, algorithms, data, and the inputs models can process. |
 
 Add proposals sparingly. Do not turn every shared word into an edge.
+
+## Confirmed lesson pairs
+
+- `water-on-the-glass` ↔ `arc-on-the-windshield` — Both cases use the surface carrying the water to locate its source. A windshield also has an exterior wiping mechanism you can test.
+- `gap-at-the-door` ↔ `trace-the-display` — Testing contact around a seal narrows a physical path. Bypassing a display dock narrows a signal path, where compatibility can also change during the test.
+- `where-the-space-went` ↔ `meter-at-rest` — The meter totals flow across a property boundary over time. A filesystem reports occupied space at an instant. In both cases, locating the boundary tells you what the total can include.
+- `cpu-between-samples` ↔ `four-cold-readings` — Both measurements depend on when you take them. A cold tire reading samples a state, while a CPU percentage summarizes activity over an interval.
+- `toilet-after-midnight` ↔ `oil-level-and-pressure` — Both systems can contain enough fluid while delivering it through an unintended path. The tank exposes that path to a dye test, while engine pressure requires a different measurement.
