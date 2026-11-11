@@ -185,7 +185,7 @@ function render(){
  }else if(page==='journal')main.innerHTML='<h1>Journal</h1><p>'+log.length+' saved visits · '+new Set(log.map(r=>lessons.find(l=>l.id===r.id)?.topic)).size+' topics explored</p>'+log.map(r=>'<article><a href="#lesson/'+esc(r.id)+'">'+esc(title(r.id))+'</a>'+history(r)+'</article>').join('');
  else if(page==='data')dataPage(log);
  else if(page==='credits')main.innerHTML='<h1>Image credits</h1><a href="https://lucide.dev/icons/tree-pine">Tree Pine · Lucide</a>'+lessons.map(l=>'<p><a href="https://www.pexels.com/photo/'+voyages[l.id].photo+'/">'+esc(voyages[l.id].alt)+' · Pexels</a></p>').join('');
- else{main.innerHTML='<h1>Explore</h1>'+catalog(active)+(active.length?'':'<p>All lessons are out of rotation. Visit the library to return one.</p>')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';request(active,paused.filter(l=>state(l)==='tools'))}
+ else{main.innerHTML='<h1>Explore</h1>'+catalog(active)+(active.length?'':lessons.length?'<p>All lessons are out of rotation. Visit the library to return one.</p>':'<p>The lesson catalog is empty while the next voyages are being designed.</p>')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';request(active,paused.filter(l=>state(l)==='tools'))}
  const sortControl = $('#catalog-sort');
  if (sortControl) sortControl.onchange = () => {
   localStorage.setItem('ship.catalogSort', sortControl.value);
