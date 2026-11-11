@@ -1,0 +1,20 @@
+name: Validate Ship's Log
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  repository-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check Ships-Log/topics.js
+      - run: node --check Ships-Log/lessons.js
+      - run: node --check Ships-Log/sessions.js
+      - run: node --check Ships-Log/app.js
+      - run: node scripts/validate-repository.mjs

@@ -1,4 +1,18 @@
-# individual-learning-mechanism
-Site meant to teach me things in a personalized, highly efficient manner.
+# Ship's Log
 
-Lesson authors should follow [AGENTS.md](AGENTS.md), which defines the learning goals, lesson format, personalization rules, stable-content policy, image requirements, and publication checks.
+Ship's Log is Liam's personal learning environment: a set of stable, finite
+lessons organized into recognizable channels and connected by a shared learning
+history.
+
+## Repository map
+
+- [AGENTS.md](AGENTS.md) — authoring, stability, validation, and publication contract
+- [coordination/](coordination/) — shared memory between topic-specific chats
+- [Ships-Log/topics.js](Ships-Log/topics.js) — canonical channel identities and scope
+- [coordination/connections.md](coordination/connections.md) — proposed and confirmed cross-topic relationships
+- [Ships-Log/](Ships-Log/) — the GitHub Pages application and local assets
+- [scripts/validate-repository.mjs](scripts/validate-repository.mjs) — contract validation used locally and in GitHub Actions
+
+Topic chats should begin with the root instructions and their own file under
+`coordination/topics/`. Tone and internal sequence remain chat-specific unless
+Liam asks to preserve them.

@@ -1,5 +1,7 @@
 const $=q=>document.querySelector(q);
 const main=$('main'), lessons=initialLessons;
+const channel=id=>topicRegistry.find(topic=>topic.id===id);
+const topicName=lesson=>channel(lesson.topicId)?.name||lesson.topic||lesson.topicId||'Unassigned';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const states={blacklist:"Blacklist",tools:"I'm certain I don't yet have the tools to understand",remember:"I won't forget this material"};
 const labels=['No insight','Some insight','Decent insight','Good insight','Strong insight'];
@@ -12,21 +14,26 @@ function theme(dark){document.documentElement.dataset.theme=dark?'dark':'light';
 theme((localStorage.getItem('ship.theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark');
 $('#theme').onclick=()=>{const dark=document.documentElement.dataset.theme!=='dark';theme(dark);localStorage.setItem('ship.theme',dark?'dark':'light')};
 function card(l){
- const {alt,minutes}=voyages[l.id];
- return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb"><span class="badge">Est. '+duration(minutes)+'</span><img alt="'+esc(alt)+'" src="images/'+l.id+'.jpg"></div><small>'+esc(l.topic)+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
+ const session=voyages[l.id],thumbnail=session.thumbnail||{alt:session.alt,file:'images/'+l.id+'.jpg'};
+ return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb"><span class="badge">Est. '+duration(session.minutes)+'</span><img alt="'+esc(thumbnail.alt)+'" src="'+esc(thumbnail.file)+'"></div><small>'+esc(topicName(l))+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
 }
 const grid=list=>'<div class="grid">'+list.map(card).join('')+'</div>';
+function channelCard(topic){
+ const count=lessons.filter(lesson=>lesson.topicId===topic.id).length;
+ return '<a class="channel-card" href="#topic/'+topic.id+'"><span class="channel-logo"><img src="'+esc(topic.logo)+'" alt=""></span><span><small>'+(topic.scale==='larger'?'Continuing channel':'Focused channel')+' · '+count+' lesson'+(count===1?'':'s')+'</small><strong>'+esc(topic.name)+'</strong><span>'+esc(topic.purpose)+'</span></span></a>';
+}
+const channelGrid=list=>'<div class="channel-grid">'+list.map(channelCard).join('')+'</div>';
 // Lessons are appended in introduction order. Use the full catalog so pausing
 // the first lesson in a topic cannot change when that topic was introduced.
-const newestTopics = [...new Set(lessons.map(lesson => lesson.topic))].reverse();
+const newestTopics = [...new Set(lessons.map(lesson => lesson.topicId||lesson.topic))].reverse();
 
 function catalog(list) {
  const grouped = localStorage.getItem('ship.catalogSort') === 'topics';
  const sortControl = '<label class="catalog-sort">Sort by <select id="catalog-sort"><option value="default">Lesson order</option><option value="topics" '+(grouped?'selected':'')+'>Topic · newest introduced first</option></select></label>';
  if (!grouped) return sortControl + grid(list);
- const groups = newestTopics.map(topic => {
-  const members = list.filter(lesson => lesson.topic === topic).reverse();
-  return members.length ? '<section class="topic-group"><h2>'+esc(topic)+'</h2>'+grid(members)+'</section>' : '';
+ const groups = newestTopics.map(topicId => {
+  const members = list.filter(lesson => (lesson.topicId||lesson.topic) === topicId).reverse();
+  return members.length ? '<section class="topic-group"><h2>'+esc(channel(topicId)?.name||topicId)+'</h2>'+grid(members)+'</section>' : '';
  });
  return sortControl + groups.join('');
 }
@@ -89,7 +96,8 @@ function dataPage(log) {
  const byTopic = {}, byDay = {};
  for (const record of log) {
   const ms = Math.max(0,Number(record.ms) || 0);
-  const topic = record.topic || lessons.find(lesson=>lesson.id===record.id)?.topic || 'Unknown topic';
+  const matchingLesson=lessons.find(lesson=>lesson.id===record.id);
+  const topic = record.topic || channel(record.topicId)?.name || (matchingLesson?topicName(matchingLesson):'Unknown topic');
   byTopic[topic] = (byTopic[topic] || 0) + ms;
   for (const [day,time] of Object.entries(dailyTime(record))) byDay[day] = (byDay[day] || 0) + time;
  }
@@ -100,7 +108,7 @@ function dataPage(log) {
 }
 function request(active,paused){
  const btn=$('#copy'), box=$('#request');
- box.value='Choose my next lesson for familiarity and breadth. Give it a fixed scope and estimate my completion time from the reading and activities, taking my background into account. Active lessons: '+active.map(l=>l.title).join(', ')+'. Paused pending prerequisites: '+paused.map(l=>l.id+' ('+l.title+')').join(', ')+'. If my history shows I now have the tools, explain why and give me a return code in the form resume:LESSON-ID. Otherwise leave it paused. My eligible learning history: '+JSON.stringify(entries().filter(r=>[...active,...paused].some(l=>l.id===r.id)).map(({id,at,rating,note,due})=>({id,at,rating,note,due})));
+ box.value='Choose my next lesson for familiarity, depth, and useful connections. Use the repository coordination files and give it one fixed scope with a completion estimate covering reading and activities. Available channels: '+topicRegistry.map(topic=>topic.id+' ('+topic.name+')').join(', ')+'. Active lessons: '+active.map(l=>l.id+' ('+l.title+')').join(', ')+'. Paused pending prerequisites: '+paused.map(l=>l.id+' ('+l.title+')').join(', ')+'. If my history shows I now have the tools, explain why and give me a return code in the form resume:LESSON-ID. Otherwise leave it paused. My eligible learning history: '+JSON.stringify(entries().filter(r=>[...active,...paused].some(l=>l.id===r.id)).map(({id,topicId,at,rating,note,due})=>({id,topicId,at,rating,note,due})));
  btn.onclick=async()=>{try{await navigator.clipboard.writeText(box.value);btn.textContent='Copied'}catch{box.select();btn.textContent='Text selected — copy to continue'}};
 }
 let current = null;
@@ -135,9 +143,27 @@ document.addEventListener('visibilitychange', () => {
 });
 window.addEventListener('pagehide', discardTiming);
 window.addEventListener('pageshow', resumeTiming);
+function sectionHtml(section){
+ if(Array.isArray(section))return '<section class="lesson-section"><h2>'+esc(section[0])+'</h2><p>'+esc(section[1])+'</p></section>';
+ const body=Array.isArray(section.body)?section.body:[section.body];
+ return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+body.filter(Boolean).map(paragraph=>'<p>'+esc(paragraph)+'</p>').join('')+'</section>';
+}
+function activityHtml(activity){
+ if(typeof activity==='string')return '<li>'+esc(activity)+'</li>';
+ return '<li><strong>'+esc(activity.prompt)+'</strong>'+(activity.evidence?'<small>What this should make visible: '+esc(activity.evidence)+'</small>':'')+'</li>';
+}
+function connectionHtml(connection){
+ const lessonId=Array.isArray(connection)?connection[0]:connection.lessonId;
+ const relationship=Array.isArray(connection)?connection[1]:connection.relationship;
+ const target=lessons.find(lesson=>lesson.id===lessonId);
+ if(!target||state(target))return '';
+ return '<p><a href="#lesson/'+esc(lessonId)+'">'+esc(target.title)+'</a> · '+esc(relationship)+'</p>';
+}
 function lessonPage(l,log){
  const {minutes,activities}=voyages[l.id];
- main.innerHTML='<small>'+esc(l.topic)+'</small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small><p class="lead">'+esc(l.subtitle)+'</p><aside>'+esc(l.anchor)+'</aside>'+l.sections.map(([h,p])=>'<h2>'+esc(h)+'</h2><p>'+esc(p)+'</p>').join('')+'<blockquote>'+esc(l.question)+'</blockquote><h2>Explore the idea</h2><ol>'+activities.map(task=>'<li>'+esc(task)+'</li>').join('')+'</ol><h2>Connections</h2>'+l.links.filter(([id])=>!state(lessons.find(x=>x.id===id))).map(([id,h])=>'<p><a href="#lesson/'+id+'">'+esc(title(id))+'</a> · '+esc(h)+'</p>').join('')+'<h2>Log this visit</h2><form><label for="insight">Insight from this visit</label><input type="range" id="insight" min="1" max="5" step="1" value="3"><output id="value" for="insight"></output><label>What stayed with you?<textarea id="note"></textarea></label><button>Save visit</button></form><details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details><details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>';
+ const connections=l.connections||l.links||[];
+ const sources=l.sources||[];
+ main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small><p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+'<h2>Log this visit</h2><form><label for="insight">Insight from this visit</label><input type="range" id="insight" min="1" max="5" step="1" value="3"><output id="value" for="insight"></output><label>What stayed with you?<textarea id="note"></textarea></label><button>Save visit</button></form><details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details><details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>';
  const insight=$('#insight');
  function score(){const i=insight.value-1;const text=insight.value+' · '+labels[i]+' · review in '+days[i]+' day'+(days[i]===1?'':'s');$('#value').textContent=text;insight.setAttribute('aria-valuetext',text)}
  score();insight.oninput=score;
@@ -152,7 +178,7 @@ function lessonPage(l,log){
   date.setHours(0, 0, 0, 0);
   date.setDate(date.getDate() + days[i]);
   const record = {
-   id: l.id, topic: l.topic, at: Date.now(),
+   id: l.id, topicId: l.topicId||'', topic: topicName(l), at: Date.now(),
    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
    ms: intervals.reduce((sum, interval) => sum + interval.ms, 0),
    focusedIntervals: intervals,
@@ -170,22 +196,27 @@ function lessonPage(l,log){
  };
 
 }
+function topicPage(topic,active){
+ const members=active.filter(lesson=>lesson.topicId===topic.id);
+ main.innerHTML='<div class="channel-heading"><span class="channel-logo large"><img src="'+esc(topic.logo)+'" alt=""></span><div><small>'+(topic.scale==='larger'?'Continuing channel':'Focused channel')+'</small><h1>'+esc(topic.name)+'</h1></div></div><p class="lead">'+esc(topic.purpose)+'</p>'+(members.length?grid(members):'<p class="empty-channel">No lessons have been published in this channel yet.</p>')+'<p><a href="#desk">Return to all channels</a></p>';
+}
 function render(){
  const [page,id]=location.hash.slice(1).split('/'),log=entries(),active=lessons.filter(l=>!state(l)),paused=lessons.filter(l=>state(l));
  discardTiming();
  current = page === 'lesson' && lessons.find(l => l.id === id);
  resumeTiming();
  if(current)lessonPage(current,log);
+ else if(page==='topic'&&channel(id))topicPage(channel(id),active);
  else if(page==='library'){
  main.innerHTML='<h1>Lesson library</h1>'+catalog(active)+'<h2>Out of rotation</h2>'+(paused.map(l=>'<article><strong>'+esc(l.title)+'</strong><p>'+esc(states[state(l)])+'</p><button data-restore="'+l.id+'">Return to rotation</button></article>').join('')||'<p>All lessons are in rotation.</p>')+'<details><summary>Use a return code from ChatGPT</summary><label>Prerequisite return code<input id="code" placeholder="resume:lesson-id"></label><button id="redeem">Use code</button><output id="message"></output></details>';
  document.querySelectorAll('[data-restore]').forEach(b=>b.onclick=()=>{localStorage.removeItem('ship.state.'+b.dataset.restore);render()});
  $('#redeem').onclick=()=>{const l=paused.find(x=>state(x)==='tools'&&$('#code').value.trim()==='resume:'+x.id);if(l){localStorage.removeItem('ship.state.'+l.id);render()}else $('#message').textContent='This code does not match a lesson waiting on prerequisites.'};
  }else if(page==='reviews'){
  const scheduled=active.map(l=>({l,r:log.find(e=>e.id===l.id)})).filter(x=>x.r?.due).sort((a,b)=>a.r.due-b.r.due);main.innerHTML='<h1>Reviews</h1>'+['Due now','Upcoming'].map((h,i)=>'<h2>'+h+'</h2>'+(scheduled.filter(x=>Number(x.r.due>Date.now())===i).map(x=>'<article><small>'+new Date(x.r.due).toLocaleDateString()+'</small><br><a href="#lesson/'+x.l.id+'">'+esc(x.l.title)+'</a></article>').join('')||'<p>No lessons here yet.</p>')).join('');
- }else if(page==='journal')main.innerHTML='<h1>Journal</h1><p>'+log.length+' saved visits · '+new Set(log.map(r=>lessons.find(l=>l.id===r.id)?.topic)).size+' topics explored</p>'+log.map(r=>'<article><a href="#lesson/'+esc(r.id)+'">'+esc(title(r.id))+'</a>'+history(r)+'</article>').join('');
+ }else if(page==='journal')main.innerHTML='<h1>Journal</h1><p>'+log.length+' saved visits · '+new Set(log.map(r=>r.topicId||r.topic||lessons.find(l=>l.id===r.id)?.topicId).filter(Boolean)).size+' topics explored</p>'+log.map(r=>'<article><a href="#lesson/'+esc(r.id)+'">'+esc(title(r.id))+'</a>'+history(r)+'</article>').join('');
  else if(page==='data')dataPage(log);
- else if(page==='credits')main.innerHTML='<h1>Image credits</h1><a href="https://lucide.dev/icons/tree-pine">Tree Pine · Lucide</a>'+lessons.map(l=>'<p><a href="https://www.pexels.com/photo/'+voyages[l.id].photo+'/">'+esc(voyages[l.id].alt)+' · Pexels</a></p>').join('');
- else{main.innerHTML='<h1>Explore</h1>'+catalog(active)+(active.length?'':lessons.length?'<p>All lessons are out of rotation. Visit the library to return one.</p>':'<p>The lesson catalog is empty while the next voyages are being designed.</p>')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';request(active,paused.filter(l=>state(l)==='tools'))}
+ else if(page==='credits')main.innerHTML='<h1>Image credits</h1><p><a href="https://lucide.dev/">Ship’s Log and channel symbols · Lucide Icons</a> · ISC License</p>'+lessons.map(l=>{const thumbnail=voyages[l.id].thumbnail;return thumbnail?'<p><a href="'+esc(thumbnail.sourceUrl)+'">'+esc(thumbnail.alt)+'</a> · '+esc(thumbnail.creator)+' · '+esc(thumbnail.license)+'</p>':''}).join('');
+ else{const continuing=topicRegistry.filter(topic=>topic.scale==='larger'),focused=topicRegistry.filter(topic=>topic.scale==='smaller');main.innerHTML='<h1>Explore</h1><p class="lead">Choose a channel by the kind of question you want to enter. Each channel can develop its own voice while sharing one learning history.</p><h2>Continuing channels</h2>'+channelGrid(continuing)+'<h2>Focused channels</h2>'+channelGrid(focused)+(active.length?'<h2>Latest lessons</h2>'+catalog(active):'<p class="empty-catalog">Lessons will appear inside these channels as they are published.</p>')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';request(active,paused.filter(l=>state(l)==='tools'))}
  const sortControl = $('#catalog-sort');
  if (sortControl) sortControl.onchange = () => {
   localStorage.setItem('ship.catalogSort', sortControl.value);
