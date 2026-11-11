@@ -67,6 +67,24 @@ function groupedDays(days, period) {
  }
  return Object.fromEntries(Object.entries(grouped).sort((a,b)=>a[0].localeCompare(b[0])));
 }
+function activityCalendars(days) {
+ const months = [...new Set(Object.keys(days).map(day=>day.slice(0,7)))].sort();
+ if (!months.length) return '<p>No saved visits yet.</p>';
+ const weekdays = [['日','SUN'],['月','MON'],['火','TUE'],['水','WED'],['木','THU'],['金','FRI'],['土','SAT']];
+ return '<div class="calendar-list">'+months.map(month=>{
+  const [year,number] = month.split('-').map(Number);
+  const first = new Date(year,number-1,1);
+  const count = new Date(year,number,0).getDate();
+  const name = first.toLocaleDateString('en-US',{month:'short'}).toUpperCase();
+  const cells = Array.from({length:first.getDay()},()=>'<span class="calendar-day empty" aria-hidden="true"></span>');
+  for (let day=1;day<=count;day++) {
+   const key = year+'-'+String(number).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+   const ms = days[key] || 0;
+   cells.push('<span class="calendar-day '+(ms?'active':'')+'"><span class="day-number">'+day+'</span>'+(ms?'<small>'+minutesText(ms)+'</small>':'')+'</span>');
+  }
+  return '<section class="month-calendar"><header><strong>'+name+'</strong><span>'+year+'</span></header><div class="calendar-weekdays">'+weekdays.map(([kanji,english])=>'<span><b lang="ja">'+kanji+'</b><small>'+english+'</small></span>').join('')+'</div><div class="calendar-grid">'+cells.join('')+'</div></section>';
+ }).join('')+'</div>';
+}
 function dataPage(log) {
  const byTopic = {}, byDay = {};
  for (const record of log) {
@@ -77,8 +95,7 @@ function dataPage(log) {
  }
  const days = Object.entries(byDay).sort((a,b)=>a[0].localeCompare(b[0]));
  const total = Object.values(byTopic).reduce((sum,time)=>sum+time,0);
- const activity = days.map(([day,ms])=>'<li><time datetime="'+day+'">'+new Date(day+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'})+'</time> · '+minutesText(ms)+'</li>').join('');
- main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing is foreground time attached to an attempt.</p><section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+(activity?'<ul class="activity-days">'+activity+'</ul>':'<p>No saved visits yet.</p>')+'</section>';
+ main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing is foreground time attached to an attempt.</p><section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+activityCalendars(byDay)+'</section>';
  $('#trend-period').onchange = event => {$('#trend').innerHTML = lineChart(groupedDays(byDay,event.target.value))};
 }
 function request(active,paused){
