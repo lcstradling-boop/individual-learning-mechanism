@@ -34,7 +34,53 @@ const history=r=>'<p><small>'+new Date(r.at).toLocaleDateString()+' · '+esc(r.r
 const minutesText=ms=>{const m=ms/60000;return m<1?Math.round(ms/1000)+' sec':m<60?m.toFixed(1)+' min':(m/60).toFixed(1)+' hr'};
 function barChart(values,total){const width=680,left=150,bar=28,gap=20,rows=Object.entries(values).sort((a,b)=>b[1]-a[1]);const body=rows.length?rows.map(([label,value],i)=>{const y=24+i*(bar+gap),pct=total?value/total*100:0;return '<text x="'+(left-12)+'" y="'+(y+20)+'" text-anchor="end">'+esc(label)+'</text><rect x="'+left+'" y="'+y+'" width="'+(500*pct/100)+'" height="'+bar+'" rx="5"/><text x="'+(left+500*pct/100+8)+'" y="'+(y+20)+'">'+pct.toFixed(0)+'%</text>'}).join(''):'<text x="20" y="40">No saved visits yet.</text>';return '<svg class="chart" viewBox="0 0 680 '+Math.max(260,24+rows.length*48)+'" role="img" aria-label="Time spent by topic">'+body+'</svg>'}
 function lineChart(values){const entries=Object.entries(values),width=760,height=300,left=58,right=20,top=22,bottom=50,max=Math.max(...entries.map(([,v])=>v),1),step=entries.length>1?(width-left-right)/(entries.length-1):0,points=entries.map(([,v],i)=>(left+i*step)+','+(top+(height-top-bottom)*(1-v/max))).join(' '),dots=entries.map(([label,v],i)=>{const x=left+i*step,y=top+(height-top-bottom)*(1-v/max);return '<circle cx="'+x+'" cy="'+y+'" r="4"/><text x="'+x+'" y="'+(height-18)+'" text-anchor="middle">'+esc(label)+'</text>'}).join('');return '<svg class="chart" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Saved time over time"><line class="axis" x1="'+left+'" y1="'+top+'" x2="'+left+'" y2="'+(height-bottom)+'"/><line class="axis" x1="'+left+'" y1="'+(height-bottom)+'" x2="'+(width-right)+'" y2="'+(height-bottom)+'"/><polyline points="'+points+'" fill="none"/> '+dots+'</svg>'}
-function dataPage(log){const byTopic={},byDay={};log.forEach(r=>{const ms=Number(r.ms)||0,topic=r.topic||lessons.find(l=>l.id===r.id)?.topic||'Unknown topic',day=new Date(r.at).toISOString().slice(0,10);byTopic[topic]=(byTopic[topic]||0)+ms;byDay[day]=(byDay[day]||0)+ms});const days=Object.entries(byDay).sort((a,b)=>a[0].localeCompare(b[0])),total=Object.values(byTopic).reduce((a,b)=>a+b,0),activity=days.map(([d,ms])=>'<li><time datetime="'+d+'">'+new Date(d+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'})+'</time> · '+minutesText(ms)+'</li>').join('');main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing is foreground time attached to an attempt.</p><section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(byDay)+'</div></section><section class="data-card"><h2>Active days</h2>'+(activity?'<ul class="activity-days">'+activity+'</ul>':'<p>No saved visits yet.</p>')+'</section>';const period=$('#trend-period');period.onchange=()=>{const grouped={};log.forEach(r=>{const d=new Date(r.at),key=period.value==='year'?String(d.getFullYear()):period.value==='month'?d.toISOString().slice(0,7):period.value==='week'?(()=>{const x=new Date(d);x.setDate(x.getDate()-x.getDay());return x.toISOString().slice(0,10)})():d.toISOString().slice(0,10);grouped[key]=(grouped[key]||0)+(Number(r.ms)||0)});$('#trend').innerHTML=lineChart(grouped)}}
+function localDay(timestamp) {
+ const date = new Date(timestamp);
+ return date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0');
+}
+function dailyTime(record) {
+ const segments = Array.isArray(record.focusedIntervals) && record.focusedIntervals.length
+  ? record.focusedIntervals : [{at:record.at,ms:record.ms}];
+ const days = {};
+ for (const segment of segments) {
+  let at = Number(segment.at), end = at + Number(segment.ms);
+  if (!Number.isFinite(at) || !Number.isFinite(end) || end < at) continue;
+  if (end === at) days[localDay(at)] = (days[localDay(at)] || 0);
+  while (at < end) {
+   const date = new Date(at);
+   const midnight = new Date(date.getFullYear(),date.getMonth(),date.getDate()+1).getTime();
+   const next = Math.min(end,midnight);
+   const day = localDay(at);
+   days[day] = (days[day] || 0) + next - at;
+   at = next;
+  }
+ }
+ return days;
+}
+function groupedDays(days, period) {
+ const grouped = {};
+ for (const [day,ms] of Object.entries(days)) {
+  const date = new Date(day+'T12:00:00');
+  if (period === 'week') date.setDate(date.getDate()-date.getDay());
+  const key = period === 'year' ? day.slice(0,4) : period === 'month' ? day.slice(0,7) : localDay(date);
+  grouped[key] = (grouped[key] || 0) + ms;
+ }
+ return Object.fromEntries(Object.entries(grouped).sort((a,b)=>a[0].localeCompare(b[0])));
+}
+function dataPage(log) {
+ const byTopic = {}, byDay = {};
+ for (const record of log) {
+  const ms = Math.max(0,Number(record.ms) || 0);
+  const topic = record.topic || lessons.find(lesson=>lesson.id===record.id)?.topic || 'Unknown topic';
+  byTopic[topic] = (byTopic[topic] || 0) + ms;
+  for (const [day,time] of Object.entries(dailyTime(record))) byDay[day] = (byDay[day] || 0) + time;
+ }
+ const days = Object.entries(byDay).sort((a,b)=>a[0].localeCompare(b[0]));
+ const total = Object.values(byTopic).reduce((sum,time)=>sum+time,0);
+ const activity = days.map(([day,ms])=>'<li><time datetime="'+day+'">'+new Date(day+'T12:00:00').toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'})+'</time> · '+minutesText(ms)+'</li>').join('');
+ main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing is foreground time attached to an attempt.</p><section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+(activity?'<ul class="activity-days">'+activity+'</ul>':'<p>No saved visits yet.</p>')+'</section>';
+ $('#trend-period').onchange = event => {$('#trend').innerHTML = lineChart(groupedDays(byDay,event.target.value))};
+}
 function request(active,paused){
  const btn=$('#copy'), box=$('#request');
  box.value='Choose my next lesson for familiarity and breadth. Give it a fixed scope and estimate my completion time from the reading and activities, taking my background into account. Active lessons: '+active.map(l=>l.title).join(', ')+'. Paused pending prerequisites: '+paused.map(l=>l.id+' ('+l.title+')').join(', ')+'. If my history shows I now have the tools, explain why and give me a return code in the form resume:LESSON-ID. Otherwise leave it paused. My eligible learning history: '+JSON.stringify(entries().filter(r=>[...active,...paused].some(l=>l.id===r.id)).map(({id,at,rating,note,due})=>({id,at,rating,note,due})));
