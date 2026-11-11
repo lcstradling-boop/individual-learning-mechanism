@@ -30,15 +30,44 @@ function catalog(list) {
  });
  return sortControl + groups.join('');
 }
-const history=r=>'<p><small>'+new Date(r.at).toLocaleDateString()+' · '+esc(r.rating||'Unrated')+' · '+Math.round(r.ms/6000)/10+' min</small><br>'+esc(r.note||'')+'</p>';
+const history=r=>'<p><small>'+new Date(r.at).toLocaleDateString()+' · '+esc(r.rating||'Unrated')+'</small><br>'+esc(r.note||'')+'</p>';
 function request(active,paused){
  const btn=$('#copy'), box=$('#request');
- box.value='Choose my next lesson for familiarity and breadth. Give it a fixed scope and estimate my completion time from the reading and activities, taking my background into account. Active lessons: '+active.map(l=>l.title).join(', ')+'. Paused pending prerequisites: '+paused.map(l=>l.id+' ('+l.title+')').join(', ')+'. If my history shows I now have the tools, explain why and give me a return code in the form resume:LESSON-ID. Otherwise leave it paused. My eligible learning history: '+JSON.stringify(entries().filter(r=>[...active,...paused].some(l=>l.id===r.id)));
+ box.value='Choose my next lesson for familiarity and breadth. Give it a fixed scope and estimate my completion time from the reading and activities, taking my background into account. Active lessons: '+active.map(l=>l.title).join(', ')+'. Paused pending prerequisites: '+paused.map(l=>l.id+' ('+l.title+')').join(', ')+'. If my history shows I now have the tools, explain why and give me a return code in the form resume:LESSON-ID. Otherwise leave it paused. My eligible learning history: '+JSON.stringify(entries().filter(r=>[...active,...paused].some(l=>l.id===r.id)).map(({id,at,rating,note,due})=>({id,at,rating,note,due})));
  btn.onclick=async()=>{try{await navigator.clipboard.writeText(box.value);btn.textContent='Copied'}catch{box.select();btn.textContent='Text selected — copy to continue'}};
 }
-let current=null,start=0,total=0;
-function clock(){if(start)total+=Date.now()-start;start=current&&!document.hidden?Date.now():0}
-document.addEventListener('visibilitychange',clock);
+let current = null;
+let intervals = [];
+let activeSince = null;
+let saved = false;
+
+function pauseTiming() {
+ if (activeSince === null) return;
+ const ms = Math.round(performance.now() - activeSince.tick);
+ if (ms > 0) intervals.push({at: activeSince.at, ms});
+ activeSince = null;
+}
+
+function resumeTiming() {
+ if (current && !saved && !document.hidden && document.hasFocus() && activeSince === null) {
+  activeSince = {at: Date.now(), tick: performance.now()};
+ }
+}
+
+function discardTiming() {
+ intervals = [];
+ activeSince = null;
+ saved = false;
+}
+
+window.addEventListener('focus', resumeTiming);
+window.addEventListener('blur', pauseTiming);
+document.addEventListener('visibilitychange', () => {
+ if (document.hidden) pauseTiming();
+ else resumeTiming();
+});
+window.addEventListener('pagehide', discardTiming);
+window.addEventListener('pageshow', resumeTiming);
 function lessonPage(l,log){
  const {minutes,activities}=voyages[l.id];
  main.innerHTML='<small>'+esc(l.topic)+'</small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small><p class="lead">'+esc(l.subtitle)+'</p><aside>'+esc(l.anchor)+'</aside>'+l.sections.map(([h,p])=>'<h2>'+esc(h)+'</h2><p>'+esc(p)+'</p>').join('')+'<blockquote>'+esc(l.question)+'</blockquote><h2>Explore the idea</h2><ol>'+activities.map(task=>'<li>'+esc(task)+'</li>').join('')+'</ol><h2>Connections</h2>'+l.links.filter(([id])=>!state(lessons.find(x=>x.id===id))).map(([id,h])=>'<p><a href="#lesson/'+id+'">'+esc(title(id))+'</a> · '+esc(h)+'</p>').join('')+'<h2>Log this visit</h2><form><label for="insight">Insight from this visit</label><input type="range" id="insight" min="1" max="5" step="1" value="3"><output id="value" for="insight"></output><label>What stayed with you?<textarea id="note"></textarea></label><button>Save visit</button></form><details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details><details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>';
@@ -47,11 +76,38 @@ function lessonPage(l,log){
  score();insight.oninput=score;
  $('#rotation').value=state(l);
  $('#apply').onclick=()=>{localStorage.setItem('ship.state.'+l.id,$('#rotation').value);location.hash='library'};
- $('form').onsubmit=e=>{e.preventDefault();clock();const i=insight.value-1,date=new Date();date.setHours(0,0,0,0);date.setDate(date.getDate()+days[i]);const record={id:l.id,at:Date.now(),ms:total,rating:labels[i],insight:i+1,note:$('#note').value,due:+date};try{localStorage.setItem('fieldnotes.entry.'+crypto.randomUUID(),JSON.stringify(record));location.hash='desk'}catch{alert('Saving failed. Your note is still in the form.')}};
+ $('form').onsubmit = event => {
+  event.preventDefault();
+  if (saved) return;
+  pauseTiming();
+  const i = insight.value - 1;
+  const date = new Date();
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + days[i]);
+  const record = {
+   id: l.id, topic: l.topic, at: Date.now(),
+   timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+   ms: intervals.reduce((sum, interval) => sum + interval.ms, 0),
+   focusedIntervals: intervals,
+   rating: labels[i], insight: i + 1, note: $('#note').value, due: +date
+  };
+  try {
+   localStorage.setItem('fieldnotes.entry.' + crypto.randomUUID(), JSON.stringify(record));
+  } catch {
+   resumeTiming();
+   alert('Saving failed. Your note is still in the form.');
+   return;
+  }
+  saved = true;
+  location.hash = 'desk';
+ };
+
 }
 function render(){
  const [page,id]=location.hash.slice(1).split('/'),log=entries(),active=lessons.filter(l=>!state(l)),paused=lessons.filter(l=>state(l));
- current=page==='lesson'&&lessons.find(l=>l.id===id);total=0;start=current&&!document.hidden?Date.now():0;
+ discardTiming();
+ current = page === 'lesson' && lessons.find(l => l.id === id);
+ resumeTiming();
  if(current)lessonPage(current,log);
  else if(page==='library'){
  main.innerHTML='<h1>Lesson library</h1>'+catalog(active)+'<h2>Out of rotation</h2>'+(paused.map(l=>'<article><strong>'+esc(l.title)+'</strong><p>'+esc(states[state(l)])+'</p><button data-restore="'+l.id+'">Return to rotation</button></article>').join('')||'<p>All lessons are in rotation.</p>')+'<details><summary>Use a return code from ChatGPT</summary><label>Prerequisite return code<input id="code" placeholder="resume:lesson-id"></label><button id="redeem">Use code</button><output id="message"></output></details>';
