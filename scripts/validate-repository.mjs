@@ -19,6 +19,7 @@ const fail = message => {
 const topics = evaluate("Ships-Log/topics.js", "topicRegistry");
 const lessons = evaluate("Ships-Log/lessons.js", "initialLessons");
 const sessions = evaluate("Ships-Log/sessions.js", "voyages");
+const legacyIds = evaluate("Ships-Log/legacy.js", "legacyLessonIds");
 const topicIds = new Set();
 const lessonIds = new Set();
 
@@ -62,6 +63,9 @@ for (const lesson of lessons) {
 
 for (const id of Object.keys(sessions)) {
   if (!lessonIds.has(id)) fail("Orphan session metadata: " + id);
+}
+for (const id of legacyIds) {
+  if (!lessonIds.has(id)) fail("Earlier lesson is missing from catalog: " + id);
 }
 
 if (!process.exitCode) {

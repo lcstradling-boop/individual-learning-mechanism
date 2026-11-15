@@ -3,10 +3,10 @@ const main=$('main'), lessons=initialLessons;
 const channel=id=>topicRegistry.find(topic=>topic.id===id);
 const topicName=lesson=>channel(lesson.topicId)?.name||lesson.topic||lesson.topicId||'Unassigned';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const states={blacklist:"Blacklist",tools:"I'm certain I don't yet have the tools to understand",remember:"I won't forget this material"};
-const labels=['No insight','Some insight','Decent insight','Good insight','Strong insight'];
-const days=[1,3,7,14,30];
+const states={defer:'Defer from suggestions',hide:'Hide from suggestions',tools:'Wait for prerequisite tools'};
+const measures={intrigue:'How much does this question keep you thinking?',interpretability:'How familiar are the terms and individual parts?',cohesiveness:'How well can you explain the connections?',engagement:'How much did the presentation hold your attention?',worth:'How much weight does this encounter have for you?'};
 const state=l=>localStorage.getItem('ship.state.'+l.id)||'';
+const isLegacy=l=>legacyLessonIds.has(l.id);
 const entries=()=>Object.keys(localStorage).filter(k=>k.startsWith('fieldnotes.entry.')).flatMap(k=>{try{return [JSON.parse(localStorage[k])]}catch{return []}}).sort((a,b)=>b.at-a.at);
 const title=id=>lessons.find(l=>l.id===id)?.title||id;
 const duration=n=>n<60?n+' min':Math.floor(n/60)+' hr'+(n%60?' '+n%60+' min':'');
@@ -36,7 +36,7 @@ function continuation(l,active,log){
  return linked||active.find(target=>target.topicId===l.topicId&&!visited.has(target.id))||null;
 }
 function channelCard(topic){
- const count=lessons.filter(lesson=>lesson.topicId===topic.id).length;
+ const count=lessons.filter(lesson=>lesson.topicId===topic.id&&!isLegacy(lesson)).length;
  return '<a class="channel-card" href="#topic/'+topic.id+'"><span class="channel-logo"><img src="'+esc(topic.logo)+'" alt=""></span><span><small>'+(topic.scale==='larger'?'Continuing channel':'Focused channel')+' · '+count+' lesson'+(count===1?'':'s')+'</small><strong>'+esc(topic.name)+'</strong><span>'+esc(topic.purpose)+'</span></span></a>';
 }
 const channelGrid=list=>'<div class="channel-grid">'+list.map(channelCard).join('')+'</div>';
@@ -54,7 +54,7 @@ function catalog(list) {
  });
  return sortControl + groups.join('');
 }
-const history=r=>'<p><small>'+new Date(r.at).toLocaleDateString()+' · '+esc(r.rating||'Unrated')+'</small><br>'+esc(r.note||'')+'</p>';
+const history=r=>'<p><small>'+new Date(r.at).toLocaleDateString()+' · '+esc(r.rating||Object.entries(r.ratings||{}).map(([key,value])=>key+' '+value).join(' · ')||'Unrated')+'</small><br>'+esc(r.note||r.reasoning||'')+(r.theory?'<br>Current theory: '+esc(r.theory):'')+(r.question?'<br>Open question: '+esc(r.question):'')+'</p>';
 const minutesText=ms=>{const m=ms/60000;return m<1?Math.round(ms/1000)+' sec':m<60?m.toFixed(1)+' min':(m/60).toFixed(1)+' hr'};
 function barChart(values,total){const width=680,left=150,bar=28,gap=20,rows=Object.entries(values).sort((a,b)=>b[1]-a[1]);const body=rows.length?rows.map(([label,value],i)=>{const y=24+i*(bar+gap),pct=total?value/total*100:0;return '<text x="'+(left-12)+'" y="'+(y+20)+'" text-anchor="end">'+esc(label)+'</text><rect x="'+left+'" y="'+y+'" width="'+(500*pct/100)+'" height="'+bar+'" rx="5"/><text x="'+(left+500*pct/100+8)+'" y="'+(y+20)+'">'+pct.toFixed(0)+'%</text>'}).join(''):'<text x="20" y="40">No saved visits yet.</text>';return '<svg class="chart" viewBox="0 0 680 '+Math.max(260,24+rows.length*48)+'" role="img" aria-label="Time spent by topic">'+body+'</svg>'}
 function lineChart(values){const entries=Object.entries(values),width=760,height=300,left=58,right=20,top=22,bottom=50,max=Math.max(...entries.map(([,v])=>v),1),step=entries.length>1?(width-left-right)/(entries.length-1):0,points=entries.map(([,v],i)=>(left+i*step)+','+(top+(height-top-bottom)*(1-v/max))).join(' '),dots=entries.map(([label,v],i)=>{const x=left+i*step,y=top+(height-top-bottom)*(1-v/max);return '<circle cx="'+x+'" cy="'+y+'" r="4"/><text x="'+x+'" y="'+(height-18)+'" text-anchor="middle">'+esc(label)+'</text>'}).join('');return '<svg class="chart" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Saved time over time"><line class="axis" x1="'+left+'" y1="'+top+'" x2="'+left+'" y2="'+(height-bottom)+'"/><line class="axis" x1="'+left+'" y1="'+(height-bottom)+'" x2="'+(width-right)+'" y2="'+(height-bottom)+'"/><polyline points="'+points+'" fill="none"/> '+dots+'</svg>'}
@@ -120,7 +120,9 @@ function dataPage(log) {
  }
  const days = Object.entries(byDay).sort((a,b)=>a[0].localeCompare(b[0]));
  const total = Object.values(byTopic).reduce((sum,time)=>sum+time,0);
- main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing is foreground time attached to an attempt.</p><section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+activityCalendars(byDay)+'</section>';
+ const recentFeedback=log.filter(r=>r.feedbackVersion===2&&r.ratings);
+ const feedbackRows=recentFeedback.map(r=>'<tr><th scope="row">'+esc(title(r.id))+'<small>'+new Date(r.at).toLocaleDateString()+'</small></th>'+Object.keys(measures).map(key=>'<td>'+esc(r.ratings[key]??'—')+'</td>').join('')+'</tr>').join('');
+ main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing includes earlier lessons; new feedback measures apply only to new visits.</p>'+(recentFeedback.length?'<section class="data-card"><h2>How your model changes</h2><div class="feedback-scroll"><table class="feedback-table"><thead><tr><th>Lesson</th>'+Object.keys(measures).map(key=>'<th>'+esc(key)+'</th>').join('')+'</tr></thead><tbody>'+feedbackRows+'</tbody></table></div></section>':'')+'<section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+activityCalendars(byDay)+'</section>';
  $('#trend-period').onchange = event => {$('#trend').innerHTML = lineChart(groupedDays(byDay,event.target.value))};
 }
 function request(active,paused){
@@ -201,30 +203,45 @@ function connectionHtml(connection){
  if(!target||state(target))return '';
  return '<p><a href="#lesson/'+esc(lessonId)+'">'+esc(target.title)+'</a> · '+esc(relationship)+'</p>';
 }
+function newVisitForm(log,l){
+ const prior=log.filter(r=>r.id===l.id);
+ const ratings=Object.entries(measures).map(([key,description])=>'<label for="rate-'+key+'">'+key[0].toUpperCase()+key.slice(1)+' · '+esc(description)+'</label><select id="rate-'+key+'" required><option value="">Choose 1–5</option>'+[1,2,3,4,5].map(n=>'<option value="'+n+'">'+n+'</option>').join('')+'</select>').join('');
+ return '<h2>Log this visit</h2>'+(prior.length?'<p>Before opening your earlier notes, write what you can explain now and what remains uncertain.</p>':'')+'<form id="visit-form"><label for="theory">Your current theory<textarea id="theory" placeholder="What do you think is happening?"></textarea></label><label for="question">An open question<textarea id="question" placeholder="What would you investigate next?"></textarea></label>'+ratings+'<label for="reasoning">What led you to these ratings?<textarea id="reasoning" placeholder="An observation, a gap, or something that changed your mind"></textarea></label><label for="review-date">Suggested return date · change or clear it if you prefer<input id="review-date" type="date"></label><p id="review-reason" aria-live="polite"></p><button>Save visit</button></form>'+(prior.length?'<details><summary>Earlier theories and notes</summary>'+prior.map(history).join('')+'</details>':'');
+}
+function suggestedReturn(){
+ const terms=Number($('#rate-interpretability').value),connections=Number($('#rate-cohesiveness').value);
+ if(!terms||!connections)return null;
+ const days=terms<=2?3:connections<=2?5:terms<=3||connections<=3?10:28;
+ const reason=terms<=2?'Return to the unfamiliar parts.':connections<=2?'Revisit how the parts relate.':days===10?'Test the model again after some distance.':'Reconstruct the model from memory.';
+ const date=new Date();date.setHours(12,0,0,0);date.setDate(date.getDate()+days);
+ return {date:localDay(date),reason};
+}
 function lessonPage(l,log){
  const {minutes,activities}=voyages[l.id];
  const connections=l.connections||l.links||[];
  const sources=l.sources||[];
- main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small><p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+feedbackHtml(voyages[l.id].feedback)+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+'<h2>Log this visit</h2><form><label for="insight">Insight from this visit</label><input type="range" id="insight" min="1" max="5" step="1" value="3"><output id="value" for="insight"></output><label>What stayed with you?<textarea id="note"></textarea></label><button>Save visit</button></form><details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details><details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>';
- const insight=$('#insight');
- function score(){const i=insight.value-1;const text=insight.value+' · '+labels[i]+' · review in '+days[i]+' day'+(days[i]===1?'':'s');$('#value').textContent=text;insight.setAttribute('aria-valuetext',text)}
- score();insight.oninput=score;
+ const old=isLegacy(l);
+ main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small>'+(old?'<p class="legacy-notice">Earlier lesson · available to read with your past notes. It is outside current recommendations and reviews.</p>':'')+'<p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+feedbackHtml(voyages[l.id].feedback)+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+(old?'<details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details>':newVisitForm(log,l)+'<details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>');
+ if(old)return;
+ function updateSuggestion(){const suggestion=suggestedReturn();if(suggestion){$('#review-date').value=suggestion.date;$('#review-reason').textContent=suggestion.reason}}
+ $('#rate-interpretability').onchange=updateSuggestion;
+ $('#rate-cohesiveness').onchange=updateSuggestion;
  $('#rotation').value=state(l);
  $('#apply').onclick=()=>{localStorage.setItem('ship.state.'+l.id,$('#rotation').value);location.hash='library'};
- $('form').onsubmit = event => {
+ $('#visit-form').onsubmit = event => {
   event.preventDefault();
   if (saved) return;
   pauseTiming();
-  const i = insight.value - 1;
-  const date = new Date();
-  date.setHours(0, 0, 0, 0);
-  date.setDate(date.getDate() + days[i]);
+  const dateValue=$('#review-date').value;
+  const due=dateValue?new Date(dateValue+'T12:00:00').getTime():null;
+  const ratings=Object.fromEntries(Object.keys(measures).map(key=>[key,Number($('#rate-'+key).value)]));
   const record = {
    id: l.id, topicId: l.topicId||'', topic: topicName(l), at: Date.now(),
    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
    ms: intervals.reduce((sum, interval) => sum + interval.ms, 0),
    focusedIntervals: intervals,
-   rating: labels[i], insight: i + 1, note: $('#note').value, due: +date
+   feedbackVersion: 2, ratings, reasoning: $('#reasoning').value,
+   theory: $('#theory').value, question: $('#question').value, due
   };
   try {
    localStorage.setItem('fieldnotes.entry.' + crypto.randomUUID(), JSON.stringify(record));
@@ -240,17 +257,18 @@ function lessonPage(l,log){
 }
 function topicPage(topic,active){
  const members=active.filter(lesson=>lesson.topicId===topic.id);
- main.innerHTML='<div class="channel-heading"><span class="channel-logo large"><img src="'+esc(topic.logo)+'" alt=""></span><div><small>'+(topic.scale==='larger'?'Continuing channel':'Focused channel')+'</small><h1>'+esc(topic.name)+'</h1></div></div><p class="lead">'+esc(topic.purpose)+'</p>'+(members.length?grid(members):'<p class="empty-channel">No lessons have been published in this channel yet.</p>')+'<p><a href="#desk">Return to all channels</a></p>';
+ const earlier=lessons.filter(lesson=>lesson.topicId===topic.id&&isLegacy(lesson));
+ main.innerHTML='<div class="channel-heading"><span class="channel-logo large"><img src="'+esc(topic.logo)+'" alt=""></span><div><small>'+(topic.scale==='larger'?'Continuing channel':'Focused channel')+'</small><h1>'+esc(topic.name)+'</h1></div></div><p class="lead">'+esc(topic.purpose)+'</p>'+(members.length?grid(members):'<p class="empty-channel">No new lessons have been published in this channel yet.</p>')+(earlier.length?'<details><summary>Earlier lessons ('+earlier.length+')</summary><p>Available to read and revisit; outside the current lesson path.</p>'+grid(earlier)+'</details>':'')+'<p><a href="#desk">Return to all channels</a></p>';
 }
 function render(){
- const [page,id]=location.hash.slice(1).split('/'),log=entries(),active=lessons.filter(l=>!state(l)),paused=lessons.filter(l=>state(l));
+ const [page,id]=location.hash.slice(1).split('/'),log=entries(),active=lessons.filter(l=>!isLegacy(l)&&!state(l)),paused=lessons.filter(l=>!isLegacy(l)&&state(l)),earlier=lessons.filter(isLegacy);
  discardTiming();
- current = page === 'lesson' && lessons.find(l => l.id === id);
+ current = page === 'lesson' && lessons.find(l => l.id === id && !isLegacy(l));
  resumeTiming();
- if(current)lessonPage(current,log);
+ if(page==='lesson'&&lessons.some(l=>l.id===id))lessonPage(lessons.find(l=>l.id===id),log);
  else if(page==='topic'&&channel(id))topicPage(channel(id),active);
  else if(page==='library'){
- main.innerHTML='<h1>Lesson library</h1>'+catalog(active)+'<h2>Out of rotation</h2>'+(paused.map(l=>'<article><strong>'+esc(l.title)+'</strong><p>'+esc(states[state(l)])+'</p><button data-restore="'+l.id+'">Return to rotation</button></article>').join('')||'<p>All lessons are in rotation.</p>')+'<details><summary>Use a return code from ChatGPT</summary><label>Prerequisite return code<input id="code" placeholder="resume:lesson-id"></label><button id="redeem">Use code</button><output id="message"></output></details>';
+ main.innerHTML='<h1>Lesson library</h1>'+(active.length?catalog(active):'<p>No new lessons have been published yet.</p>')+'<h2>Out of rotation</h2>'+(paused.map(l=>'<article><strong>'+esc(l.title)+'</strong><p>'+esc(states[state(l)])+'</p><button data-restore="'+l.id+'">Return to rotation</button></article>').join('')||'<p>All current lessons are in rotation.</p>')+'<details><summary>Earlier lessons ('+earlier.length+')</summary><p>Previous lessons remain available to read. Their saved visits remain in Journal and Data, but they do not enter current recommendations or scheduled reviews.</p>'+grid(earlier)+'</details><details><summary>Use a return code from ChatGPT</summary><label>Prerequisite return code<input id="code" placeholder="resume:lesson-id"></label><button id="redeem">Use code</button><output id="message"></output></details>';
  document.querySelectorAll('[data-restore]').forEach(b=>b.onclick=()=>{localStorage.removeItem('ship.state.'+b.dataset.restore);render()});
  $('#redeem').onclick=()=>{const l=paused.find(x=>state(x)==='tools'&&$('#code').value.trim()==='resume:'+x.id);if(l){localStorage.removeItem('ship.state.'+l.id);render()}else $('#message').textContent='This code does not match a lesson waiting on prerequisites.'};
  }else if(page==='reviews'){
@@ -261,14 +279,14 @@ function render(){
  else{
  const continuing=topicRegistry.filter(topic=>topic.scale==='larger'),focused=topicRegistry.filter(topic=>topic.scale==='smaller');
  const {due,next}=deskSelection(active,log);
- const recent=log.length&&active.find(l=>l.id===log[0].id);
+ const recent=log.map(r=>active.find(l=>l.id===r.id)).find(Boolean);
  const follow=recent&&continuation(recent,active,log);
  const visibleNext=next.filter(l=>l.id!==follow?.id);
  main.innerHTML='<h1>Explore</h1><p class="lead">Return to an idea, then follow a question into another channel. Each visit is a place to read, test, and make a connection.</p>'+
  (due.length?'<section class="desk-section"><h2>Due for review</h2><p>Return to the same lesson and see what you can explain now.</p>'+grid(due)+'</section>':'')+
  (follow?'<section class="desk-section"><h2>Continue your thread</h2><p>From '+esc(recent.title)+' → '+esc(follow.title)+'</p>'+grid([follow])+'</section>':'')+
  (visibleNext.length?'<section class="desk-section"><h2>Next steps across topics</h2><p>One next unread lesson from each channel comes first; keep exploring as long as the questions carry you.</p>'+grid(visibleNext)+'</section>':'')+
- '<h2>Continuing channels</h2>'+channelGrid(continuing)+'<h2>Focused channels</h2>'+channelGrid(focused)+(!active.length?'<p class="empty-catalog">Lessons will appear inside these channels as they are published.</p>':'')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';
+ '<h2>Continuing channels</h2>'+channelGrid(continuing)+'<h2>Focused channels</h2>'+channelGrid(focused)+(!active.length?'<p class="empty-catalog">New lessons will appear here as they are published. <a href="#library">Earlier lessons are in the library.</a></p>':'')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';
  request(active,paused.filter(l=>state(l)==='tools'));
  }
  const sortControl = $('#catalog-sort');

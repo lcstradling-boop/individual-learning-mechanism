@@ -99,19 +99,17 @@ Do not gate ordinary browsing or require a particular session length.
 
 Liam reads quickly and learns well through narrative. A substantial lesson will
 often contain 1,500–3,500 words plus meaningful activity, but word count is not a
-goal. Use as many sections as the idea needs, commonly following this movement:
+goal. Begin with an unfamiliar system, record, question, or compact provisional
+map. Leave real unknowns visible; unfamiliar names and acronyms need not all be
+defined in advance. Give Liam a part he can probe, predict, or explain before
+revealing its mechanism. Develop technical details as the investigation needs
+them, change a condition, then return to the opening system: which relationships
+can Liam now explain, which are theories, and what remains unknown?
 
-1. A narrative or historical opening that creates a real question.
-2. A plain-language model.
-3. The mechanism and terminology that make the model precise.
-4. A worked case followed from beginning to end.
-5. A changed condition that exposes assumptions or failure.
-6. A connection to another idea when structurally useful.
-7. Activities that produce evidence of understanding.
-
-Do not mechanically force every lesson into seven sections. Narrative without a
-model becomes entertainment; a model without application becomes recognition
-mistaken for learning.
+These are moves available to an author, not a fixed sequence or a requirement
+to resolve every uncertainty. A lesson can sustain disorientation while giving
+Liam observations and tools with which to build and revise theories. Use history,
+dialogue, diagrams, commands, narrative, or calculations as the channel needs.
 
 Every lesson must have:
 
@@ -155,6 +153,22 @@ A published lesson is stable. Never silently rewrite its title, framing, central
 question, sections, or activities after use. Correct factual errors explicitly
 and minimally. Substantial reframing creates a new permanent ID and may connect
 back to the earlier lesson.
+
+Lessons listed in `Ships-Log/legacy.js` are an earlier collection: readable
+through Library and their topic pages with old saved notes, but excluded from
+current recommendations, reviews, and the next-lesson request. Do not add new
+lessons to that snapshot. When adapting an earlier lesson to this investigative
+structure, create a connected successor with a new ID. Never convert old insight
+ratings into new feedback measures or erase saved visits.
+
+New visits record five distinct 1–5 measures: intrigue (question continues to
+drive thought), interpretability (terms and parts are familiar), cohesiveness
+(relationships can be explained), engagement (presentation holds attention),
+and worth (the encounter has weight for Liam). Invite a current theory, an open
+question, and reasoning behind the ratings. Treat low confidence as an opening
+for investigation, not failure. A return date is a suggestion based on
+interpretability and cohesiveness; Liam can change or clear it. Earlier theories
+should remain available for comparison without rewriting previous records.
 
 Never reuse or rename a published lesson ID. A blacklisted lesson or one marked
 “I won't forget this material” returns only if Liam restores it. A lesson marked

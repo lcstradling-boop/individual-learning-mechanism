@@ -7,8 +7,10 @@ These are invariants across every Ship's Log channel.
 2. **A lesson is finite; a voyage may continue.** Each lesson has one central
    question and a fixed estimate for its work. A meaningful next question may
    lead into another lesson without requiring Liam to end an absorbing session.
-3. **Narrative carries a model.** History, allegory, or a worked story should
-   expose a mechanism rather than merely decorate an explanation.
+3. **Investigation changes the model.** Introduce an unfamiliar system and a
+   short provisional map; let Liam probe its parts and build theories, including
+   wrong or incomplete ones. Return to the map as new evidence changes it.
+   Narrative, history, and allegory should help expose a mechanism.
 4. **Depth comes from transformation.** Liam should predict, calculate,
    diagnose, compare, construct, explain, or revise—not only read.
 5. **Published lessons are stable.** Reviews return to substantially the same
@@ -17,8 +19,9 @@ These are invariants across every Ship's Log channel.
    experiences are bridges only when they improve the model.
 7. **Connections are claims.** State what is shared, what differs, and why the
    edge is useful. Similar vocabulary alone is not a connection.
-8. **Uncertainty remains visible.** Separate observation, interpretation,
-   assumption, inference, and unresolved evidence.
+8. **Uncertainty is useful.** Separate observation, interpretation, assumption,
+   inference, and unresolved evidence. Do not smooth every unknown away before
+   Liam can investigate it.
 9. **Current claims expire.** Economic, laboratory, security, cloud, hardware,
    and AI claims need dates and authoritative sources.
 10. **Continuation should compound understanding.** Offer due reviews first and
