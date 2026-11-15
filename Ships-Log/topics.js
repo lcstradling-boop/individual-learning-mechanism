@@ -136,5 +136,13 @@ const topicRegistry = [
     purpose: "Reason about AI capabilities, limitations, ethics, trends, and professional use without mystification or reflexive hype.",
     logo: "images/channels/ai-literacy.svg",
     icon: "brain-circuit"
+  },
+  {
+    "id": "us-governance",
+    "name": "U.S. Governance",
+    "scale": "smaller",
+    "purpose": "Trace who can make a public decision, what gives it force, and who can change it. Compare the same decision across democracies.",
+    "logo": "images/channels/us-governance.svg",
+    "icon": "landmark"
   }
 ];

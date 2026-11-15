@@ -581,5 +581,521 @@ const initialLessons = [
         "note": "Supported video modes, cable requirements and bypassing a hub."
       }
     ]
+  },
+  {
+    "id": "who-governs",
+    "topicId": "us-governance",
+    "title": "Who actually governs the United States?",
+    "subtitle": "Follow a glass of drinking water from the kitchen tap to the officials who set and enforce its standards.",
+    "centralQuestion": "Who can change the standard, enforce it, or fix the equipment?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A single tap has several governments behind it.",
+        "body": [
+          "A town’s water system reports that a sample exceeded a contaminant limit. At the meeting that night, a resident asks the mayor to change the limit. Another asks the mayor to repair a treatment unit. Those requests sound equally local. They require different powers. Start with the verb in each request."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Congress can assign different verbs to different institutions.",
+        "body": [
+          "Under the Safe Drinking Water Act, Congress gave EPA responsibility for national drinking-water standards. A qualifying state or tribe can obtain primary enforcement responsibility, called primacy. Among other requirements, it must adopt rules at least as stringent as the federal ones and have enforcement capacity. A public water system monitors and treats the water. Its operator may be a city, a district or a private entity. The tap alone tells you remarkably little about the payroll."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "An address is evidence about geography. An enforcement notice is evidence about power.",
+        "body": [
+          "Imagine the utility is city-owned and the state has primacy. To ask what the national limit means, find the EPA rule. To discover what the state required this utility to do, obtain the notice. To learn why replacement pumps were delayed, inspect the utility’s procurement records. None of those records by itself establishes what was in a particular glass on Tuesday. That takes measurements tied to a place and time."
+        ]
+      },
+      {
+        "kind": "comparison",
+        "heading": "Federalism changes who has to build administrative capacity.",
+        "body": [
+          "Article 83 of Germany’s Basic Law makes administration of federal laws by the Länder, its constituent states, the general rule subject to constitutional exceptions. In the American water example, state primacy depends on meeting conditions in a particular federal program. Both systems can put a regional official at the counter. The route by which the official acquired that job differs."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "from-statute-to-rule",
+        "relationship": "Trace how the agency first acquires the standard that the state later enforces."
+      }
+    ],
+    "sources": [
+      {
+        "label": "EPA · Primary enforcement responsibility",
+        "url": "https://www.epa.gov/dwreginfo/primacy-enforcement-responsibility-public-water-systems",
+        "accessed": "2026-11-14",
+        "note": "Criteria for a state or tribe to administer public water system standards."
+      },
+      {
+        "label": "German Basic Law · English translation",
+        "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html",
+        "accessed": "2026-11-14",
+        "note": "Articles 63, 65, 67, 68 and 83 describe executive selection, ministerial leadership, confidence and administration by the Länder."
+      }
+    ]
+  },
+  {
+    "id": "when-a-bill-binds",
+    "topicId": "us-governance",
+    "title": "What makes a law a law?",
+    "subtitle": "Two almost identical pages can carry very different legal weight.",
+    "centralQuestion": "What record establishes that a proposal changed federal law?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A bill can say exactly what the law will say and still bind nobody.",
+        "body": [
+          "Open the enrolled version of S. 475 and Public Law 117–17. Both name Juneteenth National Independence Day. Both insert June 19 into the same list. If you copied the operative sentence onto two blank sheets, you could lose the most important difference between them. Recover it by asking what happened to each document."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A vote advances a particular text.",
+        "body": [
+          "Article I, section 7 requires agreement by both houses and presentment to the president for an ordinary bill. If the Senate amends a House bill, counting one vote in each chamber gives the wrong answer until the chambers agree on identical language. Enrollment records that agreement. Signature can complete enactment. A returned veto can be overridden by two-thirds votes in each chamber. A bill can also become law without signature after ten days, Sundays excluded, unless adjournment prevents its return."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "One line can change a standing rule.",
+        "body": [
+          "The enrolled bill tells you what Congress sent. The public law records approval on June 17, 2021. Section 2 gives an editing instruction for title 5, section 6103(a) of the U.S. Code. Following that instruction explains how later readers encounter June 19 alongside other federal holidays. Look for the covered institution before inferring consequences. This amendment alone cannot tell you whether a private restaurant closed or paid its cooks extra that Saturday."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Dates answer different questions.",
+        "body": [
+          "A hypothetical bill passes the House in March, becomes law in June and directs an agency to start accepting applications in October. In July a constituent can truthfully say that the program exists. A clerk can truthfully say applications have yet to open. To evaluate either claim, retrieve the enacted text and its effective or implementation provisions. A press release is admirably efficient at leaving out the boring date you needed."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "permission-to-spend",
+        "relationship": "Enactment establishes what Congress adopted. The next question is whether those words supply money."
+      }
+    ],
+    "sources": [
+      {
+        "label": "National Archives · Constitution transcript",
+        "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+        "accessed": "2026-11-14",
+        "note": "Read the named article and section alongside the example."
+      },
+      {
+        "label": "GPO · Enrolled S. 475",
+        "url": "https://www.govinfo.gov/app/details/BILLS-117s475enr",
+        "accessed": "2026-11-14",
+        "note": "The authenticated bill agreed to by both chambers."
+      },
+      {
+        "label": "GPO · Public Law 117–17",
+        "url": "https://www.govinfo.gov/content/pkg/PLAW-117publ17/html/PLAW-117publ17.htm",
+        "accessed": "2026-11-14",
+        "note": "Section 2 identifies the exact insertion into the federal holiday statute."
+      }
+    ]
+  },
+  {
+    "id": "which-court",
+    "topicId": "us-governance",
+    "title": "Why does the United States have so many courts?",
+    "subtitle": "A missing shipment and a changed address expose the logic of jurisdiction.",
+    "centralQuestion": "What gives a particular court power to hear this dispute?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The price of a broken promise can change the courthouse door.",
+        "body": [
+          "Two Illinois residents sign a contract. One alleges the other failed to deliver a machine worth $90,000. Assume the parties are individuals, the claim arises solely under state law, and nothing else supplies federal jurisdiction. The size of the loss matters to them. Standing alone, it supplies no federal forum. State trial courts routinely decide contract disputes."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Jurisdiction comes before deciding who is right.",
+        "body": [
+          "Change one fact. The buyer is an Illinois citizen and the seller a Wisconsin citizen. In this simple two-party case, ordinary diversity jurisdiction under 28 U.S.C. § 1332 can supply a federal forum if the amount in controversy exceeds $75,000, excluding interest and costs. Citizenship for individuals turns on domicile. Mailing a demand letter from a hotel in Madison accomplishes less constitutional engineering than one might hope. State court may still be available. A separate basis for federal jurisdiction is a claim arising under federal law."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "An appeal asks what went wrong below.",
+        "body": [
+          "Assume the federal district court can hear the dispute. The trial court develops the record, resolves admissibility questions and, where appropriate, puts contested facts to a jury. The losing party appeals a disputed legal interpretation to the regional court of appeals. Appellate judges work from the record and apply the standard of review appropriate to the alleged error. A second jury does not hear the witnesses again. Ordinary state appeals use the state hierarchy. Certain federal questions from a final state judgment can reach the U.S. Supreme Court under separate conditions."
+        ]
+      },
+      {
+        "kind": "conduct",
+        "heading": "A court can have jurisdiction while a particular judge must step aside.",
+        "body": [
+          "Suppose the federal trial judge previously served as a lawyer in this very matter. Section 455 addresses disqualification, including that specific situation and circumstances in which impartiality might reasonably be questioned. Reassigning a judge addresses who may decide. Dismissing for lack of subject-matter jurisdiction addresses whether this court may decide. Neither ruling tells the buyer what the missing machine was worth."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "when-precedent-binds",
+        "relationship": "Once you locate the deciding court, you can identify which earlier decisions bind it."
+      }
+    ],
+    "sources": [
+      {
+        "label": "U.S. Courts · Court role and structure",
+        "url": "https://www.uscourts.gov/about-federal-courts/court-role-and-structure",
+        "accessed": "2026-11-14",
+        "note": "Trial and appellate functions, federal jurisdiction, and the separate state system."
+      },
+      {
+        "label": "28 U.S.C. § 1332 · Diversity jurisdiction",
+        "url": "https://www.law.cornell.edu/uscode/text/28/1332",
+        "accessed": "2026-11-14",
+        "note": "Subsection (a) gives the ordinary amount and citizenship requirements."
+      },
+      {
+        "label": "28 U.S.C. § 455 · Judicial disqualification",
+        "url": "https://www.law.cornell.edu/uscode/text/28/455",
+        "accessed": "2026-11-14",
+        "note": "Compare the appearance standard in (a) with specific grounds in (b)."
+      }
+    ]
+  },
+  {
+    "id": "when-precedent-binds",
+    "topicId": "us-governance",
+    "title": "How does a judicial decision become precedent?",
+    "subtitle": "Read a phone-search opinion tightly enough to tell which question the next judge still has to answer.",
+    "centralQuestion": "Which part of an earlier decision controls a later dispute?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "Winning a case and making a rule are different achievements.",
+        "body": [
+          "A judgment settles the case before the court. A holding supplies a legal proposition necessary to that result. An opinion can also offer illustrations, warnings and observations that reach beyond what the court had to decide. Lawyers call such observations dicta. To find the holding, reconstruct the legal question, the facts that mattered and the reason the majority gave for the judgment. Sentence highlighting alone is an optimistic litigation strategy."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "The court that spoke matters.",
+        "body": [
+          "Vertical precedent binds lower courts on questions governed by a higher court in their hierarchy. A published federal circuit holding ordinarily binds district courts in that circuit on the federal issue decided. A sister circuit’s analysis can persuade. Horizontal stare decisis asks how the deciding court treats its own earlier decisions. Within the Supreme Court, briefing, argument and private conference lead to votes and circulated drafts. A concurrence can agree with the judgment through different reasoning. A dissent can influence a future court while leaving today’s judgment intact."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "A phone in a pocket changed what an old search power could reach.",
+        "body": [
+          "In Riley v. California (2014), the Supreme Court considered whether the power to search incident to arrest generally allowed police to examine digital information on a seized cellphone. The Court distinguished the physical device from its digital contents and explained why the established concerns about weapons and evidence did not justify routine access to that much personal information. It generally required a warrant for the digital search and preserved case-specific exigent circumstances. Read Part IV and the concluding paragraph, then write the narrowest rule that explains the result."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "A changed fact earns its place only if it changes the reasoning.",
+        "body": [
+          "Imagine a later case involving the same kind of phone after a lawful arrest. The officer reads stored messages out of ordinary curiosity. Now add credible, specific evidence of an imminent threat to a missing person. The new fact bears on the emergency justification Riley left open. Changing the brand of phone gives the court much less to work with. A denial of discretionary Supreme Court review, meanwhile, leaves the lower judgment standing without adopting its reasoning."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "which-court",
+        "relationship": "A ruling’s reach depends on the issue and which court will hear the next dispute."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Cornell Wex · Stare decisis",
+        "url": "https://www.law.cornell.edu/wex/stare_decisis",
+        "accessed": "2026-11-14",
+        "note": "Vertical and horizontal precedent and the significance of a court’s place in the hierarchy."
+      },
+      {
+        "label": "Supreme Court · Riley v. California (2014)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/13-132",
+        "accessed": "2026-11-14",
+        "note": "Read the opinion’s concluding paragraph and Part IV on emergency circumstances."
+      },
+      {
+        "label": "Supreme Court · The Court and its procedures",
+        "url": "https://www.supremecourt.gov/about/procedures.aspx",
+        "accessed": "2026-11-14",
+        "note": "Petition, briefing, argument and the work of deciding cases."
+      }
+    ]
+  },
+  {
+    "id": "inside-the-cabinet",
+    "topicId": "us-governance",
+    "title": "What does a Cabinet secretary actually do?",
+    "subtitle": "Follow a transportation proposal from a conversation with the president to a decision someone has authority to sign.",
+    "centralQuestion": "When is a secretary advising the president, and when is the secretary exercising departmental power?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A Cabinet meeting can end in agreement while the legal work is just beginning.",
+        "body": [
+          "Imagine the president asks how to reduce deaths involving reversing vehicles. Transportation can explain how vehicles are designed and regulated. Other officials might raise manufacturing costs, enforcement capacity or budget needs. The president can use that discussion to set priorities. A manufacturer seeking the applicable test standard still needs a different document."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "The secretary holds two jobs in the same chair.",
+        "body": [
+          "Article II allows the president to require written opinions from principal officers on matters related to their duties. The Cabinet grew out of advisory practice. Its membership can extend beyond the heads of the executive departments listed in 5 U.S.C. § 101. For the departmental job, open 49 U.S.C. § 102. Congress established the Department of Transportation, put a secretary at its head and specified presidential appointment with Senate advice and consent. An organizational chart tells you who reports to whom. The statute tells you what that hierarchy can do."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "A good staff memo needs an authority paragraph.",
+        "body": [
+          "Vehicle standards illustrate the journey. Section 30111 assigns the secretary responsibility for motor vehicle safety standards and supplies criteria, including practicability, safety need and objective terms. The National Highway Traffic Safety Administration, within the department, brings engineers, legal staff and rulemaking procedures to the job. In its 2014 rear-visibility rule, the agency explained how it carried out a specific congressional mandate. Notice what survives a change of secretary. A new official can bring different priorities while inheriting statutory duties, a technical record and existing rules."
+        ]
+      },
+      {
+        "kind": "comparison",
+        "heading": "An American secretary and a German minister answer to different arrangements.",
+        "body": [
+          "Article 65 of Germany’s Basic Law gives the chancellor responsibility for general policy guidelines, assigns each minister independent responsibility within those guidelines, and gives the federal government the job of settling disagreements among ministers. Try locating those three decisions in the American constitutional text. Article II supplies the opinion power, but gives no equivalent Cabinet-wide procedure for resolving a disagreement between Transportation and another department. Knowing who can convene the room still leaves the question of who may sign."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "from-statute-to-rule",
+        "relationship": "The secretary’s authority identifies who may act. The rulemaking record explains how that authority produced a testable vehicle standard."
+      }
+    ],
+    "sources": [
+      {
+        "label": "National Archives · Constitution transcript",
+        "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+        "accessed": "2026-11-14",
+        "note": "Read the named article and section alongside the example."
+      },
+      {
+        "label": "5 U.S.C. § 101 · Executive departments",
+        "url": "https://www.law.cornell.edu/uscode/text/5/101",
+        "accessed": "2026-11-14",
+        "note": "The statutory list gives a boundary for a departmental map."
+      },
+      {
+        "label": "49 U.S.C. § 102 · Department of Transportation",
+        "url": "https://www.law.cornell.edu/uscode/text/49/102",
+        "accessed": "2026-11-14",
+        "note": "Subsections (a) and (b) establish the department, its head and the appointment process."
+      },
+      {
+        "label": "49 U.S.C. § 30111 · Motor vehicle safety standards",
+        "url": "https://www.law.cornell.edu/uscode/text/49/30111",
+        "accessed": "2026-11-14",
+        "note": "Subsection (a) supplies criteria for safety standards."
+      },
+      {
+        "label": "Federal Register · Rear visibility final rule, April 7, 2014",
+        "url": "https://www.govinfo.gov/content/pkg/FR-2014-04-07/pdf/2014-07469.pdf",
+        "accessed": "2026-11-14",
+        "note": "The summary, dates, phase-in and regulatory text distinguish purpose, performance requirements and compliance dates."
+      },
+      {
+        "label": "German Basic Law · English translation",
+        "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html",
+        "accessed": "2026-11-14",
+        "note": "Articles 63, 65, 67, 68 and 83 describe executive selection, ministerial leadership, confidence and administration by the Länder."
+      }
+    ]
+  },
+  {
+    "id": "from-statute-to-rule",
+    "topicId": "us-governance",
+    "title": "How can an agency make binding rules?",
+    "subtitle": "The view behind a reversing car began as a legal instruction that engineers had to make testable.",
+    "centralQuestion": "How does a congressional safety mandate become a requirement a manufacturer can test?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "“See behind the car” is a goal. A test laboratory needs dimensions.",
+        "body": [
+          "Imagine two vehicles with rear cameras. One displays an image promptly. The other takes long enough to boot that the driver is already moving. Counting cameras gives both vehicles the same score. A safety standard has to decide which differences matter and how two labs could reach the same answer. Those decisions have consequences for the child in the driveway and the engineer certifying the car."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Congress can delegate a technical choice and keep its boundaries enforceable.",
+        "body": [
+          "Start with statutory authority. Section 30111 requires motor vehicle safety standards to satisfy specified criteria. The Cameron Gulbransen Kids Transportation Safety Act added a mandate concerning rearward visibility. Within those bounds, NHTSA had to translate a safety objective into specifications. For ordinary notice-and-comment rulemaking under the Administrative Procedure Act, the agency publishes a proposal, invites submissions, considers relevant material and explains the adopted rule. Section 553 contains exceptions. A docket full of identical comments can demonstrate concern. It cannot measure a camera’s response time."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "One rule has several important dates.",
+        "body": [
+          "Open the first page of the April 7, 2014 final rule. June 6, 2014 was the effective date. The document separately phases in manufacturer compliance, reaching full compliance for covered new vehicles manufactured on or after May 1, 2018. A vehicle already sitting in a driveway on that date did not acquire a retrofit obligation under this rule merely because the calendar turned. To determine coverage, check the class of vehicle, weight threshold and manufacturing date."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "A specification and an outcome require different evidence.",
+        "body": [
+          "Search the rule for “response time.” A lab can measure when the required rearview image appears under defined test conditions. Passing that test establishes a narrow fact about performance. To estimate injuries prevented, investigators would need crash data, exposure to reversing maneuvers and a credible comparison. The explanatory preamble helps you recover the agency’s reasons and forecasts. The regulatory text supplies the requirements. Courts reviewing agency action can examine whether the agency stayed within its authority and explained its choices."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "inside-the-cabinet",
+        "relationship": "Read the departmental statute to see why this agency was in a position to write the rule."
+      }
+    ],
+    "sources": [
+      {
+        "label": "5 U.S.C. § 553 · Rulemaking",
+        "url": "https://www.law.cornell.edu/uscode/text/5/553",
+        "accessed": "2026-11-14",
+        "note": "Read (b) through (d) for notice, participation, timing and exceptions."
+      },
+      {
+        "label": "49 U.S.C. § 30111 · Motor vehicle safety standards",
+        "url": "https://www.law.cornell.edu/uscode/text/49/30111",
+        "accessed": "2026-11-14",
+        "note": "Subsection (a) supplies criteria for safety standards."
+      },
+      {
+        "label": "Federal Register · Rear visibility final rule, April 7, 2014",
+        "url": "https://www.govinfo.gov/content/pkg/FR-2014-04-07/pdf/2014-07469.pdf",
+        "accessed": "2026-11-14",
+        "note": "The summary, dates, phase-in and regulatory text distinguish purpose, performance requirements and compliance dates."
+      }
+    ]
+  },
+  {
+    "id": "permission-to-spend",
+    "topicId": "us-governance",
+    "title": "Why can Congress authorize a program and leave it short of funds?",
+    "subtitle": "A town qualifies for a grant. The question at the signing table is whether anyone can lawfully promise the money.",
+    "centralQuestion": "Which legal and financial steps separate a program on paper from a payment?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "An eligible applicant can arrive at an empty account.",
+        "body": [
+          "Imagine a federal bridge-inspection grant statute that permits awards and authorizes Congress to appropriate up to $12 million for one year. A town files a qualifying application for $2 million. Its treasurer pencils the grant into a forecast. Before the town signs a contract, someone should find the provision that actually makes money available. An excellent grant application is a curious form of currency."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Authorization, appropriation, obligation and outlay answer four questions.",
+        "body": [
+          "Authorization establishes or governs an activity. An appropriation makes budget authority available under legally specified conditions. An obligation is a binding government commitment, such as an executed award. An outlay is a payment. Article I, section 9 conditions withdrawals from the Treasury on appropriations made by law. Congress can provide authority and funding in the same statute. Some programs have standing funding. The title of a bill will take you only so far. Read its operative language."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "Money has a purpose, a period of availability and a limit.",
+        "body": [
+          "In our invented program, a later law appropriates $5 million exclusively for bridge inspections. Assume the agency has all $5 million available to obligate, has validly committed $4 million, and has paid just $1 million. Remaining unobligated authority is $1 million. The $3 million committed but unpaid already belongs in the obligations column. A $2 million award would exceed the available balance on these facts. Section 1341 generally bars obligations beyond available amounts and obligations in advance of appropriations unless authorized by law."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Changing one verb changes the investigation.",
+        "body": [
+          "If officials say “Congress cut the program,” identify which figure fell. A lower authorization ceiling can leave current awards untouched. A smaller appropriation may reduce new awards. A drop in outlays could mean an invoice arrived late. And if the appropriation becomes available for two years, one year’s unspent cash figure tells you even less about the ability to make new commitments. To explain a delayed inspection, trace the award, the invoice and the payment as distinct events."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "when-a-bill-binds",
+        "relationship": "Read the enacted language twice, first for the program it creates and again for any money it supplies."
+      }
+    ],
+    "sources": [
+      {
+        "label": "National Archives · Constitution transcript",
+        "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+        "accessed": "2026-11-14",
+        "note": "Read the named article and section alongside the example."
+      },
+      {
+        "label": "GAO · Principles of Federal Appropriations Law",
+        "url": "https://www.gao.gov/legal/appropriations-law/red-book",
+        "accessed": "2026-11-14",
+        "note": "The Red Book explains availability for purpose, time and amount."
+      },
+      {
+        "label": "31 U.S.C. § 1341 · Limitations on spending and obligations",
+        "url": "https://www.law.cornell.edu/uscode/text/31/1341",
+        "accessed": "2026-11-14",
+        "note": "Read (a)(1) for the restrictions on obligations and the statutory exception."
+      }
+    ]
+  },
+  {
+    "id": "replacing-a-government",
+    "topicId": "us-governance",
+    "title": "Why doesn’t Germany govern like the United States?",
+    "subtitle": "Give two legislatures the same dissatisfied majority and watch what each can actually change.",
+    "centralQuestion": "What changes when a legislature can replace the head of government by electing a successor?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A majority against a leader can be a minority for every replacement.",
+        "body": [
+          "Imagine a 100-member legislature. Fifty-five members oppose the head of government. Thirty favor one successor and twenty-five insist on another. That is enough agreement for a bruising speech. Whether it can produce a new executive depends on the constitutional rule for turning opposition into office."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Germany makes a replacement majority do two jobs at once.",
+        "body": [
+          "Under Article 63 of Germany’s Basic Law the Bundestag elects the chancellor through a prescribed process. Under Article 67 it can withdraw confidence by electing a successor with a majority of its members and asking the federal president to dismiss the incumbent. The president must comply and appoint the elected successor. In our fully seated chamber the threshold is 51. If the two groups unite behind one candidate, the government can change between general elections. Article 68 separately addresses a confidence motion initiated by the chancellor. Losing a policy vote by itself triggers neither procedure."
+        ]
+      },
+      {
+        "kind": "case",
+        "heading": "In 1982 a change of coalition changed the chancellor.",
+        "body": [
+          "On October 1, 1982, the Bundestag elected Helmut Kohl to succeed Helmut Schmidt through Article 67. The important historical detail is the positive vote for Kohl. Disagreement with Schmidt explains why politicians sought a change. Agreement on who would govern made the mechanism work. Read the Bundestag retrospective for the vote and then read Article 67 for the requirement. They answer different questions."
+        ]
+      },
+      {
+        "kind": "comparison",
+        "heading": "A U.S. congressional majority can block a president’s bill and still have to govern alongside that president.",
+        "body": [
+          "U.S. presidents serve a separately constituted term. Congressional disagreement can defeat legislation or change what receives funding. Replacing a president through impeachment and conviction requires a House impeachment and a two-thirds vote of senators present to convict on constitutional grounds. Congress does not elect its preferred successor in that proceeding. Ordinary presidential succession is separately prescribed. A fixed term can preserve executive continuity through legislative defeat. It can also sustain a standoff in which voters struggle to assign responsibility. Neither design guarantees good decisions. The rule changes what rivals must agree on before they acquire power."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "inside-the-cabinet",
+        "relationship": "Once you know how chief executives keep their jobs, compare how much room their ministers have to make departmental decisions."
+      }
+    ],
+    "sources": [
+      {
+        "label": "German Basic Law · English translation",
+        "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html",
+        "accessed": "2026-11-14",
+        "note": "Articles 63, 65, 67, 68 and 83 describe executive selection, ministerial leadership, confidence and administration by the Länder."
+      },
+      {
+        "label": "Bundestag · The October 1982 confidence vote (German)",
+        "url": "https://www.bundestag.de/dokumente/textarchiv/1982-10-01-misstrauensvotum-schmidt-908192",
+        "accessed": "2026-11-14",
+        "note": "The Bundestag’s retrospective reconstructs the vote that replaced Schmidt with Kohl."
+      },
+      {
+        "label": "National Archives · Constitution transcript",
+        "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+        "accessed": "2026-11-14",
+        "note": "Read the named article and section alongside the example."
+      }
+    ]
   }
 ];
