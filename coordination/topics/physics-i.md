@@ -7,7 +7,7 @@ College-level mechanics: kinematics, forces, energy, momentum, rotation, gravita
 Concepts used: algebra, trigonometry, vectors, derivatives, and basic integration. Force diagrams and quantitative mechanics are developed through the opening investigations.
 
 ## Published
-Opening collection: publication commit recorded after deployment.
+Opening collection in [ff27cdc](https://github.com/lcstradling-boop/individual-learning-mechanism/commit/ff27cdcbc5bd31af4ae4e2523fa2df583c7a0f35).
 
 - [The probe returned. Did it go nowhere?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/physics-record) · `physics-record` · 40 minutes.
 - [The slope changed before the direction did](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/physics-slope) · `physics-slope` · 55 minutes.

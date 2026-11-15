@@ -7,7 +7,7 @@ Integration techniques and applications, sequences, series, approximation, and p
 Concepts used: algebra, trigonometry, limits, derivatives, and basic integration. Diagnose a specific difficulty through the lesson activities rather than assigning blanket review.
 
 ## Published
-Opening collection: publication commit recorded after deployment.
+Opening collection in [ff27cdc](https://github.com/lcstradling-boop/individual-learning-mechanism/commit/ff27cdcbc5bd31af4ae4e2523fa2df583c7a0f35).
 
 - [The instrument remembers only the total](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/calculus-total) · `calculus-total` · 45 minutes.
 - [Can the record reveal its own rate?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/calculus-rate) · `calculus-rate` · 60 minutes.
