@@ -41,6 +41,17 @@ for (const lesson of lessons) {
   if (!lesson.title || !lesson.subtitle || !lesson.centralQuestion) fail("Missing core lesson text for " + lesson.id);
   if (!Array.isArray(lesson.sections) || !lesson.sections.length) fail("No sections for " + lesson.id);
   if (!Array.isArray(lesson.sources)) fail("No source record array for " + lesson.id);
+  if (!legacyIds.has(lesson.id)) {
+    if (!Array.isArray(lesson.sections) || !lesson.sections.some(section => typeof section.probe === "string" && section.probe.trim())) {
+      fail("New lesson needs an in-line theory prompt: " + lesson.id);
+    }
+    if (!Array.isArray(lesson.materials) || !lesson.materials.length) {
+      fail("New lesson needs materials for its activities: " + lesson.id);
+    } else for (const item of lesson.materials) {
+      if (typeof item.label !== "string" || !item.label.trim() || typeof item.access !== "string" || !item.access.trim()) fail("Incomplete exercise material for " + lesson.id);
+      if (item.url && !/^https:\/\//.test(item.url)) fail("Exercise material needs a direct HTTPS link for " + lesson.id);
+    }
+  }
 
   const session = sessions[lesson.id];
   if (!session) {

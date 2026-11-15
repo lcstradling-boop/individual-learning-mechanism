@@ -97,9 +97,9 @@ Do not gate ordinary browsing or require a particular session length.
 
 ### Long-form default
 
-Liam reads quickly and learns well through narrative. A substantial lesson will
-often contain 1,500–3,500 words plus meaningful activity, but word count is not a
-goal. Begin with an unfamiliar system, record, question, or compact provisional
+Liam reads quickly and learns well through narrative. Give the investigation
+the space it needs, without writing to a target word count. Begin with an
+unfamiliar system, record, question, or compact provisional
 map. Leave real unknowns visible; unfamiliar names and acronyms need not all be
 defined in advance. Give Liam a part he can probe, predict, or explain before
 revealing its mechanism. Develop technical details as the investigation needs
@@ -110,6 +110,25 @@ These are moves available to an author, not a fixed sequence or a requirement
 to resolve every uncertainty. A lesson can sustain disorientation while giving
 Liam observations and tools with which to build and revise theories. Use history,
 dialogue, diagrams, commands, narrative, or calculations as the channel needs.
+Place at least one invitation to form a theory or prediction before the
+explanation it tests. Put the relevant evidence and explanation later in the
+lesson. Let Liam revisit an earlier map without requiring every branch to close.
+
+### Self-contained investigations
+
+For every required activity, provide its inputs, data, instructions, and means
+of doing the work in the lesson, link directly to a free accessible resource,
+or name an ordinary tool Liam can readily use (pen and paper, calculator,
+terminal, etc.). State setup, expected access, and any alternative when a
+special device, account, paid tool, permission, or unsafe environment would
+otherwise block completion. A case with supplied observations can stand in for
+an inaccessible physical system. Do not require Liam to find missing materials
+or infer an unstated procedure. Optional outward exploration can remain open.
+
+List the required materials on the page before the activities. Distinguish
+those materials from citations: a source can support a claim without being a
+usable exercise. Test the exact linked exercise and the fallback route; include
+their setup and switching time in the estimate.
 
 Every lesson must have:
 
@@ -119,6 +138,8 @@ Every lesson must have:
 - A finite section sequence.
 - One or more activities requiring explanation, prediction, calculation,
   diagnosis, construction, comparison, or application.
+- At least one in-line prompt to form a theory before later evidence or explanation.
+- A usable materials list for the required activities.
 - One fixed completion estimate covering reading, thought, transitions, and work.
 - The registered channel image, reused automatically on its lesson cards.
 - Source records adequate to revisit factual and current claims.
@@ -143,8 +164,9 @@ Personalization must change the explanation, model, example, or connection. Do
 not name-drop courses or media. Check `resonant-media.md` before relying on a
 work's personal significance.
 
-Begin with a plain model, expose the underlying system, then introduce notation
-or terminology as precision. Keep observation, interpretation, assumption,
+Offer a plain model when it helps Liam investigate; the opening may instead be
+an unfamiliar observation or a partial map. Introduce notation or terminology
+as precision becomes useful. Keep observation, interpretation, assumption,
 inference, and uncertainty distinguishable.
 
 ## Stable artifacts
@@ -170,10 +192,10 @@ for investigation, not failure. A return date is a suggestion based on
 interpretability and cohesiveness; Liam can change or clear it. Earlier theories
 should remain available for comparison without rewriting previous records.
 
-Never reuse or rename a published lesson ID. A blacklisted lesson or one marked
-“I won't forget this material” returns only if Liam restores it. A lesson marked
-“I don't yet have the tools” returns when Liam chooses or when concrete evidence
-shows the prerequisite gap has closed.
+Never reuse or rename a published lesson ID. A deferred or hidden lesson stays
+available through the Library and returns to suggestions when Liam restores it.
+If a lesson is waiting on prerequisite tools, suggest another way into the
+system; return it when Liam chooses or the gap has concrete evidence of closing.
 
 ## Canonical data contract
 
@@ -196,15 +218,20 @@ Use a lowercase kebab-case ID. Array order records introduction order.
   centralQuestion: "One question the lesson develops?",
   sections: [
     {
-      kind: "narrative",
-      heading: "Section heading",
-      body: ["One or more stable paragraphs."]
+      kind: "record",
+      heading: "An incomplete observation",
+      body: ["Describe what is known and what remains unaccounted for."],
+      probe: "What do you think connects these observations? Which clue would test that idea?"
     },
     {
-      kind: "mechanism",
-      heading: "Section heading",
-      body: ["Stable prose with notation or a worked case when appropriate."]
+      kind: "investigation",
+      heading: "Following one clue",
+      body: ["Provide the evidence and mechanism needed to revisit the opening theory."]
     }
+  ],
+  materials: [
+    { label: "The supplied record and a way to sketch", access: "On this page; pen and paper" }
+    // A free external tool may also have a direct https:// URL and access notes.
   ],
   connections: [
     {
@@ -236,8 +263,9 @@ Use a lowercase kebab-case ID. Array order records introduction order.
 }
 ```
 
-The application may retain backward-compatible readers, but new lessons use this
-contract.
+The sample illustrates a possible investigation, not a fixed sequence or set
+of section kinds. The application retains backward-compatible readers for
+earlier lessons; new lessons use this contract.
 
 ## Connections and shared progress
 
@@ -293,7 +321,8 @@ Before committing:
 4. Confirm the registered channel image loads locally.
 5. Run syntax and repository-contract checks.
 6. Open the affected channel and lesson through normal navigation.
-7. Test reading, activities, Save Visit, review behavior, dark mode, and mobile
+7. Test the in-line probe, materials and exercise access, activities, Save Visit,
+   review behavior, dark mode, and mobile
    layout when affected.
 8. Preserve existing browser data.
 9. Bump asset query versions in `Ships-Log/Ships-Log.html`.
