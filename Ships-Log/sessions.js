@@ -939,5 +939,205 @@ const voyages = {
       "creator": "RaviGogna, Flickr",
       "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
     }
+  },
+
+  "before-the-verdict": {
+    "minutes": 30,
+    "thumbnail": {
+      "file": "images/before-the-verdict.jpg",
+      "alt": "Droplets bead on the ridges of a green banana leaf.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_14_06_00.jpg",
+      "creator": "Aaron Escobar, Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Write three interpretations of “Fine,” the observation supporting each, and one missing fact. Then draft a clarification that does not presuppose hostility.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Change the case to three missed agreements. Write a boundary naming the behavior, its practical effect, and what you will do next. Explain why this differs from accusing someone of a motive.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "the-task-between-us": {
+    "minutes": 35,
+    "thumbnail": {
+      "file": "images/the-task-between-us.jpg",
+      "alt": "Exposed wall framing and insulation at a building opening.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_15_05_01a.jpg",
+      "creator": "Giles Douglas",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Choose a fictional household task. Map its five components and write a completion agreement with a trigger, owner, deadline, and exception procedure.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Give two people different available time and energy. Redesign the agreement and explain what makes it fair without relying on identical task counts.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "after-the-missed-promise": {
+    "minutes": 30,
+    "thumbnail": {
+      "file": "images/after-the-missed-promise.jpg",
+      "alt": "Water held behind the long concrete wall of Three Gorges Dam.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_12_02_02a.jpg",
+      "creator": "Le Grand Portage",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Draft a repair for the application case in five sentences or fewer. Identify which sentence addresses the event, impact, offer, and future process.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Invent a repeated-failure version. Replace one promise with a verifiable process change and explain what evidence would show improvement over time.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "one-claim-many-echoes": {
+    "minutes": 35,
+    "thumbnail": {
+      "file": "images/one-claim-many-echoes.jpg",
+      "alt": "A short cable connects an HDMI plug to a VGA adapter.",
+      "sourceUrl": "https://github.com/raspberrypi/documentation/blob/master/documentation/asciidoc/computers/getting-started/images/hdmi-vga.jpg",
+      "creator": "Raspberry Pi Ltd",
+      "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Draw the five-post evidence network. Mark which paths share an origin and identify the exact wording that exceeds the fictional announcement.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Choose one accessible, non-sensitive factual claim. Spend at most eight minutes tracing it. Record the original wording if found, the supported conclusion, and one uncertainty. An unresolved result is acceptable.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "the-denominator-disappeared": {
+    "minutes": 35,
+    "thumbnail": {
+      "file": "images/the-denominator-disappeared.jpg",
+      "alt": "A road bicycle stands side-on against a red door.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_11_03_04a.jpg",
+      "creator": "Jesús Rodriguez",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Calculate relative and absolute changes from two to four and from forty to thirty-six. Write two accurate headlines with different emphasis.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Design the comparison you would want before choosing bicycle parking. Specify denominator, period, reporting definition, and one causal claim your comparison still could not establish.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "the-next-click": {
+    "minutes": 30,
+    "thumbnail": {
+      "file": "images/the-next-click.jpg",
+      "alt": "Water rushes over Huka Falls between wooded banks.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_13_01_04a.jpg",
+      "creator": "RaviGogna, Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Map one hypothetical viewing session into cues, actions, payoffs, and transitions. Label what is observed and what you are merely assuming about motives.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Design a two-session comparison changing one entry condition. Specify the intended experience, a simple observation, a stopping point, and two confounds. Running it later is optional.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "a-place-to-return": {
+    "minutes": 35,
+    "thumbnail": {
+      "file": "images/a-place-to-return.jpg",
+      "alt": "City traffic follows intersecting streets viewed from above.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_03_01_00.jpg",
+      "creator": "Margaret W. Carruthers",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Design a comparison table for two fictional communities: recurring work, newcomer route, time cost, evidence of welcome, and exit condition.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Write a two-visit plan for the better fit. Name one observation on visit one and one bounded participation on visit two. Explain what finding would change your choice.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "make-the-work-readable": {
+    "minutes": 35,
+    "thumbnail": {
+      "file": "images/make-the-work-readable.jpg",
+      "alt": "A worker holds a laptop beside rows of servers.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/OSX_CP2e_Figure_22_00_01.jpg",
+      "creator": "WOCinTech Chat/Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Write a 120-word account of a fictional or public project using problem, decision, evidence, and limitation. Underline any claim that still needs evidence.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Rewrite the account for a different audience in 80 words. Add one specific question they could answer, then explain what you preserved and what you changed.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
+  },
+  "a-small-useful-return": {
+    "minutes": 35,
+    "thumbnail": {
+      "file": "images/a-small-useful-return.jpg",
+      "alt": "Black heat-sink fins cover a small green computer board.",
+      "sourceUrl": "https://github.com/raspberrypi/documentation/blob/master/documentation/asciidoc/computers/compute-module/images/cm5-cooler.jpg",
+      "creator": "Raspberry Pi Ltd",
+      "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); cropped and resized."
+    },
+    "activities": [
+      {
+        "kind": "explain",
+        "prompt": "Draft a follow-up to the fictional workshop conversation in 90 words or fewer. Include context, a bounded offer, and an easy way to decline. Do not send it as part of this activity.",
+        "evidence": "Show the distinction developed in the lesson, identify your assumptions, and justify the proposed action."
+      },
+      {
+        "kind": "apply",
+        "prompt": "Write three branches: accepted, no reply, and you lose capacity. For each, name a next action and stopping condition. Explain how your plan respects both people’s time.",
+        "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
+      }
+    ]
   }
+
 };

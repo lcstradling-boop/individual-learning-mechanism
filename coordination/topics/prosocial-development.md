@@ -7,7 +7,10 @@ Social perception, communication, reciprocity, boundaries, repair, belonging, an
 Liam has studied psychology and sociology and thinks carefully about acceptance, contradiction, and healthy relationships. Do not frame personality or neurotype as damage to correct.
 
 ## Published
-None.
+Publication pending: the following lessons are committed locally; push and live verification are blocked by network and preview restrictions.
+- `before-the-verdict` — Before the verdict (30 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/before-the-verdict
+- `the-task-between-us` — The task between us (35 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/the-task-between-us
+- `after-the-missed-promise` — After the missed promise (30 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/after-the-missed-promise
 
 ## Active work
 None.

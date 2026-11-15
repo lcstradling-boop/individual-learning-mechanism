@@ -7,7 +7,10 @@ How media systems select, frame, amplify, and monetize representations of realit
 Liam has analyzed his own YouTube use, removed recommendation surfaces, and distinguishes passive consumption from active learning. He has coursework in writing, theatre, psychology, sociology, and economics.
 
 ## Published
-None.
+Publication pending: the following lessons are committed locally; push and live verification are blocked by network and preview restrictions.
+- `one-claim-many-echoes` — One claim, many echoes (35 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/one-claim-many-echoes
+- `the-denominator-disappeared` — The denominator disappeared (35 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/the-denominator-disappeared
+- `the-next-click` — The next click (30 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/the-next-click
 
 ## Active work
 None.

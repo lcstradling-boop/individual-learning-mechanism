@@ -7,7 +7,10 @@ Durable professional relationships built through contribution, curiosity, repeat
 Liam is exploring technical and engineering paths and dislikes reducing learning to career utility. Preserve that distinction while making professional participation concrete.
 
 ## Published
-None.
+Publication pending: the following lessons are committed locally; push and live verification are blocked by network and preview restrictions.
+- `a-place-to-return` — A place to return (35 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/a-place-to-return
+- `make-the-work-readable` — Make the work readable (35 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/make-the-work-readable
+- `a-small-useful-return` — A small, useful return (35 min). Publication commit: see git history. Live: https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/a-small-useful-return
 
 ## Active work
 None.
