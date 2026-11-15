@@ -13,8 +13,10 @@ connections between ideas. Learning itself is a valid payoff.
 
 The interface borrows useful qualities from YouTube—inviting entry points,
 recognizable channels, evocative thumbnails, clear titles, visible duration, and
-freedom to choose—without building an endless feed. Every lesson is finite,
-stable after publication, and asks Liam to transform the idea through action.
+freedom to choose. Individual lessons are finite and stable after publication;
+connected lessons can sustain a long session when each step adds understanding
+or application. The homepage prioritizes due reviews and rotates next unread
+steps across topics. Every lesson asks Liam to transform the idea through action.
 
 Breadth and depth are compatible. A lesson may use sustained narrative, history,
 allegory, reference, and theory, but those elements must carry an explanatory
@@ -86,6 +88,12 @@ of the following:
 Do not impose a rigid curriculum unless Liam requests one. Use prerequisites as
 evidence-based dependencies, not a reason to force every topic into a linear
 course.
+
+When a natural continuation exists, connect its question to the current lesson
+with a specific relationship. A long reading session gains more when it moves
+through varied intellectual work: explanation, prediction, experiment, revision,
+and synthesis. Never equate extended time on site with demonstrated learning.
+Do not gate ordinary browsing or require a particular session length.
 
 ### Long-form default
 

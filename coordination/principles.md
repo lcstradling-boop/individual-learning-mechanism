@@ -4,8 +4,9 @@ These are invariants across every Ship's Log channel.
 
 1. **Learning is a valid payoff.** Career relevance may matter, but it is not
    required to justify a lesson.
-2. **A lesson is finite.** It has one central question, a deliberate stopping
-   point, and a fixed estimate that includes the work Liam will do.
+2. **A lesson is finite; a voyage may continue.** Each lesson has one central
+   question and a fixed estimate for its work. A meaningful next question may
+   lead into another lesson without requiring Liam to end an absorbing session.
 3. **Narrative carries a model.** History, allegory, or a worked story should
    expose a mechanism rather than merely decorate an explanation.
 4. **Depth comes from transformation.** Liam should predict, calculate,
@@ -20,8 +21,11 @@ These are invariants across every Ship's Log channel.
    assumption, inference, and unresolved evidence.
 9. **Current claims expire.** Economic, laboratory, security, cloud, hardware,
    and AI claims need dates and authoritative sources.
-10. **The interface must not optimize compulsion.** Clear titles, channel marks,
-    thumbnails, and durations support choice; they do not create an endless feed.
+10. **Continuation should compound understanding.** Offer due reviews first and
+    useful next steps across topics. Explain the intellectual reason for a
+    continuation when one is authored. Long sessions should vary reading with
+    prediction, application, correction, and connection. Let Liam follow a
+    thread for as long as he chooses, with a clear way back to the library.
 
 Tone, narrative stance, lesson sequence, and recurring metaphors are not global
 principles. Each topic chat may develop them with Liam.
