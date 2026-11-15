@@ -167,7 +167,7 @@ Every lesson must have:
   diagnosis, construction, comparison, or application.
 - At least one in-line prompt to form a theory before later evidence or explanation.
 - A usable materials list for the required activities.
-- One fixed completion estimate covering reading, thought, transitions, and work.
+- One authored fallback estimate covering reading, thought, transitions, and work.
 - The registered channel image, reused automatically on its lesson cards.
 - Source records adequate to revisit factual and current claims.
 
@@ -176,26 +176,31 @@ distractors themselves diagnose distinct models.
 
 ## Time estimates
 
-Estimate the fixed experience Liam will actually complete. Reading length alone
-does not justify duration. Include rereading, calculation, writing, observation,
-tool switching, setup, and time to think. There is no prescribed minimum or
-maximum lesson duration. Set a realistic scope and give one fixed estimate in
-minutes; make a long lesson long because its investigation needs the work, not
-because a target time demands it.
+Author one fallback estimate in minutes for the full experience: reading,
+rereading, calculation, writing, observation, setup, tool switching, and thought.
+There is no prescribed minimum or maximum lesson duration. The site replaces
+the displayed fallback with its topic-specific estimate once saved visits are
+available. Set scope by the investigation, not by a target time.
 
-Use saved focused time to calibrate later estimates when Liam supplies it. Do
-not expose hidden timing on lesson pages. Record an attempt only after deliberate
-Save Visit.
+The browser estimates an effective words-per-minute rate for each topic from
+the median of first saved visits to its lessons. It counts visible lesson text,
+including activity prompts, then divides each lesson's word count by its saved
+focused minutes. The target lesson's word count divided by that topic rate gives
+the displayed estimate, rounded to minutes. Without a usable topic sample, show
+the authored fallback. The rate includes thinking and activities; it is not a
+literal reading speed. Do not expose hidden visit timing on lesson pages.
+Record an attempt only after deliberate Save Visit.
 
 Focused time measures a visible, focused tab, not continuous attention or
 completion of every activity. Before comparing it with an estimate, check
 whether Liam completed the intended work, skimmed, stopped early, took notes
 outside the tab, or went beyond the assigned activity. If comparable completed
-first visits repeatedly finish far faster than estimated, lower future estimates
-for similar work using the observed range and review the assumptions about
-reading speed, setup, and activity burden. Do not shorten the intellectual work
-solely to match a number. Keep published lessons and historical visits stable;
-record an explicit estimate correction if changing a published estimate.
+first visits repeatedly finish far faster than estimated, inspect word count,
+activity burden, and whether the samples reflect the intended work. The site
+updates its estimate as more topic visits arrive. Do not shorten intellectual
+work solely to match a number. For interactive lessons or work mostly outside
+the tab, word count is a weak proxy; treat the displayed estimate as provisional.
+Keep published lessons and historical visits stable.
 
 ## Personalization
 
@@ -389,5 +394,5 @@ blocker is explained.
 
 Lead with the outcome. Report the lesson or structural change, why it fits
 Ship's Log, what was tested, remaining uncertainty, and the commit and live link.
-For a lesson, include its fixed time estimate, activity burden, and meaningful
-connections.
+For a lesson, include its authored fallback estimate, activity burden, and
+meaningful connections.
