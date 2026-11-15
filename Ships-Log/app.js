@@ -198,6 +198,10 @@ function setupDensityLab(){
  }
  count.onchange=update;sample.onchange=update;update();
 }
+function asciiModelHtml(section){
+ if(typeof section.diagram!=='string'||!section.diagram.trim())return '';
+ return '<figure class="ascii-model"><pre tabindex="0" aria-label="Model diagram; scroll horizontally if needed">'+esc(section.diagram)+'</pre>'+(section.diagramDescription?'<figcaption>'+esc(section.diagramDescription)+'</figcaption>':'')+'</figure>';
+}
 function sectionHtml(section){
  if(Array.isArray(section))return '<section class="lesson-section"><h2>'+esc(section[0])+'</h2><p>'+esc(section[1])+'</p></section>';
  const body=Array.isArray(section.body)?section.body:[section.body];
@@ -205,7 +209,7 @@ function sectionHtml(section){
   const line=String(paragraph),speaker=section.kind==='dialogue'&&line.match(/^([A-Z]+): (.*)$/s);
   return speaker?'<p class="dialogue-turn"><strong>'+esc(speaker[1])+'</strong><span>'+esc(speaker[2])+'</span></p>':'<p>'+esc(paragraph)+'</p>';
  }).join('');
- return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+paragraphs+investigationFigure(section.visual)+(section.kind==='density-lab'?densityLabHtml():'')+(section.probe?'<aside class="lesson-probe"><strong>Pause and make a theory</strong><p>'+esc(section.probe)+'</p></aside>':'')+'</section>';
+ return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+paragraphs+asciiModelHtml(section)+investigationFigure(section.visual)+(section.kind==='density-lab'?densityLabHtml():'')+(section.probe?'<aside class="lesson-probe"><strong>Pause and make a theory</strong><p>'+esc(section.probe)+'</p></aside>':'')+'</section>';
 }
 function materialsHtml(materials){
  if(!materials?.length)return '';

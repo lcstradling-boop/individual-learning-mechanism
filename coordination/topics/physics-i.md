@@ -32,3 +32,12 @@ Calculus II, automotive systems, hardware energy and signals, and modeling assum
 
 ## Handoff notes
 None.
+
+## Standing presentation requirement
+Every future lesson includes an ASCII model block. Depict the physical setup
+when present, or the mathematical structure for an abstract lesson. Label
+quantities and units, separate observations from assumptions and unknowns, and
+provide a prose description. Use a whole view and a zoom when useful; revisit
+the model as conditions change. Use section fields `diagram` and
+`diagramDescription` so spacing survives on the site. This applies to new
+lessons; preserve published material and saved history.

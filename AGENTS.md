@@ -114,6 +114,33 @@ Place at least one invitation to form a theory or prediction before the
 explanation it tests. Put the relevant evidence and explanation later in the
 lesson. Let Liam revisit an earlier map without requiring every branch to close.
 
+### ASCII models for Calculus II and Physics I
+
+Each future lesson in these two channels must include an ASCII block depicting
+its central model. Show the physical arrangement when the lesson has one; for
+an abstract investigation, show the mathematical objects and relationships.
+This is a standing authoring choice requested for these courses.
+
+- Use a legible monospaced block with spaces, preserved line breaks, and ASCII
+  characters. Keep it compact; split a large model into a whole view and a zoom.
+- Label relevant objects, coordinates, boundaries, directions, quantities, and
+  units. Distinguish observed values from assumptions and unknowns. Do not draw
+  an assumed density profile or force as though it were an observation.
+- Place the initial model near its introduction so it supports prediction.
+  Return to it, annotate it, or provide a second view when the investigation
+  changes a condition. Let the model expose uncertainty rather than reveal a
+  result before the corresponding probe.
+- Supply a plain-language description. Diagrams complement the dialogue,
+  equations, and interactive tools.
+- Store the block as a section's `diagram` string and its accessible explanation
+  as `diagramDescription`. The renderer preserves whitespace and permits
+  horizontal scrolling on narrow screens. Do not place it in ordinary paragraph
+  text, where spacing collapses.
+
+This applies to future authoring. Preserve published lesson material under the
+stable-artifact rules; a future-format preference does not authorize rewriting
+an existing investigation.
+
 ### Self-contained investigations
 
 For every required activity, provide its inputs, data, instructions, and means
@@ -283,6 +310,11 @@ Use a lowercase kebab-case ID. Array order records introduction order.
   ]
 }
 ```
+
+A model section can additionally contain `diagram` (a string containing the
+literal ASCII block, with newlines) and `diagramDescription` (a concise prose
+explanation of the depicted relationships). These fields are required for the
+standing ASCII-model convention in future Calculus II and Physics I lessons.
 
 The sample illustrates a possible investigation, not a fixed sequence or set
 of section kinds. The application retains backward-compatible readers for
