@@ -5,6 +5,8 @@ Trace the authority, procedures, and consequences of U.S. governing institutions
 
 ## Published
 
+Opening collection in [89efcc6](https://github.com/lcstradling-boop/individual-learning-mechanism/commit/89efcc60ba21c043dadd68099febdfbcec3059ea).
+
 - [Who actually governs the United States?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/who-governs) · `who-governs` · 20 minutes.
 - [What makes a law a law?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/when-a-bill-binds) · `when-a-bill-binds` · 18 minutes.
 - [Why does the United States have so many courts?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/which-court) · `which-court` · 22 minutes.
