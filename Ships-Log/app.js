@@ -14,8 +14,8 @@ function theme(dark){document.documentElement.dataset.theme=dark?'dark':'light';
 theme((localStorage.getItem('ship.theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark');
 $('#theme').onclick=()=>{const dark=document.documentElement.dataset.theme!=='dark';theme(dark);localStorage.setItem('ship.theme',dark?'dark':'light')};
 function card(l){
- const session=voyages[l.id],thumbnail=session.thumbnail||{alt:session.alt,file:'images/'+l.id+'.jpg'};
- return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb"><span class="badge">Est. '+duration(session.minutes)+'</span><img alt="'+esc(thumbnail.alt)+'" src="'+esc(thumbnail.file)+'"></div><small>'+esc(topicName(l))+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
+ const session=voyages[l.id],topic=channel(l.topicId);
+ return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb channel-art"><span class="badge">Est. '+duration(session.minutes)+'</span><img alt="" src="'+esc(topic?.logo||'images/pine-tree.svg')+'"></div><small>'+esc(topicName(l))+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
 }
 const grid=list=>'<div class="grid">'+list.map(card).join('')+'</div>';
 // Saved visits provide the only ranking signal. Keep the published order inside

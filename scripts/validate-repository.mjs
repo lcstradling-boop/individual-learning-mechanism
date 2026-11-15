@@ -49,10 +49,10 @@ for (const lesson of lessons) {
   }
   if (!Number.isFinite(session.minutes) || session.minutes <= 0) fail("Invalid duration for " + lesson.id);
   if (!Array.isArray(session.activities) || !session.activities.length) fail("No activities for " + lesson.id);
-  if (!session.thumbnail?.file || !session.thumbnail?.alt || !session.thumbnail?.sourceUrl || !session.thumbnail?.license) {
-    fail("Incomplete thumbnail attribution for " + lesson.id);
-  } else if (!fs.existsSync(path.join(root, "Ships-Log", session.thumbnail.file))) {
-    fail("Missing thumbnail file for " + lesson.id);
+  if (session.thumbnail && (!session.thumbnail.file || !session.thumbnail.alt || !session.thumbnail.sourceUrl || !session.thumbnail.license)) {
+    fail("Incomplete earlier thumbnail attribution for " + lesson.id);
+  } else if (session.thumbnail && !fs.existsSync(path.join(root, "Ships-Log", session.thumbnail.file))) {
+    fail("Missing earlier thumbnail file for " + lesson.id);
   }
   for (const connection of lesson.connections || []) {
     if (!lessonIds.has(connection.lessonId) && !lessons.some(candidate => candidate.id === connection.lessonId)) {

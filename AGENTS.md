@@ -12,7 +12,7 @@ curiosity, intellectual breadth, reflection, technical familiarity, and
 connections between ideas. Learning itself is a valid payoff.
 
 The interface borrows useful qualities from YouTube—inviting entry points,
-recognizable channels, evocative thumbnails, clear titles, visible duration, and
+recognizable channels, locally stored channel images, clear titles, visible duration, and
 freedom to choose. Individual lessons are finite and stable after publication;
 connected lessons can sustain a long session when each step adds understanding
 or application. The homepage prioritizes due reviews and rotates next unread
@@ -120,7 +120,7 @@ Every lesson must have:
 - One or more activities requiring explanation, prediction, calculation,
   diagnosis, construction, comparison, or application.
 - One fixed completion estimate covering reading, thought, transitions, and work.
-- A locally stored, legally reusable thumbnail.
+- The registered channel image, reused automatically on its lesson cards.
 - Source records adequate to revisit factual and current claims.
 
 Free response is the default. Multiple choice is appropriate only when the
@@ -177,11 +177,13 @@ shows the prerequisite gap has closed.
 
 ## Canonical data contract
 
-Add each lesson in three coordinated places:
+Add each lesson in two coordinated places:
 
 1. Append its lesson object to `Ships-Log/lessons.js`.
 2. Add its session object to `Ships-Log/sessions.js`.
-3. Save its thumbnail at `Ships-Log/images/<lesson-id>.jpg`.
+
+The topic ID selects its existing image from `Ships-Log/topics.js`. No new
+lesson image, attribution record, or image search is needed.
 
 Use a lowercase kebab-case ID. Array order records introduction order.
 
@@ -224,13 +226,6 @@ Use a lowercase kebab-case ID. Array order records introduction order.
 ```js
 "permanent-lesson-id": {
   minutes: 65,
-  thumbnail: {
-    file: "images/permanent-lesson-id.jpg",
-    alt: "Concrete description of the image",
-    sourceUrl: "https://source.example/item",
-    creator: "Creator name",
-    license: "License or platform terms"
-  },
   activities: [
     {
       kind: "explain",
@@ -277,14 +272,14 @@ inspection from work requiring specialized tools or licensed help.
 
 ## Visual assets
 
-Channel logos are stable navigation marks stored in
+Channel images are stable navigation marks and the shared image for every
+lesson card in that channel. They are stored in
 `Ships-Log/images/channels/` and registered in
 `Ships-Log/topics.js`. Do not replace them as part of a lesson.
 
-Lesson thumbnails are evocative entry points, not diagrams of the answer. Find a
-legally reusable existing image; do not generate one unless Liam requests it.
-Save the bytes locally, normally as an 800 × 450 JPEG, and preserve creator,
-source, license, and meaningful alt text in session metadata.
+Older lessons may retain their thumbnail attribution in `sessions.js` and
+their image files for historical credit. The cards use the channel image.
+Do not source or generate an individual image for a new lesson.
 
 Keep required CSS, fonts, icons, and images local.
 
@@ -294,8 +289,8 @@ Before committing:
 
 1. Confirm the topic ID exists and the lesson ID is unique.
 2. Confirm IDs, image paths, and connection endpoints agree.
-3. Confirm sources and thumbnail attribution are complete.
-4. Confirm the thumbnail and channel logo decode locally.
+3. Confirm source records are complete.
+4. Confirm the registered channel image loads locally.
 5. Run syntax and repository-contract checks.
 6. Open the affected channel and lesson through normal navigation.
 7. Test reading, activities, Save Visit, review behavior, dark mode, and mobile
