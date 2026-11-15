@@ -2703,535 +2703,706 @@ const initialLessons = [
       }
     ]
   },
-{
-  "id": "before-the-verdict",
-  "topicId": "prosocial-development",
-  "title": "Before the verdict",
-  "subtitle": "How can you respond to an ambiguous interaction without pretending to know another person’s mind?",
-  "centralQuestion": "How can you respond to an ambiguous interaction without pretending to know another person’s mind?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "A classmate reads your project message and replies: “Fine.” You had spent an hour preparing it. You can observe a one-word reply; you cannot directly observe annoyance. Yet the next sentence you want to send already assumes you have been dismissed. Pause here: what exactly would that next sentence be defending?"
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "Use three layers: observation, interpretation, response. Observation is the message available to both people. Interpretation is your proposed explanation. Response changes what happens next. Separating them gives you a place to revise the explanation before acting on it. This is a working communication model, not a method of diagnosing someone’s hidden motives. A possibility is not automatically a probability, and several possibilities need not deserve equal weight."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "Try two hypotheses: the classmate dislikes the proposal, or the classmate is busy and approves it. “Which part needs changing before we submit?” is better than “Why are you always dismissive?” because it asks for actionable information without embedding a verdict. But it still assumes changes are needed. “Are you happy for us to submit this, or is there something you want changed?” makes the decision clearer. If the reply is “Submit it,” you have enough information for the task even though you have not solved the person’s mood."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Now suppose this person repeatedly agrees and later criticizes you for proceeding. The relevant evidence is no longer one word. You can describe the repeated coordination problem and propose explicit approval criteria. Uncertainty about intention does not require unlimited tolerance of impact. Direct language, written clarification, a pause, or choosing a different collaborator can all be reasonable. Facial expression and eye contact are not prerequisites for asking a clear question."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "the-task-between-us",
-      "relationship": "Move from interpreting an interaction to negotiating responsibility and repairing its effects. Each addresses a different stage; clarification alone does not fulfill an agreement."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Open University — Communication",
-      "url": "https://www.open.edu/openlearn/money-business/leadership-management/the-importance-interpersonal-skills/content-section-1",
-      "note": "Further reading on communication and clarification; task and repair frameworks here are original instructional models.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "the-task-between-us",
-  "topicId": "prosocial-development",
-  "title": "The task between us",
-  "subtitle": "What does it mean to take responsibility for a shared task?",
-  "centralQuestion": "What does it mean to take responsibility for a shared task?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "The kitchen is clean when you return, but your housemate is upset. You washed the dishes yesterday. They planned meals, noticed supplies were low, asked you twice, and put everything away. Both of you can truthfully say you did work. The dispute is partly about which work counts."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "Map a task as noticing, deciding, doing, checking, and closing the loop. This is a practical decomposition, not a universal division of household labor. A visible action may be only one component. Responsibility means agreeing who will carry which components and what completion looks like. Fairness also depends on capacity, time, preference, and consent; equal counts of tasks need not mean an equitable arrangement."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "For taking out rubbish, define the trigger, owner, deadline, and finish condition: inspect the bin after dinner, remove it when full, replace the liner, and report a missing supply. Compare this with “Help more.” The concrete agreement can be remembered, disputed, and revised. The vague instruction leaves one person monitoring and prompting. Yet a checklist can become another burden if one person must maintain everyone else’s system. Decide together how reminders and exceptions will work."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Now the owner has an exam and cannot complete the task. Ownership does not mean never needing help. It includes communicating early enough to renegotiate. “Can you cover tonight? I can take your turn Thursday” supplies a proposal, not an entitlement. If capacity remains unequal, revisit the allocation rather than accumulating an invisible debt. People can decline; the shared problem still needs an explicit next step."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "after-the-missed-promise",
-      "relationship": "Move from interpreting an interaction to negotiating responsibility and repairing its effects. Each addresses a different stage; clarification alone does not fulfill an agreement."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Open University — Communication",
-      "url": "https://www.open.edu/openlearn/money-business/leadership-management/the-importance-interpersonal-skills/content-section-1",
-      "note": "Further reading on communication and clarification; task and repair frameworks here are original instructional models.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "after-the-missed-promise",
-  "topicId": "prosocial-development",
-  "title": "After the missed promise",
-  "subtitle": "How can an apology become a credible repair?",
-  "centralQuestion": "How can an apology become a credible repair?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "You promised to review a friend’s application by Friday. On Saturday they ask whether you read it. You had an exhausting week. That explanation is real; so is the lost opportunity to find another reviewer. The question now is what your response allows them to do."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "Separate acknowledging the event, recognizing its impact, offering a repair, and changing the process. These are prompts for thought, not a required script. An apology cannot compel forgiveness. Intention explains part of the event; impact explains why a response is needed. A useful repair should address the actual disruption and remain within your capacity."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "“I said Friday and did not deliver or warn you. That left you waiting. I can review the introduction by noon today if it still helps; otherwise I understand. Next time I will confirm my capacity before agreeing.” Notice the bounded offer. Promising an even bigger favor to escape discomfort could repeat the original failure. Ask what remains useful rather than assuming your preferred repair is wanted."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Change the case: you have made the same promise and missed it four times. Better wording alone is weak evidence. Reduce the commitment, create a reliable checkpoint, or stop offering the task. Conversely, if someone demands unlimited availability as proof of remorse, you may acknowledge your mistake and decline that demand. Repair and boundaries can coexist."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "before-the-verdict",
-      "relationship": "Move from interpreting an interaction to negotiating responsibility and repairing its effects. Each addresses a different stage; clarification alone does not fulfill an agreement."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Open University — Communication",
-      "url": "https://www.open.edu/openlearn/money-business/leadership-management/the-importance-interpersonal-skills/content-section-1",
-      "note": "Further reading on communication and clarification; task and repair frameworks here are original instructional models.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "one-claim-many-echoes",
-  "topicId": "media-literacy",
-  "title": "One claim, many echoes",
-  "subtitle": "When do several sources amount to only one piece of evidence?",
-  "centralQuestion": "When do several sources amount to only one piece of evidence?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "Five posts say a university has abolished exams. One links to a news story, two quote that story, one screenshots a quote, and one links to a student’s speculation. A crowded search page feels like corroboration. Draw the paths before counting the voices."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "An evidence chain connects a claim to the material supporting it. Independent corroboration requires more than different URLs. Multiple outlets can accurately repeat the same mistaken account. Trace the strongest factual statement toward its original context, then ask what that context actually establishes. Primary material also needs interpretation: an official announcement may establish a policy while leaving its effects uncertain."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "In this fictional case, the announcement replaces one department’s final written exam with a project for a single pilot term. The broad claim loses its university-wide scope and permanence. A careful conclusion is that a department is piloting a different assessment. You can preserve the interesting story while rejecting the exaggerated version. Record what remains unknown: whether the pilot continues and how students perform."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Caulfield’s SIFT approach supplies a useful search routine: pause, check the source, seek stronger coverage, and restore original context. Do not turn the routine into an endless investigation. A casual conversation and a consequential decision warrant different depth. If you cannot retrieve the original, state that limitation instead of treating absence as proof of falsehood."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "the-denominator-disappeared",
-      "relationship": "Trace the evidence, inspect the measurement, and examine how you encountered it. These are distinct checks: a reliable source can still be framed selectively."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Mike Caulfield — SIFT (2019)",
-      "url": "https://hapgood.us/2019/06/19/sift-the-four-moves/",
-      "note": "Further reading on source checking and original context; numerical and attention cases here are constructed exercises.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "the-denominator-disappeared",
-  "topicId": "media-literacy",
-  "title": "The denominator disappeared",
-  "subtitle": "How can a correct number support a misleading impression?",
-  "centralQuestion": "How can a correct number support a misleading impression?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "A fictional headline says campus bicycle theft doubled. The annual counts are two and four. Another campus reports forty thefts and a ten-percent reduction. Which place is safer? Before answering, ask what populations, time periods, reporting practices, and exposure those totals represent."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "A count describes events. A rate compares events with an appropriate denominator. Relative change compares a difference with its starting value: (new minus old) divided by old. From two to four is a 100 percent increase and two additional reports. Both statements are correct. Neither alone describes your chance of losing a bicycle. A denominator must match the question; total enrollment is not the same as bicycles parked overnight."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "Suppose the first campus had 100 regularly parked bicycles and the second had 2,000. Four divided by 100 is 4 percent; forty divided by 2,000 is 2 percent. These are reports per regularly parked bicycle under the fictional definitions, not automatically probabilities for individual owners. Repeated thefts, different observation periods, or incomplete reports would complicate that interpretation. Precision in arithmetic cannot repair a poor measurement definition."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Now the first campus introduces easier online reporting. Reports increase even if theft incidence does not. That possibility does not prove the increase is artificial. It tells you to look for changes in measurement before making a causal claim. A graph can show a genuine change while a headline supplies an unsupported explanation."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "the-next-click",
-      "relationship": "Trace the evidence, inspect the measurement, and examine how you encountered it. These are distinct checks: a reliable source can still be framed selectively."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Mike Caulfield — SIFT (2019)",
-      "url": "https://hapgood.us/2019/06/19/sift-the-four-moves/",
-      "note": "Further reading on source checking and original context; numerical and attention cases here are constructed exercises.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "the-next-click",
-  "topicId": "media-literacy",
-  "title": "The next click",
-  "subtitle": "How can you investigate what an attention environment invites you to do?",
-  "centralQuestion": "How can you investigate what an attention environment invites you to do?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "You open a familiar creator’s page with no specific question. An hour later, you have enjoyed three videos but cannot recall deciding to watch the second. Removing recommendations did not remove the route from familiarity to another click. This case asks about a sequence of actions, not whether entertainment deserves to exist."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "Describe a local loop: cue, available action, immediate payoff, next cue. This is an observation framework, not a clinical diagnosis or a complete theory of behavior. List what the environment makes easy and what requires a fresh decision. Creator intention, platform incentives, and your own preferences are separate variables. You cannot infer all three from your experience alone."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "Compare two entrances. In A, the bookmark opens a channel’s uploads. In B, a note names one selected video and the question you want it to answer. The content can be identical while the starting condition differs. A stopping point can be “I have answered the question” or simply “I chose one episode for enjoyment.” You need not justify leisure by extracting knowledge. The experiment concerns whether your actual session matches your chosen purpose."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Change one condition at a time if you want to learn from the comparison. A calmer week, different video, and new bookmark all at once leave several explanations. A tiny experiment can suggest a useful adjustment without proving a general cause. Long engagement with Ship’s Log likewise needs evidence of thinking or application before you call it learning."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "one-claim-many-echoes",
-      "relationship": "Trace the evidence, inspect the measurement, and examine how you encountered it. These are distinct checks: a reliable source can still be framed selectively."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Mike Caulfield — SIFT (2019)",
-      "url": "https://hapgood.us/2019/06/19/sift-the-four-moves/",
-      "note": "Further reading on source checking and original context; numerical and attention cases here are constructed exercises.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "a-place-to-return",
-  "topicId": "modern-career-networking",
-  "title": "A place to return",
-  "subtitle": "How do you choose a professional community worth returning to?",
-  "centralQuestion": "How do you choose a professional community worth returning to?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "A student joins six technical groups, introduces themselves once in each, and feels invisible. Another attends one project’s discussion repeatedly and begins recognizing recurring problems. Neither pattern guarantees an opportunity. The second at least creates shared context that a later conversation can use."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "Treat a community as people, recurring work, participation rules, and routes for newcomers. Membership alone says little about fit. Examine whether its actual work interests you, whether newcomers can participate safely and respectfully, and whether the time required is sustainable. This is a selection framework, not a promise that persistence produces friendship or employment."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "Imagine two options: a large general career chat and a small Linux documentation group. The chat may offer broad exposure; the documentation group may let you use a tool, notice an unclear instruction, and ask a grounded question. For someone curious about Linux, the second has a concrete entry point. For someone exploring unrelated fields, the broader space could fit better. Choose based on the question you want to pursue, not prestige alone."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Now the small group expects unpaid work every weekend and responds dismissively to beginners. Shared interests do not cancel poor conditions. You can observe, leave, or seek another setting. Contribution is voluntary; repeated contact is useful only when the environment warrants it. No current platform list can substitute for inspecting how people actually interact."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "make-the-work-readable",
-      "relationship": "Connect finding a setting, explaining work, and offering a bounded return. These create shared context at different stages without guaranteeing an opportunity."
-    }
-  ],
-  "sources": [
-    {
-      "label": "GitHub Open Source Guides — How to contribute",
-      "url": "https://opensource.guide/how-to-contribute/",
-      "note": "Further reading on collaborative participation; community selection and project explanation frameworks here are instructional models.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "make-the-work-readable",
-  "topicId": "modern-career-networking",
-  "title": "Make the work readable",
-  "subtitle": "What lets a stranger understand the value and limits of your work?",
-  "centralQuestion": "What lets a stranger understand the value and limits of your work?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "You say, “I built a learning website.” A listener says, “Cool,” and the conversation stops. They have not seen the decisions hidden inside that sentence: stable lesson identities, review records, or the tension between sustained exploration and passive consumption. An impressive adjective would reveal less than one concrete design choice."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "A useful project account connects problem, decision, evidence, and limitation. The problem gives someone a reason to care. The decision reveals your reasoning. Evidence distinguishes intended behavior from observed behavior. A limitation creates an honest opening for discussion. This structure is a practical communication tool, not a requirement to brand every hobby."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "For a fictional review site: “Returning learners needed their old notes to remain meaningful. I gave each lesson a permanent ID and stored visits separately. I checked that a new visit preserved the earlier note. I have not established whether this improves long-term retention.” The last sentence protects the distinction between software behavior and educational effectiveness. You can invite feedback on the data model without claiming to have solved learning."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Now your listener is a teacher rather than a programmer. Keep the same evidence and change the entry point: explain why stable material matters for comparing reflections before discussing IDs. Adapting the explanation is not inventing achievements. If work was collaborative, identify your contribution and the team’s contribution separately. Omit credentials, personal records, and private user data from public examples."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "a-small-useful-return",
-      "relationship": "Connect finding a setting, explaining work, and offering a bounded return. These create shared context at different stages without guaranteeing an opportunity."
-    }
-  ],
-  "sources": [
-    {
-      "label": "GitHub Open Source Guides — How to contribute",
-      "url": "https://opensource.guide/how-to-contribute/",
-      "note": "Further reading on collaborative participation; community selection and project explanation frameworks here are instructional models.",
-      "accessed": "2026-11-14"
-    }
-  ]
-},
-{
-  "id": "a-small-useful-return",
-  "topicId": "modern-career-networking",
-  "title": "A small, useful return",
-  "subtitle": "How can one conversation become a responsible next step?",
-  "centralQuestion": "How can one conversation become a responsible next step?",
-  "sections": [
-    {
-      "kind": "narrative",
-      "heading": "A situation worth slowing down",
-      "body": [
-        "After a workshop, someone mentions that their setup guide confuses new users. You want to stay in touch. “Let me know if you ever need anything” is friendly, but leaves them defining the task and remembering your offer. You could instead propose testing one section with a fresh installation—if that is work you can actually do."
-      ]
-    },
-    {
-      "kind": "mechanism",
-      "heading": "A model you can use",
-      "body": [
-        "A bounded offer names the object, effort, deliverable, and permission needed. It lowers uncertainty for both people. Open-source contribution guidance emphasizes reading project instructions, choosing suitable work, and responding to feedback. That guidance concerns collaborative projects; it does not mean every professional conversation should become free labor."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Follow the case",
-      "body": [
-        "“Your note about the setup guide interested me. I can spend thirty minutes following the first section and send a short list of unclear steps. Would that help?” This is specific and easy to decline. If accepted, report the environment, exact step, expected result, and observation. Avoid sending a large unsolicited redesign. A useful return can also be a relevant resource or a thoughtful answer rather than a work product."
-      ]
-    },
-    {
-      "kind": "application",
-      "heading": "Change the condition",
-      "body": [
-        "Now there is no reply. You do not know whether the person is busy, uninterested, or missed the message. One proportionate follow-up may be reasonable depending on context; repeated messages do not create an obligation. If you cannot fulfill an accepted offer, say so promptly and release the task. The aim is a reliable interaction, not a debt you can redeem for an introduction."
-      ]
-    },
-    {
-      "kind": "connection",
-      "heading": "Use the model, then test its limits",
-      "body": [
-        "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
-        "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
-      ]
-    }
-  ],
-  "connections": [
-    {
-      "lessonId": "a-place-to-return",
-      "relationship": "Connect finding a setting, explaining work, and offering a bounded return. These create shared context at different stages without guaranteeing an opportunity."
-    }
-  ],
-  "sources": [
-    {
-      "label": "GitHub Open Source Guides — How to contribute",
-      "url": "https://opensource.guide/how-to-contribute/",
-      "note": "Further reading on collaborative participation; community selection and project explanation frameworks here are instructional models.",
-      "accessed": "2026-11-14"
-    }
-  ]
-}
+  {
+    "id": "before-the-verdict",
+    "topicId": "prosocial-development",
+    "title": "Before the verdict",
+    "subtitle": "How can you respond to an ambiguous interaction without pretending to know another person’s mind?",
+    "centralQuestion": "How can you respond to an ambiguous interaction without pretending to know another person’s mind?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "A classmate reads your project message and replies: “Fine.” You had spent an hour preparing it. You can observe a one-word reply; you cannot directly observe annoyance. Yet the next sentence you want to send already assumes you have been dismissed. Pause here: what exactly would that next sentence be defending?"
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "Use three layers: observation, interpretation, response. Observation is the message available to both people. Interpretation is your proposed explanation. Response changes what happens next. Separating them gives you a place to revise the explanation before acting on it. This is a working communication model, not a method of diagnosing someone’s hidden motives. A possibility is not automatically a probability, and several possibilities need not deserve equal weight."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "Try two hypotheses: the classmate dislikes the proposal, or the classmate is busy and approves it. “Which part needs changing before we submit?” is better than “Why are you always dismissive?” because it asks for actionable information without embedding a verdict. But it still assumes changes are needed. “Are you happy for us to submit this, or is there something you want changed?” makes the decision clearer. If the reply is “Submit it,” you have enough information for the task even though you have not solved the person’s mood."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Now suppose this person repeatedly agrees and later criticizes you for proceeding. The relevant evidence is no longer one word. You can describe the repeated coordination problem and propose explicit approval criteria. Uncertainty about intention does not require unlimited tolerance of impact. Direct language, written clarification, a pause, or choosing a different collaborator can all be reasonable. Facial expression and eye contact are not prerequisites for asking a clear question."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "the-task-between-us",
+        "relationship": "Move from interpreting an interaction to negotiating responsibility and repairing its effects. Each addresses a different stage; clarification alone does not fulfill an agreement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Open University — Communication",
+        "url": "https://www.open.edu/openlearn/money-business/leadership-management/the-importance-interpersonal-skills/content-section-1",
+        "note": "Further reading on communication and clarification; task and repair frameworks here are original instructional models.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "the-task-between-us",
+    "topicId": "prosocial-development",
+    "title": "The task between us",
+    "subtitle": "What does it mean to take responsibility for a shared task?",
+    "centralQuestion": "What does it mean to take responsibility for a shared task?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "The kitchen is clean when you return, but your housemate is upset. You washed the dishes yesterday. They planned meals, noticed supplies were low, asked you twice, and put everything away. Both of you can truthfully say you did work. The dispute is partly about which work counts."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "Map a task as noticing, deciding, doing, checking, and closing the loop. This is a practical decomposition, not a universal division of household labor. A visible action may be only one component. Responsibility means agreeing who will carry which components and what completion looks like. Fairness also depends on capacity, time, preference, and consent; equal counts of tasks need not mean an equitable arrangement."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "For taking out rubbish, define the trigger, owner, deadline, and finish condition: inspect the bin after dinner, remove it when full, replace the liner, and report a missing supply. Compare this with “Help more.” The concrete agreement can be remembered, disputed, and revised. The vague instruction leaves one person monitoring and prompting. Yet a checklist can become another burden if one person must maintain everyone else’s system. Decide together how reminders and exceptions will work."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Now the owner has an exam and cannot complete the task. Ownership does not mean never needing help. It includes communicating early enough to renegotiate. “Can you cover tonight? I can take your turn Thursday” supplies a proposal, not an entitlement. If capacity remains unequal, revisit the allocation rather than accumulating an invisible debt. People can decline; the shared problem still needs an explicit next step."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "after-the-missed-promise",
+        "relationship": "Move from interpreting an interaction to negotiating responsibility and repairing its effects. Each addresses a different stage; clarification alone does not fulfill an agreement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Open University — Communication",
+        "url": "https://www.open.edu/openlearn/money-business/leadership-management/the-importance-interpersonal-skills/content-section-1",
+        "note": "Further reading on communication and clarification; task and repair frameworks here are original instructional models.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "after-the-missed-promise",
+    "topicId": "prosocial-development",
+    "title": "After the missed promise",
+    "subtitle": "How can an apology become a credible repair?",
+    "centralQuestion": "How can an apology become a credible repair?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "You promised to review a friend’s application by Friday. On Saturday they ask whether you read it. You had an exhausting week. That explanation is real; so is the lost opportunity to find another reviewer. The question now is what your response allows them to do."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "Separate acknowledging the event, recognizing its impact, offering a repair, and changing the process. These are prompts for thought, not a required script. An apology cannot compel forgiveness. Intention explains part of the event; impact explains why a response is needed. A useful repair should address the actual disruption and remain within your capacity."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "“I said Friday and did not deliver or warn you. That left you waiting. I can review the introduction by noon today if it still helps; otherwise I understand. Next time I will confirm my capacity before agreeing.” Notice the bounded offer. Promising an even bigger favor to escape discomfort could repeat the original failure. Ask what remains useful rather than assuming your preferred repair is wanted."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Change the case: you have made the same promise and missed it four times. Better wording alone is weak evidence. Reduce the commitment, create a reliable checkpoint, or stop offering the task. Conversely, if someone demands unlimited availability as proof of remorse, you may acknowledge your mistake and decline that demand. Repair and boundaries can coexist."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "before-the-verdict",
+        "relationship": "Move from interpreting an interaction to negotiating responsibility and repairing its effects. Each addresses a different stage; clarification alone does not fulfill an agreement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Open University — Communication",
+        "url": "https://www.open.edu/openlearn/money-business/leadership-management/the-importance-interpersonal-skills/content-section-1",
+        "note": "Further reading on communication and clarification; task and repair frameworks here are original instructional models.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "one-claim-many-echoes",
+    "topicId": "media-literacy",
+    "title": "One claim, many echoes",
+    "subtitle": "When do several sources amount to only one piece of evidence?",
+    "centralQuestion": "When do several sources amount to only one piece of evidence?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "Five posts say a university has abolished exams. One links to a news story, two quote that story, one screenshots a quote, and one links to a student’s speculation. A crowded search page feels like corroboration. Draw the paths before counting the voices."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "An evidence chain connects a claim to the material supporting it. Independent corroboration requires more than different URLs. Multiple outlets can accurately repeat the same mistaken account. Trace the strongest factual statement toward its original context, then ask what that context actually establishes. Primary material also needs interpretation: an official announcement may establish a policy while leaving its effects uncertain."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "In this fictional case, the announcement replaces one department’s final written exam with a project for a single pilot term. The broad claim loses its university-wide scope and permanence. A careful conclusion is that a department is piloting a different assessment. You can preserve the interesting story while rejecting the exaggerated version. Record what remains unknown: whether the pilot continues and how students perform."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Caulfield’s SIFT approach supplies a useful search routine: pause, check the source, seek stronger coverage, and restore original context. Do not turn the routine into an endless investigation. A casual conversation and a consequential decision warrant different depth. If you cannot retrieve the original, state that limitation instead of treating absence as proof of falsehood."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "the-denominator-disappeared",
+        "relationship": "Trace the evidence, inspect the measurement, and examine how you encountered it. These are distinct checks: a reliable source can still be framed selectively."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Mike Caulfield — SIFT (2019)",
+        "url": "https://hapgood.us/2019/06/19/sift-the-four-moves/",
+        "note": "Further reading on source checking and original context; numerical and attention cases here are constructed exercises.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "the-denominator-disappeared",
+    "topicId": "media-literacy",
+    "title": "The denominator disappeared",
+    "subtitle": "How can a correct number support a misleading impression?",
+    "centralQuestion": "How can a correct number support a misleading impression?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "A fictional headline says campus bicycle theft doubled. The annual counts are two and four. Another campus reports forty thefts and a ten-percent reduction. Which place is safer? Before answering, ask what populations, time periods, reporting practices, and exposure those totals represent."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "A count describes events. A rate compares events with an appropriate denominator. Relative change compares a difference with its starting value: (new minus old) divided by old. From two to four is a 100 percent increase and two additional reports. Both statements are correct. Neither alone describes your chance of losing a bicycle. A denominator must match the question; total enrollment is not the same as bicycles parked overnight."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "Suppose the first campus had 100 regularly parked bicycles and the second had 2,000. Four divided by 100 is 4 percent; forty divided by 2,000 is 2 percent. These are reports per regularly parked bicycle under the fictional definitions, not automatically probabilities for individual owners. Repeated thefts, different observation periods, or incomplete reports would complicate that interpretation. Precision in arithmetic cannot repair a poor measurement definition."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Now the first campus introduces easier online reporting. Reports increase even if theft incidence does not. That possibility does not prove the increase is artificial. It tells you to look for changes in measurement before making a causal claim. A graph can show a genuine change while a headline supplies an unsupported explanation."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "the-next-click",
+        "relationship": "Trace the evidence, inspect the measurement, and examine how you encountered it. These are distinct checks: a reliable source can still be framed selectively."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Mike Caulfield — SIFT (2019)",
+        "url": "https://hapgood.us/2019/06/19/sift-the-four-moves/",
+        "note": "Further reading on source checking and original context; numerical and attention cases here are constructed exercises.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "the-next-click",
+    "topicId": "media-literacy",
+    "title": "The next click",
+    "subtitle": "How can you investigate what an attention environment invites you to do?",
+    "centralQuestion": "How can you investigate what an attention environment invites you to do?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "You open a familiar creator’s page with no specific question. An hour later, you have enjoyed three videos but cannot recall deciding to watch the second. Removing recommendations did not remove the route from familiarity to another click. This case asks about a sequence of actions, not whether entertainment deserves to exist."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "Describe a local loop: cue, available action, immediate payoff, next cue. This is an observation framework, not a clinical diagnosis or a complete theory of behavior. List what the environment makes easy and what requires a fresh decision. Creator intention, platform incentives, and your own preferences are separate variables. You cannot infer all three from your experience alone."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "Compare two entrances. In A, the bookmark opens a channel’s uploads. In B, a note names one selected video and the question you want it to answer. The content can be identical while the starting condition differs. A stopping point can be “I have answered the question” or simply “I chose one episode for enjoyment.” You need not justify leisure by extracting knowledge. The experiment concerns whether your actual session matches your chosen purpose."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Change one condition at a time if you want to learn from the comparison. A calmer week, different video, and new bookmark all at once leave several explanations. A tiny experiment can suggest a useful adjustment without proving a general cause. Long engagement with Ship’s Log likewise needs evidence of thinking or application before you call it learning."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "one-claim-many-echoes",
+        "relationship": "Trace the evidence, inspect the measurement, and examine how you encountered it. These are distinct checks: a reliable source can still be framed selectively."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Mike Caulfield — SIFT (2019)",
+        "url": "https://hapgood.us/2019/06/19/sift-the-four-moves/",
+        "note": "Further reading on source checking and original context; numerical and attention cases here are constructed exercises.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "a-place-to-return",
+    "topicId": "modern-career-networking",
+    "title": "A place to return",
+    "subtitle": "How do you choose a professional community worth returning to?",
+    "centralQuestion": "How do you choose a professional community worth returning to?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "A student joins six technical groups, introduces themselves once in each, and feels invisible. Another attends one project’s discussion repeatedly and begins recognizing recurring problems. Neither pattern guarantees an opportunity. The second at least creates shared context that a later conversation can use."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "Treat a community as people, recurring work, participation rules, and routes for newcomers. Membership alone says little about fit. Examine whether its actual work interests you, whether newcomers can participate safely and respectfully, and whether the time required is sustainable. This is a selection framework, not a promise that persistence produces friendship or employment."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "Imagine two options: a large general career chat and a small Linux documentation group. The chat may offer broad exposure; the documentation group may let you use a tool, notice an unclear instruction, and ask a grounded question. For someone curious about Linux, the second has a concrete entry point. For someone exploring unrelated fields, the broader space could fit better. Choose based on the question you want to pursue, not prestige alone."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Now the small group expects unpaid work every weekend and responds dismissively to beginners. Shared interests do not cancel poor conditions. You can observe, leave, or seek another setting. Contribution is voluntary; repeated contact is useful only when the environment warrants it. No current platform list can substitute for inspecting how people actually interact."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "make-the-work-readable",
+        "relationship": "Connect finding a setting, explaining work, and offering a bounded return. These create shared context at different stages without guaranteeing an opportunity."
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub Open Source Guides — How to contribute",
+        "url": "https://opensource.guide/how-to-contribute/",
+        "note": "Further reading on collaborative participation; community selection and project explanation frameworks here are instructional models.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "make-the-work-readable",
+    "topicId": "modern-career-networking",
+    "title": "Make the work readable",
+    "subtitle": "What lets a stranger understand the value and limits of your work?",
+    "centralQuestion": "What lets a stranger understand the value and limits of your work?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "You say, “I built a learning website.” A listener says, “Cool,” and the conversation stops. They have not seen the decisions hidden inside that sentence: stable lesson identities, review records, or the tension between sustained exploration and passive consumption. An impressive adjective would reveal less than one concrete design choice."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "A useful project account connects problem, decision, evidence, and limitation. The problem gives someone a reason to care. The decision reveals your reasoning. Evidence distinguishes intended behavior from observed behavior. A limitation creates an honest opening for discussion. This structure is a practical communication tool, not a requirement to brand every hobby."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "For a fictional review site: “Returning learners needed their old notes to remain meaningful. I gave each lesson a permanent ID and stored visits separately. I checked that a new visit preserved the earlier note. I have not established whether this improves long-term retention.” The last sentence protects the distinction between software behavior and educational effectiveness. You can invite feedback on the data model without claiming to have solved learning."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Now your listener is a teacher rather than a programmer. Keep the same evidence and change the entry point: explain why stable material matters for comparing reflections before discussing IDs. Adapting the explanation is not inventing achievements. If work was collaborative, identify your contribution and the team’s contribution separately. Omit credentials, personal records, and private user data from public examples."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "a-small-useful-return",
+        "relationship": "Connect finding a setting, explaining work, and offering a bounded return. These create shared context at different stages without guaranteeing an opportunity."
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub Open Source Guides — How to contribute",
+        "url": "https://opensource.guide/how-to-contribute/",
+        "note": "Further reading on collaborative participation; community selection and project explanation frameworks here are instructional models.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "a-small-useful-return",
+    "topicId": "modern-career-networking",
+    "title": "A small, useful return",
+    "subtitle": "How can one conversation become a responsible next step?",
+    "centralQuestion": "How can one conversation become a responsible next step?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "A situation worth slowing down",
+        "body": [
+          "After a workshop, someone mentions that their setup guide confuses new users. You want to stay in touch. “Let me know if you ever need anything” is friendly, but leaves them defining the task and remembering your offer. You could instead propose testing one section with a fresh installation—if that is work you can actually do."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "A model you can use",
+        "body": [
+          "A bounded offer names the object, effort, deliverable, and permission needed. It lowers uncertainty for both people. Open-source contribution guidance emphasizes reading project instructions, choosing suitable work, and responding to feedback. That guidance concerns collaborative projects; it does not mean every professional conversation should become free labor."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Follow the case",
+        "body": [
+          "“Your note about the setup guide interested me. I can spend thirty minutes following the first section and send a short list of unclear steps. Would that help?” This is specific and easy to decline. If accepted, report the environment, exact step, expected result, and observation. Avoid sending a large unsolicited redesign. A useful return can also be a relevant resource or a thoughtful answer rather than a work product."
+        ]
+      },
+      {
+        "kind": "application",
+        "heading": "Change the condition",
+        "body": [
+          "Now there is no reply. You do not know whether the person is busy, uninterested, or missed the message. One proportionate follow-up may be reasonable depending on context; repeated messages do not create an obligation. If you cannot fulfill an accepted offer, say so promptly and release the task. The aim is a reliable interaction, not a debt you can redeem for an introduction."
+        ]
+      },
+      {
+        "kind": "connection",
+        "heading": "Use the model, then test its limits",
+        "body": [
+          "The situations in this lesson are constructed cases, not reports about particular people or institutions. Use them to rehearse a distinction before trying it in a setting you choose. The activities ask for reasoning you can inspect: an alternative explanation, a concrete decision, or a revision after conditions change. There is no single required personality or conversational style.",
+          "Read the linked source for another treatment of the subject. Keep its claims separate from the teaching model offered here. When your own example does not fit, identify which assumption failed instead of forcing the example into the framework. Real-world follow-through can happen later; the required session ends after the two written activities."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "a-place-to-return",
+        "relationship": "Connect finding a setting, explaining work, and offering a bounded return. These create shared context at different stages without guaranteeing an opportunity."
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub Open Source Guides — How to contribute",
+        "url": "https://opensource.guide/how-to-contribute/",
+        "note": "Further reading on collaborative participation; community selection and project explanation frameworks here are instructional models.",
+        "accessed": "2026-11-14"
+      }
+    ]
+  },
+  {
+    "id": "a-mass-between-readings",
+    "topicId": "calculus-ii",
+    "title": "What lies between the readings?",
+    "subtitle": "Three measurements, two mass estimates, and a model that may be too convenient.",
+    "centralQuestion": "When does adding small pieces establish a total—and when does it establish only the consequence of an assumption?",
+    "materials": [
+      {
+        "label": "The instrument record and partition bench",
+        "access": "Supplied on this page. All required measurements and equations are included; no physical apparatus, account, or installation is needed."
+      },
+      {
+        "label": "A way to sketch and calculate",
+        "access": "Pen and paper, or a notes app. A basic calculator is optional. The on-page bench checks the finite-sum arithmetic; the explanations and paper fallback also work without it."
+      }
+    ],
+    "sections": [
+      {
+        "kind": "record",
+        "heading": "A sealed object and an unfinished argument",
+        "body": [
+          "An original imagined investigation with the Nomai characters from Outer Wilds. The mathematics is ordinary real-variable calculus; the record is a constructed case.",
+          "A two-metre rod lies inside a sealed inspection chamber. A scanner can estimate the mass per unit length near a chosen position. It cannot weigh the whole rod. Its surviving record gives three readings: at x=0 m, 1 kg/m; at x=1 m, 2 kg/m; at x=2 m, 3 kg/m. Two researchers have written incompatible totals beside it: 3 kg and 5 kg. Neither has shown the calculation.",
+          "RAMIE has drawn a straight line through the readings. POKE has circled the blank space between them. CLARY has left room for a third result. None of these marks tells us what is actually inside the chamber."
+        ],
+        "probe": "Sketch a density curve consistent with all three readings. Can you sketch another? Propose how someone could obtain 3 kg and someone else 5 kg. Before reading on, write one thing the record establishes and one thing you are assuming."
+      },
+      {
+        "kind": "record",
+        "heading": "A provisional map of the expedition",
+        "body": [
+          "Our opening map has missing relationships: position → local density → a small contribution → an accumulated total. The scanner supplies some local information. The unexplained arrows are where the investigation begins.",
+          "Farther out, the map branches. Could an antiderivative give an exact total? Can a change of variable reveal a simpler description? What if the object is curved, the domain unbounded, or the contributions form an infinite series? Could a polynomial approximate the whole relationship? These are the course’s territories, not vocabulary you must master before starting.",
+          "For now, follow one arrow: how does a density reading become the mass of a piece? Keep the rest of the map available as questions. We will return to it after the model changes."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "What is the scanner measuring?",
+        "body": [
+          "CLARY: One kilogram per metre is not one kilogram. What length did the first researcher assign to that reading?",
+          "RAMIE: Perhaps the rod was divided into two one-metre pieces. The left edge of the first reads 1; the left edge of the second reads 2.",
+          "POKE: That gives three kilograms if each edge reading represents its whole piece.",
+          "CLARY: The right edges read 2 and 3. Five kilograms. Both calculations contain the same unspoken operation.",
+          "RAMIE: Replace an uneven piece with a uniform one, then add its mass.",
+          "POKE: An intelligible approximation. We still owe an argument about its error."
+        ]
+      },
+      {
+        "kind": "investigation",
+        "heading": "The small contribution",
+        "body": [
+          "Linear density λ(x) describes mass per unit length near position x. The Greek letter λ is read “lambda.” For a uniform piece of length Δx, its mass is density times length. If density changes within the piece, choosing one representative reading makes that product an approximation.",
+          "The units carry the mechanism: (kg/m) × m = kg. Adding density readings without lengths would still give kg/m, not a mass. This is why the width of a slice matters as much as the height of a graph.",
+          "Adopt Ramie’s candidate model: density increases linearly from 1 to 3 kg/m over two metres. When x is entered numerically in metres, write λ(x)=1+x kg/m. Dimensionally, the complete expression is λ(x)=(1 kg/m)+(1 kg/m²)x. The three observations fit this law, but do not establish it between the observed points.",
+          "Inside that model, density is nonnegative and increasing. On any piece, its left-edge density is the minimum and its right-edge density the maximum. Multiplying by the positive piece length therefore gives lower and upper mass estimates. This bounding argument uses monotonicity throughout each piece. Three readings alone do not justify that assumption."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "A sum with its assumptions visible",
+        "body": [
+          "For a representative position xᵢ* in piece i: Δmᵢ ≈ λ(xᵢ*) Δxᵢ.",
+          "For n equal pieces over 0≤x≤2 m: Δx=2/n m.",
+          "Lₙ=Σᵢ₌₀ⁿ⁻¹ λ(iΔx)Δx; Rₙ=Σᵢ₌₁ⁿ λ(iΔx)Δx.",
+          "For the assumed increasing density: Lₙ ≤ M ≤ Rₙ. The symbol Σ means add the indexed terms; M denotes total mass. These bounds are claims inside the stated density model."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "Try to narrow the disagreement",
+        "body": [
+          "For two pieces, the left approximation uses densities 1 and 2 with widths 1 m, giving 3 kg. The right approximation uses 2 and 3, giving 5 kg. Both are now explained without calling either an exact mass.",
+          "On paper, divide the rod into four pieces. Their boundaries are x=0, 0.5, 1, 1.5, 2 m. The corresponding model densities are 1, 1.5, 2, 2.5, 3 kg/m. Decide which four enter each sum. Remember the width is now 0.5 m."
+        ],
+        "probe": "Predict the four-piece lower and upper estimates and calculate them before using the bench. Will increasing the number of pieces make each estimate increase, decrease, or stay fixed? Why might midpoint sampling behave differently?"
+      },
+      {
+        "kind": "density-lab",
+        "heading": "The partition bench",
+        "body": [
+          "This bench evaluates the stated linear model, not the unknown physical rod. Change the number of pieces and the sampling position. The rectangle total is the finite sum; the smooth line represents the candidate density law.",
+          "Paper fallback: for n=4, multiply each selected density by 0.5 m and add. For n=8, use boundaries 0, 0.25, 0.5, …, 2 m and widths 0.25 m. Use the left boundary, right boundary, or centre of every piece consistently. No observation is added by changing a setting on this mathematical model."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "The numbers approach one another",
+        "body": [
+          "RAMIE: With four pieces I obtain 3.5 kg from the left and 4.5 kg from the right.",
+          "CLARY: With eight, 3.75 and 4.25. The disagreement has halved.",
+          "POKE: That is promising. A pattern in three calculations is not yet a proof about every refinement.",
+          "RAMIE: Then let us account for the whole gap at once. Each right rectangle exceeds its left companion.",
+          "CLARY: Most density terms cancel when we subtract the totals. Only the two end readings remain.",
+          "POKE: Now the refinement has an explanation."
+        ]
+      },
+      {
+        "kind": "investigation",
+        "heading": "A limit you can justify",
+        "body": [
+          "Subtract the two equal-width sums. Every interior density appears once positively and once negatively. The difference is Rₙ−Lₙ=Δx[λ(2)−λ(0)]=(2/n m)(2 kg/m)=4/n kg. It tends to zero as n grows.",
+          "For this linear model, the average of the first and last left-sample densities is 2−1/n kg/m. Multiplying by the full length gives Lₙ=4−2/n kg. Similarly Rₙ=4+2/n kg. Both approach 4 kg. Since the model mass lies between them for every n, the only possible value is 4 kg.",
+          "The definite integral names the limiting accumulation: M=∫₀²λ(x) dx=4 kg. It is not the sum of densities at infinitely many zero-width points. It is the limit of finite sums of density-times-length contributions. No antiderivative was needed for this argument.",
+          "More generally, continuous densities on a closed bounded interval have a well-defined Riemann integral. As the largest piece width tends to zero, representative-point sums approach the same total. Monotonicity made our simple endpoint bounds available; continuity provides a broader integrability guarantee. We have not proved that general theorem here.",
+          "Midpoint sampling happens to give exactly 4 kg for every equal partition of this linear function. The average of a linear function over a piece equals its value at the centre. That is a special structural fact, not a promise that midpoint sampling always yields an exact answer."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "A different coordinate, the same rod",
+        "body": [
+          "The scanner is switched to centimetres. The rod is now 200 cm long. Would summing 200 times the old density readings preserve mass? First check the units. A density of 1 kg/m is 0.01 kg/cm. A shorter numerical unit requires a smaller density number.",
+          "With y measured in centimetres, x=y/100 metres. The same physical density law has numerical form μ(y)=0.01+0.0001y kg/cm. The accumulated contribution μ(y)Δy equals λ(x)Δx for matching pieces. You changed a representation, not the rod.",
+          "This is a first glimpse of substitution. Later, a useful coordinate change may simplify an expression rather than merely convert units. The invariant is the contribution being accumulated; a variable name and its differential must change together."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "The empty space in the record",
+        "body": [
+          "CLARY: Four kilograms. Have we determined what is inside?",
+          "POKE: We have determined the mass implied by a linear density law.",
+          "RAMIE: The three readings all support that law.",
+          "POKE: They are consistent with it. Imagine extra material concentrated halfway along the first metre, tapering to nothing at its two ends. The scanner’s three recorded positions would miss it.",
+          "CLARY: Refining our calculation would keep reporting four kilograms if we kept supplying the original law.",
+          "RAMIE: Then the bench can make our arithmetic more certain without making our account of the chamber more complete."
+        ]
+      },
+      {
+        "kind": "investigation",
+        "heading": "A supplied counterexample",
+        "body": [
+          "Keep the original density and add a triangular bump over 0≤x≤1 m. The extra density is zero at x=0, rises linearly to 2 kg/m at x=0.5 m, then falls linearly to zero at x=1 m; it stays zero from 1 to 2 m. The extra mass is the triangle’s area: ½(1 m)(2 kg/m)=1 kg.",
+          "This new density agrees with all three recorded readings at x=0,1,2 m, but its total mass is 5 kg. Thus those readings do not uniquely determine the true total. The earlier 3-to-5 kg bounds were derived for the increasing linear model; do not transfer them to arbitrary densities that merely match the samples. A still larger hidden bump could exceed 5 kg.",
+          "Sampling x=0.5 m would distinguish these two particular models. It would not prove that no other unobserved variation exists. Further evidence or justified physical constraints are needed. We can make a precise mathematical conclusion and retain an empirical uncertainty at the same time."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "Return to the map",
+        "body": [
+          "Position → local density: the instrument has supplied three observations; a continuous law between them remains a theory. Local density → small mass: multiply by a piece length, tracking units. Small masses → total: finite sums approach a definite integral when the model supports that limit.",
+          "Our opening 3 kg and 5 kg inscriptions now have a mechanism. They were two approximations under one candidate law. The value 4 kg has a different status: exact within that law, not established for every object compatible with the sparse record.",
+          "Three branches of the expedition are newly approachable. Move the upper endpoint and ask how the accumulated mass changes: this leads to the Fundamental Theorem. Bend the density curve and ask how quickly midpoint estimates improve: this leads to numerical error. Weight each contribution by its location and ask where the rod balances: this leads to moments.",
+          "The wider course will repeatedly revisit this distinction: evaluating a model, choosing its representation, and justifying that it describes the system are related tasks with different evidence. In the visit log, preserve your current theory and a question still worth testing. Uncertainty about a branch is part of the map."
+        ]
+      }
+    ],
+    "connections": [],
+    "sources": [
+      {
+        "label": "OpenStax Calculus Volume 2 • Approximating Areas",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/1-1-approximating-areas",
+        "accessed": "2026-11-15",
+        "note": "Free companion treatment of finite sums and refinement; the chamber record and calculations here are original teaching examples."
+      },
+      {
+        "label": "OpenStax Calculus Volume 2 • Moments and Centers of Mass",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/2-6-moments-and-centers-of-mass",
+        "accessed": "2026-11-15",
+        "note": "Further reading on distributed mass; balancing and moments are open continuations, not prerequisites or required exercises."
+      },
+      {
+        "label": "Calculus II expedition map",
+        "url": "https://github.com/lcstradling-boop/individual-learning-mechanism/blob/main/coordination/courses/calculus-ii.md",
+        "accessed": "2026-11-15",
+        "note": "The rebuilt course design, including integration techniques, geometry, infinite processes, series, Taylor models, and parametric/polar curves."
+      }
+    ]
+  }
 ];

@@ -940,7 +940,6 @@ const voyages = {
       "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
     }
   },
-
   "before-the-verdict": {
     "minutes": 30,
     "thumbnail": {
@@ -1138,6 +1137,30 @@ const voyages = {
         "evidence": "Revise the model when conditions change and explain a limitation rather than claiming certainty."
       }
     ]
+  },
+  "a-mass-between-readings": {
+    "minutes": 32,
+    "activities": [
+      {
+        "kind": "derive",
+        "prompt": "For the linear model λ(x)=1+x kg/m on a 2 m rod, calculate left and right estimates with four and eight equal pieces. Derive the gap 4/n kg for general n. Find the smallest positive integer n making that gap strictly less than 0.1 kg. Use paper and a calculator or the bench for arithmetic checks.",
+        "evidence": "Sample locations and widths are explicit; the limiting argument follows from a bound, not a pattern alone."
+      },
+      {
+        "kind": "transform",
+        "prompt": "Rebuild the four-piece left sum in centimetres using μ(y)=0.01+0.0001y kg/cm on 0≤y≤200 cm. List the four density values, multiply by the correct width, and compare with your metre-based result. Explain what fails if you change the lengths but retain density numbers in kg/m without conversion.",
+        "evidence": "A coordinate change preserves each mass contribution and total units."
+      },
+      {
+        "kind": "construct",
+        "prompt": "Draw the supplied triangular extra-density bump on top of the linear model. Compute its added mass and the new total. Explain why all three original scanner readings are unchanged. Propose one new reading that separates these two models, and state one uncertainty it would leave.",
+        "evidence": "An exact result within a model is distinguished from what sparse observations establish."
+      }
+    ],
+    "feedback": [
+      "For n=4, L=3.5 kg and R=4.5 kg; for n=8, L=3.75 kg and R=4.25 kg. Subtraction telescopes to (2/n)(3−1)=4/n kg. The strict inequality 4/n<0.1 requires n>40, so n=41 is the smallest integer. These are model bounds, not bounds inferred solely from three measurements.",
+      "The four left samples are y=0,50,100,150 cm, with densities 0.01,0.015,0.02,0.025 kg/cm. Their sum is 0.07 kg/cm; multiply by 50 cm to obtain 3.5 kg. Mixing centimetre widths with unconverted kg/m density numbers introduces a factor-of-100 error.",
+      "The extra triangle contributes ½×1×2=1 kg, giving 5 kg total. Its value is zero at all three original sample positions. At x=0.5 m, the linear model predicts 1.5 kg/m and the bumped model 3.5 kg/m. That new observation separates these candidates but does not rule out every other density law."
+    ]
   }
-
 };

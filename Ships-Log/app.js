@@ -179,6 +179,25 @@ function investigationFigure(visual){
  const ticks=points.map(([x,y])=>'<circle cx="'+X(x)+'" cy="'+Y(y)+'" r="4"/><text x="'+X(x)+'" y="285" text-anchor="middle">'+esc(x)+'</text>').join('');
  return '<div class="investigation-figure"><svg viewBox="0 0 680 330" role="img" aria-label="'+esc(visual.xLabel+' against '+visual.yLabel)+'"><line class="axis" x1="80" y1="'+Y(0)+'" x2="620" y2="'+Y(0)+'"/><line class="axis" x1="80" y1="40" x2="80" y2="260"/><polyline points="'+poly+'"/>'+ticks+'<text x="350" y="320" text-anchor="middle">'+esc(visual.xLabel)+'</text><text x="85" y="25">'+esc(visual.yLabel)+'</text><text x="70" y="'+(Y(ymax)+5)+'" text-anchor="end">'+esc(ymax)+'</text>'+(ymin<0?'<text x="70" y="265" text-anchor="end">'+esc(ymin)+'</text>':'')+'</svg><details><summary>Read the plotted values</summary><table><thead><tr><th>'+esc(visual.xLabel)+'</th><th>'+esc(visual.yLabel)+'</th></tr></thead><tbody>'+points.map(([x,y])=>'<tr><td>'+esc(x)+'</td><td>'+esc(y)+'</td></tr>').join('')+'</tbody></table></details></div>';
 }
+function densityLabHtml(){
+ return '<div class="partition-bench" aria-label="Linear density partition bench"><div class="density-controls"><label>Equal pieces<select id="density-pieces" aria-label="Equal pieces"><option>1</option><option selected>2</option><option>4</option><option>8</option><option>16</option></select></label><label>Sample position<select id="density-sample" aria-label="Sample position"><option value="left">Left edge</option><option value="midpoint">Midpoint</option><option value="right">Right edge</option></select></label></div><p>Model: λ(x)=1+x kg/m, with x measured in metres on [0,2].</p><output id="density-result" aria-live="polite"></output><div id="density-plot"></div><details><summary>Inspect each contribution</summary><div class="density-table"><table><thead><tr><th>Piece</th><th>Sample x (m)</th><th>Density (kg/m)</th><th>Length (m)</th><th>Mass (kg)</th></tr></thead><tbody id="density-rows"></tbody></table></div></details><p class="density-caution">The bench changes the partition of a mathematical model. It does not collect new scanner readings.</p></div>';
+}
+function setupDensityLab(){
+ const count=$('#density-pieces'),sample=$('#density-sample');if(!count||!sample)return;
+ function update(){
+  const n=Number(count.value),side=sample.value;
+  if(![1,2,4,8,16].includes(n)||!['left','midpoint','right'].includes(side))return;
+  const h=2/n,offset=side==='left'?0:side==='right'?1:0.5;
+  const rows=Array.from({length:n},(_,i)=>{const x=(i+offset)*h;return {i,x,density:1+x,mass:(1+x)*h}});
+  const total=rows.reduce((sum,r)=>sum+r.mass,0),fmt=x=>Number(x.toFixed(8)).toString();
+  $('#density-result').textContent=(side==='left'?'Left-edge':side==='right'?'Right-edge':'Midpoint')+' sum: '+fmt(total)+' kg. Piece width: '+fmt(h)+' m. Under the increasing linear model, lower bound '+fmt(4-2/n)+' kg; upper bound '+fmt(4+2/n)+' kg.';
+  $('#density-rows').innerHTML=rows.map(r=>'<tr><td>'+String(r.i+1)+'</td><td>'+fmt(r.x)+'</td><td>'+fmt(r.density)+'</td><td>'+fmt(h)+'</td><td>'+fmt(r.mass)+'</td></tr>').join('');
+  const X=x=>65+x*250,Y=y=>260-y*65;
+  const bars=rows.map(r=>'<rect x="'+X(r.i*h)+'" y="'+Y(r.density)+'" width="'+(250*h)+'" height="'+(r.density*65)+'"/><circle cx="'+X(r.x)+'" cy="'+Y(r.density)+'" r="3"/>').join('');
+  $('#density-plot').innerHTML='<svg viewBox="0 0 620 340" role="img" aria-label="Density model and '+n+' rectangles using '+side+' samples. Rectangle area estimates mass. A data table of all contributions is available below.">'+bars+'<path class="model-line" d="M65 '+Y(1)+'L565 '+Y(3)+'"/><path class="axis" d="M65 45V260H575"/><text x="65" y="25">Density (kg/m)</text><text x="270" y="325">Position (m)</text><text x="65" y="288">0</text><text x="310" y="288">1</text><text x="560" y="288">2</text><text x="35" y="265">0</text><text x="35" y="200">1</text><text x="35" y="135">2</text><text x="35" y="70">3</text></svg>';
+ }
+ count.onchange=update;sample.onchange=update;update();
+}
 function sectionHtml(section){
  if(Array.isArray(section))return '<section class="lesson-section"><h2>'+esc(section[0])+'</h2><p>'+esc(section[1])+'</p></section>';
  const body=Array.isArray(section.body)?section.body:[section.body];
@@ -186,7 +205,7 @@ function sectionHtml(section){
   const line=String(paragraph),speaker=section.kind==='dialogue'&&line.match(/^([A-Z]+): (.*)$/s);
   return speaker?'<p class="dialogue-turn"><strong>'+esc(speaker[1])+'</strong><span>'+esc(speaker[2])+'</span></p>':'<p>'+esc(paragraph)+'</p>';
  }).join('');
- return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+paragraphs+investigationFigure(section.visual)+(section.probe?'<aside class="lesson-probe"><strong>Pause and make a theory</strong><p>'+esc(section.probe)+'</p></aside>':'')+'</section>';
+ return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+paragraphs+investigationFigure(section.visual)+(section.kind==='density-lab'?densityLabHtml():'')+(section.probe?'<aside class="lesson-probe"><strong>Pause and make a theory</strong><p>'+esc(section.probe)+'</p></aside>':'')+'</section>';
 }
 function materialsHtml(materials){
  if(!materials?.length)return '';
@@ -226,6 +245,7 @@ function lessonPage(l,log){
  const sources=l.sources||[];
  const old=isLegacy(l);
  main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small>'+(old?'<p class="legacy-notice">Earlier lesson · available to read with your past notes. It is outside current recommendations and reviews.</p>':'')+'<p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+materialsHtml(l.materials)+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+feedbackHtml(voyages[l.id].feedback)+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+(old?'<details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details>':newVisitForm(log,l)+'<details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>');
+ setupDensityLab();
  if(old)return;
  function updateSuggestion(){const suggestion=suggestedReturn();if(suggestion){$('#review-date').value=suggestion.date;$('#review-reason').textContent=suggestion.reason}}
  $('#rate-interpretability').onchange=updateSuggestion;

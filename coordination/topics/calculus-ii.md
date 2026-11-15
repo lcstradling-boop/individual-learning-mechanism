@@ -7,6 +7,13 @@ Integration techniques and applications, sequences, series, approximation, and p
 Concepts used: algebra, trigonometry, limits, derivatives, and basic integration. Diagnose a specific difficulty through the lesson activities rather than assigning blanket review.
 
 ## Published
+
+### Current investigative course
+The course is rebuilt around the [expedition map](../courses/calculus-ii.md).
+
+- [What lies between the readings?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/a-mass-between-readings) · `a-mass-between-readings` · 32 minutes · publication recorded by this file’s commit history.
+
+### Earlier collection (archived)
 Opening collection in [ff27cdc](https://github.com/lcstradling-boop/individual-learning-mechanism/commit/ff27cdcbc5bd31af4ae4e2523fa2df583c7a0f35).
 
 - [The instrument remembers only the total](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/calculus-total) · `calculus-total` · 45 minutes.
