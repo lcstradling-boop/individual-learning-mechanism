@@ -151,12 +151,24 @@ distractors themselves diagnose distinct models.
 
 Estimate the fixed experience Liam will actually complete. Reading length alone
 does not justify duration. Include rereading, calculation, writing, observation,
-tool switching, setup, and time to think. Typical lessons may take 30–100
-minutes; shorter lessons are allowed when honest.
+tool switching, setup, and time to think. There is no prescribed minimum or
+maximum lesson duration. Set a realistic scope and give one fixed estimate in
+minutes; make a long lesson long because its investigation needs the work, not
+because a target time demands it.
 
 Use saved focused time to calibrate later estimates when Liam supplies it. Do
 not expose hidden timing on lesson pages. Record an attempt only after deliberate
 Save Visit.
+
+Focused time measures a visible, focused tab, not continuous attention or
+completion of every activity. Before comparing it with an estimate, check
+whether Liam completed the intended work, skimmed, stopped early, took notes
+outside the tab, or went beyond the assigned activity. If comparable completed
+first visits repeatedly finish far faster than estimated, lower future estimates
+for similar work using the observed range and review the assumptions about
+reading speed, setup, and activity burden. Do not shorten the intellectual work
+solely to match a number. Keep published lessons and historical visits stable;
+record an explicit estimate correction if changing a published estimate.
 
 ## Personalization
 
@@ -191,6 +203,15 @@ question, and reasoning behind the ratings. Treat low confidence as an opening
 for investigation, not failure. A return date is a suggestion based on
 interpretability and cohesiveness; Liam can change or clear it. Earlier theories
 should remain available for comparison without rewriting previous records.
+
+Interpret the measures separately and read Liam's reasoning before proposing a
+change. High intrigue with low interpretability can point to unfamiliar parts;
+high interpretability with low cohesiveness can point to missing relationships.
+High engagement with low worth can signal a compelling presentation without
+lasting weight; high worth with low engagement can signal a topic worth teaching
+differently. These are hypotheses to check against notes and later visits, not
+automatic diagnoses or a combined progress score. Compare theories across
+visits even when a rating falls as Liam discovers a deeper uncertainty.
 
 Never reuse or rename a published lesson ID. A deferred or hidden lesson stays
 available through the Library and returns to suggestions when Liam restores it.
