@@ -143,10 +143,35 @@ document.addEventListener('visibilitychange', () => {
 });
 window.addEventListener('pagehide', discardTiming);
 window.addEventListener('pageshow', resumeTiming);
+function investigationFigure(visual){
+ if(!visual)return '';
+ if(visual.type==='forces'){
+  const labels=visual.labels;
+  const arrows='<path d="M300 145V65 M294 75L300 65L306 75 M300 175V255 M294 245L300 255L306 245 M320 160H485 M475 154L485 160L475 166"/>'+(visual.resistance?'<path d="M280 160H115 M125 154L115 160L125 166"/>':'');
+  return '<svg class="model-diagram" viewBox="0 0 600 310" role="img" aria-label="Free-body diagram: upward normal force, downward weight, rightward applied force'+(visual.resistance?', and leftward resistance.':'. No horizontal resistance in this ideal model.')+'"><rect x="280" y="145" width="40" height="30"/>'+arrows+'<text x="315" y="65">'+esc(labels[0])+'</text><text x="315" y="260">'+esc(labels[1])+'</text><text x="390" y="140">'+esc(labels[2])+'</text>'+(visual.resistance?'<text x="110" y="140">'+esc(labels[3])+'</text>':'')+'</svg>';
+ }
+ if(visual.type==='circle')return '<svg class="model-diagram" viewBox="0 0 600 310" role="img" aria-label="Circular path with a point at its right edge. Velocity is tangent upward; acceleration points left toward the center."><circle class="orbit-path" cx="260" cy="160" r="100"/><circle cx="260" cy="160" r="3"/><circle cx="360" cy="160" r="5"/><path d="M360 160V35 M354 45L360 35L366 45 M360 160H275 M285 154L275 160L285 166"/><text x="375" y="50">Velocity</text><text x="270" y="190">Acceleration</text><text x="195" y="290">Motion vectors, not forces</text></svg>';
+ if(visual.type!=='plot')return '';
+ const points=visual.points;
+ const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
+ const xmin=Math.min(0,...xs),xmax=Math.max(1,...xs),ymin=Math.min(0,...ys),ymax=Math.max(1,...ys);
+ const X=x=>80+(x-xmin)/(xmax-xmin)*540,Y=y=>260-(y-ymin)/(ymax-ymin)*210;
+ const poly=points.map(([x,y])=>X(x)+','+Y(y)).join(' ');
+ const ticks=points.map(([x,y])=>'<circle cx="'+X(x)+'" cy="'+Y(y)+'" r="4"/><text x="'+X(x)+'" y="285" text-anchor="middle">'+esc(x)+'</text>').join('');
+ return '<div class="investigation-figure"><svg viewBox="0 0 680 330" role="img" aria-label="'+esc(visual.xLabel+' against '+visual.yLabel)+'"><line class="axis" x1="80" y1="'+Y(0)+'" x2="620" y2="'+Y(0)+'"/><line class="axis" x1="80" y1="40" x2="80" y2="260"/><polyline points="'+poly+'"/>'+ticks+'<text x="350" y="320" text-anchor="middle">'+esc(visual.xLabel)+'</text><text x="85" y="25">'+esc(visual.yLabel)+'</text><text x="70" y="'+(Y(ymax)+5)+'" text-anchor="end">'+esc(ymax)+'</text>'+(ymin<0?'<text x="70" y="265" text-anchor="end">'+esc(ymin)+'</text>':'')+'</svg><details><summary>Read the plotted values</summary><table><thead><tr><th>'+esc(visual.xLabel)+'</th><th>'+esc(visual.yLabel)+'</th></tr></thead><tbody>'+points.map(([x,y])=>'<tr><td>'+esc(x)+'</td><td>'+esc(y)+'</td></tr>').join('')+'</tbody></table></details></div>';
+}
 function sectionHtml(section){
  if(Array.isArray(section))return '<section class="lesson-section"><h2>'+esc(section[0])+'</h2><p>'+esc(section[1])+'</p></section>';
  const body=Array.isArray(section.body)?section.body:[section.body];
- return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+body.filter(Boolean).map(paragraph=>'<p>'+esc(paragraph)+'</p>').join('')+'</section>';
+ const paragraphs=body.filter(Boolean).map(paragraph=>{
+  const line=String(paragraph),speaker=section.kind==='dialogue'&&line.match(/^([A-Z]+): (.*)$/s);
+  return speaker?'<p class="dialogue-turn"><strong>'+esc(speaker[1])+'</strong><span>'+esc(speaker[2])+'</span></p>':'<p>'+esc(paragraph)+'</p>';
+ }).join('');
+ return '<section class="lesson-section '+esc(section.kind||'')+'"><h2>'+esc(section.heading)+'</h2>'+paragraphs+investigationFigure(section.visual)+'</section>';
+}
+function feedbackHtml(feedback){
+ if(!feedback?.length)return '';
+ return '<details class="investigation-feedback"><summary>Compare your reasoning · open after the activities</summary><p>These checks are available whenever you choose. A matching answer is useful evidence; explain the assumptions and intermediate reasoning as well.</p><ol>'+feedback.map(answer=>'<li>'+esc(answer)+'</li>').join('')+'</ol></details>';
 }
 function activityHtml(activity){
  if(typeof activity==='string')return '<li>'+esc(activity)+'</li>';
@@ -163,7 +188,7 @@ function lessonPage(l,log){
  const {minutes,activities}=voyages[l.id];
  const connections=l.connections||l.links||[];
  const sources=l.sources||[];
- main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small><p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+'<h2>Log this visit</h2><form><label for="insight">Insight from this visit</label><input type="range" id="insight" min="1" max="5" step="1" value="3"><output id="value" for="insight"></output><label>What stayed with you?<textarea id="note"></textarea></label><button>Save visit</button></form><details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details><details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>';
+ main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small><p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+feedbackHtml(voyages[l.id].feedback)+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+'<h2>Log this visit</h2><form><label for="insight">Insight from this visit</label><input type="range" id="insight" min="1" max="5" step="1" value="3"><output id="value" for="insight"></output><label>What stayed with you?<textarea id="note"></textarea></label><button>Save visit</button></form><details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details><details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>';
  const insight=$('#insight');
  function score(){const i=insight.value-1;const text=insight.value+' · '+labels[i]+' · review in '+days[i]+' day'+(days[i]===1?'':'s');$('#value').textContent=text;insight.setAttribute('aria-valuetext',text)}
  score();insight.oninput=score;

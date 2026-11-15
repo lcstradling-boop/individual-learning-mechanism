@@ -24,3 +24,8 @@ Add proposals sparingly. Do not turn every shared word into an edge.
 - `where-the-space-went` ↔ `meter-at-rest` — The meter totals flow across a property boundary over time. A filesystem reports occupied space at an instant. In both cases, locating the boundary tells you what the total can include.
 - `cpu-between-samples` ↔ `four-cold-readings` — Both measurements depend on when you take them. A cold tire reading samples a state, while a CPU percentage summarizes activity over an interval.
 - `toilet-after-midnight` ↔ `oil-level-and-pressure` — Both systems can contain enough fluid while delivering it through an unintended path. The tank exposes that path to a dye test, while engine pressure requires a different measurement.
+
+- `physics-record` ↔ `calculus-total` — Endpoint displacement and integrated velocity both preserve net change while discarding the path; compare physical coordinates with signed accumulation.
+- `physics-slope` ↔ `calculus-rate` — Derivatives describe changing motion; accumulation plus an initial condition reconstructs it.
+- `physics-launch` ↔ `calculus-substitution` — The chain rule connects force integrated over position with a kinetic-energy change expressed through velocity.
+- `physics-launch` ↔ `calculus-estimate` — Sampled force can estimate work; numerical error and uncertainty between samples require different justifications.

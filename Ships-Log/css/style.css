@@ -9,3 +9,26 @@
 .channel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:14px}.channel-card{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:inherit;text-decoration:none}.channel-card:hover{border-color:var(--accent);transform:translateY(-1px)}.channel-card strong,.channel-card span span{display:block}.channel-card strong{font:700 20px/1.2 "Log Serif",serif;margin:3px 0 7px}.channel-card span span{color:var(--quiet);font-size:14px;line-height:1.4}.channel-logo{display:grid;place-items:center;width:64px;height:64px;border-radius:16px;background:color-mix(in srgb,var(--accent) 12%,var(--panel))}.channel-logo img{width:38px;height:38px}.channel-logo.large{width:84px;height:84px}.channel-logo.large img{width:52px;height:52px}.channel-heading{display:flex;align-items:center;gap:20px;margin-bottom:24px}.channel-heading h1{margin:3px 0 0}.empty-channel,.empty-catalog{margin:28px 0;padding:20px;border:1px dashed var(--line);border-radius:12px;color:var(--quiet)}.lesson-section p{font-family:"Log Serif",serif;line-height:1.72}.activities small{display:block;color:var(--quiet);margin-top:4px}.sources{margin-top:32px}
 html[data-theme=dark] .channel-logo img{filter:brightness(2.3) saturate(.7)}
 @media(max-width:650px){.channel-card{grid-template-columns:52px 1fr}.channel-logo{width:52px;height:52px}.channel-logo img{width:32px;height:32px}.channel-heading{align-items:flex-start}.channel-heading h1{font-size:38px}.channel-logo.large{width:64px;height:64px}.channel-logo.large img{width:40px;height:40px}}
+
+/* Investigation records keep dialogue, derivations and optional checks distinct. */
+.lesson-section.dialogue{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:30px 0;background:color-mix(in srgb,var(--panel) 55%,transparent)}
+.dialogue-turn{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding-right:12px}
+.dialogue-turn strong{font:700 12px/1.8 "Log Sans",sans-serif;letter-spacing:.08em;color:var(--accent);padding-top:4px}
+.lesson-section.equation{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin:28px 0}
+.lesson-section.equation h2{margin-top:0;font-size:23px}
+.lesson-section.equation p{font-family:"Log Sans",sans-serif;overflow-wrap:anywhere;line-height:1.9}
+.lesson-section.record{border-left:3px solid var(--line);padding-left:22px}
+.investigation-feedback{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+.investigation-feedback summary{font-weight:700}
+.investigation-figure svg{width:100%;height:auto;display:block;background:var(--panel);border-radius:10px}
+.investigation-figure .axis{stroke:var(--quiet);stroke-width:1.5}
+.investigation-figure polyline{fill:none;stroke:var(--accent);stroke-width:3}
+.investigation-figure circle{fill:var(--accent)}
+.investigation-figure text{fill:var(--ink);font:14px "Log Sans",sans-serif}
+.investigation-figure table{border-collapse:collapse;width:100%}
+.investigation-figure th,.investigation-figure td{border-bottom:1px solid var(--line);text-align:left;padding:8px}
+@media(max-width:650px){.dialogue-turn{grid-template-columns:1fr;gap:2px}.lesson-section.dialogue{padding-left:14px}.lesson-section.equation{padding:14px}nav{gap:8px;font-size:14px}}
+
+.model-diagram{width:100%;height:auto;background:var(--panel);border-radius:10px}.model-diagram path{fill:none;stroke:var(--accent);stroke-width:3}.model-diagram circle,.model-diagram rect{fill:var(--accent)}.model-diagram .orbit-path{fill:none;stroke:var(--line);stroke-width:2}.model-diagram text{fill:var(--ink);font:14px "Log Sans",sans-serif}
+
+@media(max-width:650px){.investigation-figure text,.model-diagram text{font-size:24px}}

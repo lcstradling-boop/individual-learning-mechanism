@@ -1097,5 +1097,1610 @@ const initialLessons = [
         "note": "Read the named article and section alongside the example."
       }
     ]
+  },
+  {
+    "id": "physics-record",
+    "topicId": "physics-i",
+    "title": "The probe returned. Did it go nowhere?",
+    "subtitle": "Two endpoint readings can conceal many journeys.",
+    "centralQuestion": "What can endpoints tell us about a journey, and what must we observe between them?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "RAMIE: The probe left the station and returned twelve seconds later. The displacement is zero.",
+          "PRIVET: Then should the report say it did not travel?",
+          "RAMIE: That would be a remarkably economical journey. Unfortunately, the tracking instrument disagrees.",
+          "PRIVET: Perhaps our report is asking one number to preserve two different things.",
+          "RAMIE: Let us draw two journeys that begin and end here. If the drawings disagree while the endpoint readings agree, those readings cannot determine the journey.",
+          "Pause before continuing: draw one moving journey and one stationary history lasting twelve seconds. Decide which measurements distinguish them."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "A position is a coordinate assigned relative to an origin and axes. It is not a quantity an object carries independently of our description. On a straight track, choose the station as x=0 and the outward direction as positive. Displacement is final position minus initial position. Distance adds the lengths actually traveled, without allowing inward travel to cancel outward travel.",
+          "Average velocity divides displacement by elapsed time; average speed divides distance by elapsed time. Their units agree, but their meanings differ. Equal units are a necessary consistency check, not a proof that two quantities are interchangeable. A zero average velocity can conceal substantial motion.",
+          "Endpoint information supports a claim about net change. It does not establish maximum speed, turning points, time spent resting, or total distance unless further assumptions are supplied. This is an information problem before it is a calculation problem."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "Δx = x_final − x_initial;    v_average = Δx / Δt",
+          "distance = sum of path lengths;    average speed = distance / Δt",
+          "In one dimension, displacement can be positive, negative, or zero. Distance is nonnegative. Always state the chosen positive direction."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Inspect the representation",
+        "body": [
+          "Idealized out-and-back motion. The rising and falling segments have equal and opposite slopes. The corner hides the finite duration of a real turn."
+        ],
+        "visual": {
+          "type": "plot",
+          "xLabel": "Time (s)",
+          "yLabel": "Position (m)",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              18
+            ],
+            [
+              12,
+              0
+            ]
+          ]
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "The probe moves from x=0 to x=18 m during the first 6 s, then returns to x=0 during the next 6 s. Assume constant velocity on each leg and idealize the brief turn. The first leg has velocity +3 m/s and the second −3 m/s. Displacement is 0−0=0 m, while distance is 18+18=36 m. Average velocity is 0 m/s; average speed is 3 m/s.",
+          "Move the origin 100 m to the left. The coordinates become 100, 118, and 100 m. The displacement and distance remain unchanged. Coordinate values changed; the physical journey did not. A moving observer can measure a different displacement over the same interval, which we will investigate separately.",
+          "The sharp corner in this idealized position graph represents an instantaneous velocity change. A real probe takes time to turn. The piecewise model is useful for endpoint accounting, but cannot give a realistic acceleration at the corner."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "The instrument now records x=0 at t=0 and x=12 m at t=12 s. One probe moves steadily at 1 m/s. Another travels outward rapidly, returns partway, and ends at 12 m. Both have average velocity +1 m/s. Only the first has distance 12 m. What additional observation could rule out a reversal? A few extra samples help, but can still miss motion between samples unless a model bounds it."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: endpoint subtraction preserves net change while discarding the path. You can now ask which parts of that hidden history a velocity graph could recover. No test here establishes your general fluency with vectors; it establishes a narrower distinction between position, distance, and displacement."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-total",
+        "relationship": "A definite integral also preserves a net total; its integrand describes the history that endpoints alone conceal."
+      },
+      {
+        "lessonId": "physics-slope",
+        "relationship": "Derivatives recover local information from a sufficiently detailed position model."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Position and displacement",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-slope",
+    "topicId": "physics-i",
+    "title": "The slope changed before the direction did",
+    "subtitle": "Negative acceleration does not necessarily mean backward motion.",
+    "centralQuestion": "How do velocity and acceleration together determine whether an object is speeding up?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "PYE: The acceleration is negative. We should look for the probe behind us.",
+          "RAMIE: It remains ahead and is still moving outward.",
+          "PYE: Then the sign has told us less than I requested of it.",
+          "RAMIE: It tells us how velocity changes, relative to our chosen axis. We still need the velocity itself.",
+          "PYE: Let us predict when it turns. If we merely say “negative means backward,” we cannot even agree about which graph to draw.",
+          "Before reading the model, sketch a positive velocity that decreases through zero. Mark where the probe slows, stops for an instant, and speeds up."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Velocity is the instantaneous slope of position against time. Acceleration is the instantaneous slope of velocity against time. A negative slope in the velocity graph means velocity becomes more negative, not necessarily that velocity already is negative.",
+          "In one dimension, nonzero velocity and acceleration with the same sign imply increasing speed. Opposite signs imply decreasing speed. At v=0, inspect neighboring times rather than applying a sign slogan. Speed is |v| and can have a corner where velocity crosses zero.",
+          "Differentiation can discard information. Knowing a(t) determines changes in velocity, but an initial velocity is needed to choose one velocity history. Likewise, an initial position is needed after integrating velocity. These constants encode physical information, not an inconvenience of notation."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "v(t) = dx/dt;    a(t) = dv/dt = d²x/dt²",
+          "For v ≠ 0: d|v|/dt = sign(v) a.",
+          "For constant a: v(t)=v₀+at; x(t)=x₀+v₀t+½at². These formulas require constant acceleration."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Inspect the representation",
+        "body": [
+          "Velocity decreases linearly. Positive values before 3 s mean outward motion; negative values afterward mean inward motion."
+        ],
+        "visual": {
+          "type": "plot",
+          "xLabel": "Time (s)",
+          "yLabel": "Velocity (m/s)",
+          "points": [
+            [
+              0,
+              6
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              5,
+              -4
+            ]
+          ]
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Let x₀=0 m, v₀=6 m/s, and a=−2 m/s² for 0≤t≤5 s. Then v=6−2t and x=6t−t². At t=2 s, v=+2 m/s: the probe is moving outward but slowing. At t=3 s, v=0 and x=9 m: it turns. At t=4 s, v=−2 m/s: it is moving inward and speeding up.",
+          "At t=5 s, x=5 m. The total distance is 9 m outward plus 4 m inward, or 13 m. The endpoint displacement is only 5 m. Acceleration stayed negative throughout; the role of that acceleration relative to motion changed at the turning point.",
+          "Differentiate the position formula to check the velocity; differentiate again to check acceleration. A derivative check cannot determine whether the assumed constant acceleration matches a real instrument record. Mathematical consistency and empirical adequacy are distinct checks."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "Now let a(t)=−2t m/s² when t is measured in seconds. Keeping the same initial velocity gives v(t)=6−t², not 6−2t². Integration accumulates the changing acceleration. The turn occurs at √6 s. The constant-acceleration formulas no longer apply, although the derivative definitions still do."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: acceleration changes velocity, while velocity determines the direction of travel. The next question is what physical interaction produces that change. The calculus course approaches the same structure through accumulation functions."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-record",
+        "relationship": "Use graph shape to recover path information that endpoints conceal."
+      },
+      {
+        "lessonId": "calculus-rate",
+        "relationship": "An accumulation function restores changing state from a rate plus an initial condition."
+      },
+      {
+        "lessonId": "physics-coasting",
+        "relationship": "A force model explains the acceleration that these graphs only describe."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Acceleration",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/3-3-average-and-instantaneous-acceleration",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-observers",
+    "topicId": "physics-i",
+    "title": "Two observers, one trajectory",
+    "subtitle": "A moving platform changes the description of a launch.",
+    "centralQuestion": "Which features of a trajectory change when the observer moves at constant velocity?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "CONOY: The object returned directly to its release point.",
+          "CLARY: My record shows it landing several metres to the right.",
+          "CONOY: Shall we inspect our clocks?",
+          "CLARY: First, our platforms. You traveled with the release point. I remained beside the track.",
+          "CONOY: Then our disagreement may be a transformation between descriptions, rather than a disagreement about the event.",
+          "Sketch both views before calculating. Does an object released upward from a steadily moving platform lose its horizontal velocity?"
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "A vector specifies magnitude and direction. In a chosen Cartesian frame, its components are signed numbers along perpendicular axes. Components are not separate objects; they are a representation of one vector. A velocity of (3,4) m/s has speed √(3²+4²)=5 m/s.",
+          "For two inertial frames with parallel axes, coordinate origins coinciding at t=0, and relative horizontal velocity u, use x′=x−ut and y′=y. Thus v′x=vx−u, while acceleration is unchanged because u is constant. This is the classical Galilean model, appropriate far below the speed of light.",
+          "Projectile equations separate into horizontal and vertical components when gravity is uniform and air resistance is negligible. Independence means the equations decouple under those assumptions. It does not mean an observer sees two physical motions occurring separately. Both components share the same time."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "x=x₀+v₀x t;    y=y₀+v₀y t−½gt²",
+          "v₀x=v₀ cos θ;    v₀y=v₀ sin θ",
+          "For a platform moving at constant u: x′=x−ut; v′x=vx−u; a′=a."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Use g=10 m/s² as a deliberately rounded model value. A platform moves at +3 m/s. It launches a small object vertically at 10 m/s relative to itself, from height y=0. In the ground frame, v₀=(3,10) m/s. The object returns to launch height when 0=10t−5t², giving t=2 s besides the release instant. Its ground-frame landing position is x=6 m.",
+          "The platform also travels 6 m. In its frame, x′=3t−3t=0 at every instant. One observer sees a vertical path and another a parabola, but both identify the same reunion. At the highest point, vertical velocity is zero; ground-frame speed is 3 m/s, whereas platform-frame speed is zero.",
+          "The maximum height occurs at t=1 s and is 5 m above release. These results depend on equal release and landing heights. A universal-looking range formula often conceals that condition."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "If the platform accelerates after launch, x′=x−x_platform(t) still transforms position, but a′=a−a_platform. The moving frame is no longer inertial. If drag matters, horizontal acceleration need not vanish, and the simple component equations must be replaced by the appropriate force model. Keeping axes perpendicular does not restore the old assumptions."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: observers can disagree about paths and velocities while agreeing about the same physical meeting. You can now ask which laws retain their form between inertial observers. Later orbital paths will require varying directions of gravity rather than the uniform field used here."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-slope",
+        "relationship": "Apply derivative definitions to each coordinate and keep direction distinct from speed."
+      },
+      {
+        "lessonId": "physics-turning",
+        "relationship": "Circular motion changes velocity direction even when speed remains fixed."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Relative motion",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/4-5-relative-motion-in-one-and-two-dimensions",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-coasting",
+    "topicId": "physics-i",
+    "title": "What keeps the probe moving?",
+    "subtitle": "An engine explains a change in motion, not the mere existence of motion.",
+    "centralQuestion": "What does a force diagram predict after a probe’s engine shuts down?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "CASSAVA: The engine is silent. What keeps the probe moving?",
+          "PYE: Your question seems to require a continuing explanation for velocity. What if interactions explain changes in velocity?",
+          "CASSAVA: Then propose an observation that separates those accounts.",
+          "PYE: Track the velocity after shutdown in a region where the other forces are negligible.",
+          "CASSAVA: And if it changes?",
+          "PYE: We must investigate the interactions we neglected. “No engine” is not equivalent to “no force.”"
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Newton’s first law identifies inertial frames: an isolated object has constant velocity. Rest is one possible constant velocity. The second law relates net external force to acceleration; for constant mass, sum all external force vectors and divide by mass.",
+          "A free-body diagram isolates one object and shows forces acting on it. Each arrow should have a physical source: another object or field. Velocity is useful on a separate motion diagram, but is not a force. “Forward force from motion” adds an interaction that has not been identified.",
+          "Newton’s third law pairs forces on different objects. The force the engine exhaust exerts on a probe and the force the probe exerts on exhaust cannot cancel in the probe’s own free-body diagram. Whether they are internal depends on the system chosen. Here we idealize a short powered interval with approximately constant mass; actual rockets lose mass and need momentum-flow accounting."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "ΣF_external = ma  (constant mass, inertial frame)",
+          "a=0 implies v is constant; it does not imply v=0.",
+          "F_A on B = −F_B on A. These forces act on different objects."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Isolate the object",
+        "body": [
+          "A schematic free-body diagram while the object moves or is pulled to the right. Arrows identify interactions, not a velocity. Vertical forces balance in these level-track examples. Arrow lengths are schematic, not numerical force measurements."
+        ],
+        "visual": {
+          "type": "forces",
+          "labels": [
+            "Normal force N",
+            "Weight mg",
+            "Applied force",
+            "No horizontal resistance in the ideal model"
+          ],
+          "resistance": false
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "An idealized 2 kg cart on a horizontal nearly frictionless track initially travels at +3 m/s. A horizontal actuator applies +4 N for 2 s. The vertical normal force balances weight; the horizontal net force is +4 N. Therefore a=2 m/s², final v=7 m/s, and displacement during the push is 3(2)+½(2)(2²)=10 m.",
+          "After the actuator disengages, assume residual friction is negligible. Net force becomes zero. The cart continues at +7 m/s, covering 21 m over the next 3 s. Its acceleration changes at disengagement, but velocity does not instantly jump. An instantaneous velocity jump would require an idealized impulse rather than an ordinary finite force.",
+          "If the observed speed decreases, the inertial model does not automatically fail. A small drag or contact force may have been omitted. Estimate that missing net force from measured acceleration before inventing a different principle."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "A constant resistive force of −1 N remains after disengagement. The cart’s acceleration is now −0.5 m/s² while it moves forward, so it slows. Our prediction changed because the inventory of interactions changed. Once it stops, a constant backward “friction” cannot be extended blindly: friction opposes actual or impending relative slipping, so its model needs reconsideration."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: motion and force are different levels of description. You can now investigate how contact forces adjust to constraints rather than assuming every force is independently specified."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-slope",
+        "relationship": "The same acceleration can produce different motion depending on initial velocity."
+      },
+      {
+        "lessonId": "physics-floor",
+        "relationship": "A normal force or static friction can be determined by a constraint, rather than assigned in advance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Newton’s second law",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-floor",
+    "topicId": "physics-i",
+    "title": "The floor is part of the experiment",
+    "subtitle": "A stationary sled can have changing friction.",
+    "centralQuestion": "How do constraints determine contact forces before an object begins to slide?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "ROOT: The sled has not moved. I increased the pull, but friction still balances it.",
+          "COLEUS: Then friction has changed.",
+          "ROOT: I had written μN as though it were a fixed answer.",
+          "COLEUS: Is that expression a measured force, or a limit on the force this surface can provide?",
+          "ROOT: Let us predict the pull at which the two accounts differ.",
+          "Draw the stationary sled first. Label every interaction and identify which acceleration components are constrained to zero."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "A normal force is the contact force perpendicular to a surface. It is not automatically equal to mg. Its value follows from the force balance perpendicular to the surface, provided contact is maintained. Static friction acts tangentially and adjusts within a range to prevent relative slipping.",
+          "The idealized dry-friction model gives |f_s|≤μ_sN. Equality describes the impending-slip threshold, not every stationary state. During sliding, the approximate kinetic model is |f_k|=μ_kN, opposing relative motion. Coefficients summarize a complex contact process and are empirical approximations.",
+          "For an incline at angle θ, choose one axis along the slope and one perpendicular to it. Resolve gravity into mg sin θ down the slope and mg cos θ into the surface. This coordinate choice simplifies the constraints; it does not rotate gravity itself."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "Along a level surface with a horizontal pull and no vertical acceleration: N=mg.",
+          "While stationary: f_s=−F_pull, provided |F_pull|≤μ_sN.",
+          "Sliding along an incline: ΣF_parallel=ma; if no other perpendicular forces act, N=mg cos θ."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Isolate the object",
+        "body": [
+          "A schematic free-body diagram while the object moves or is pulled to the right. Arrows identify interactions, not a velocity. Vertical forces balance in these level-track examples. Arrow lengths are schematic, not numerical force measurements."
+        ],
+        "visual": {
+          "type": "forces",
+          "labels": [
+            "Normal force N",
+            "Weight mg",
+            "Applied force",
+            "Resistance"
+          ],
+          "resistance": true
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Use m=10 kg, g=10 m/s², μ_s=0.40, and μ_k=0.30. On a horizontal surface N=100 N. A 20 N pull is balanced by 20 N static friction. A 35 N pull is balanced by 35 N static friction. The largest sustainable static-friction magnitude in this model is 40 N.",
+          "At a 45 N pull, a stationary balance would require 45 N friction, exceeding that limit. Once sliding forward, kinetic friction is approximately 30 N backward. Net force is 15 N and acceleration is 1.5 m/s². The transition changes the friction model, not Newton’s law.",
+          "Now remove the pull and tilt the stationary surface. Static friction can support equilibrium if mg sin θ≤μ_s mg cos θ, or tan θ≤μ_s. With μ_s=0.40, the threshold angle is about 21.8°. At a smaller angle, friction is mg sin θ, not μ_smg cos θ."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "Pull the sled upward at an angle α. If it stays on the level floor with zero vertical acceleration, N=mg−F sin α. The pull changes both the horizontal driving force and the available friction. If this equation predicts N<0, contact has been lost and the assumed contact model is invalid. A negative normal force is a diagnostic, not a floor pulling the sled downward."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: some forces are responses needed to satisfy a constraint, within a physical limit. You can now recognize why choosing axes and testing inequalities come before inserting numbers into a friction formula."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-coasting",
+        "relationship": "Newton’s law remains the same while the contact-force model changes."
+      },
+      {
+        "lessonId": "physics-boundary",
+        "relationship": "System boundaries determine which contact interactions count as external."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Friction",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/6-2-friction",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-turning",
+    "topicId": "physics-i",
+    "title": "The engine is silent. Why is the probe accelerating?",
+    "subtitle": "An unchanging speed can hide a continuously changing velocity.",
+    "centralQuestion": "Why does constant-speed circular motion require a net inward force?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "AVENS: Its speed is perfectly steady. A successful coast!",
+          "RAMIE: Its direction changes throughout the record.",
+          "PYE: Then draw the velocity arrows. We must stop asking the speedometer to describe the entire velocity.",
+          "AVENS: The arrows have the same length.",
+          "RAMIE: Place their tails together. There is still a difference between them.",
+          "PYE: What direction does that difference approach as the interval becomes small?"
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "On a circular path, velocity is tangent to the circle. Two nearby tangents differ even when their lengths agree. Acceleration measures that vector change divided by elapsed time. For constant-speed circular motion its direction is inward, perpendicular to instantaneous velocity.",
+          "For a small swept angle Δθ measured in radians, the velocity-vector change has magnitude approximately vΔθ. Meanwhile the distance traveled along the circle is rΔθ=vΔt. Combine these to find |Δv|/Δt≈v²/r; the limit gives the exact instantaneous result.",
+          "“Centripetal force” names the inward net-force component required by the motion. Gravity, tension, contact, or a combination can supply it. Do not draw an extra centripetal-force arrow in addition to those physical interactions. If speed also changes, acceleration additionally has a tangential component."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "a_radial=v²/r;    ΣF_inward=mv²/r",
+          "T=2πr/v, where T is the period of one revolution.",
+          "For changing speed: a_tangential=dv/dt; inward and tangential components are perpendicular."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Direction is part of velocity",
+        "body": [
+          "At the rightmost point of the counterclockwise circular path, velocity points upward and acceleration points toward the center. These are motion vectors, not a free-body diagram; identify the physical source of force separately."
+        ],
+        "visual": {
+          "type": "circle"
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "A 2 kg object travels at 4 m/s in a horizontal circle of radius 8 m. Its inward acceleration is 16/8=2 m/s² and required inward net force is 4 N. The period is 2π(8)/4=4π s, about 12.6 s. In an ideal overhead view, a string could provide the inward force while vertical forces balance.",
+          "Double speed while holding radius fixed: acceleration becomes 64/8=8 m/s² and inward force becomes 16 N. Four times the force is required, not twice. Double radius at the original speed and acceleration halves. These are conditional comparisons: changing radius while instead holding angular speed fixed gives a different scaling.",
+          "If the string breaks, its force disappears. At that instant, the object retains its tangent velocity; it does not acquire an outward radial velocity merely because the constraint vanished. Subsequent motion depends on the remaining forces."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "With angular speed ω=v/r, the same relation becomes a_radial=ω²r. Does increasing radius increase or decrease acceleration? It depends on whether v or ω is held fixed. Apparent contradictions in proportional reasoning often come from changing the controlled quantity without saying so. A formula is a relationship among variables, not a one-variable slogan."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: changing direction is acceleration, and the motion specifies a required inward net force. This opens a future orbital question: can gravity supply exactly that requirement? No claim here uses the game’s gravity or planetary scale as real-world evidence."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-observers",
+        "relationship": "Velocity is a vector whose representation and change must be tracked component by component."
+      },
+      {
+        "lessonId": "physics-launch",
+        "relationship": "Work depends on the component of force along motion; an inward force can redirect velocity without increasing speed."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Uniform circular motion",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/6-3-centripetal-force",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-launch",
+    "topicId": "physics-i",
+    "title": "How much does a launch cost?",
+    "subtitle": "A total energy transfer does not determine the force history.",
+    "centralQuestion": "How can work predict launch speed without reconstructing the entire acceleration history?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "AVENS: Twice the launch speed should require twice the energy.",
+          "PRIVET: That is a hypothesis. Shall we derive the relationship before adjusting the apparatus?",
+          "AVENS: The force rises as the carriage travels. I would rather not solve for every instant.",
+          "PRIVET: Then let us add what the force contributes over each small displacement. We must preserve direction: a force perpendicular to travel is a different case.",
+          "Predict whether doubling launch speed will double, quadruple, or otherwise change the required net work. Defend a guess before continuing."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Work accumulates force along displacement. For a constant force, W=F d cos θ, where θ is the angle between force and displacement. For changing force along a straight coordinate, W=∫F_x(x) dx. The sign records energy transfer to or from kinetic energy by that force.",
+          "For constant mass, Newton’s law gives F_net=ma. Along a one-dimensional path where the change of variables is valid, a=v dv/dx, so F_net dx=mv dv. Integrating yields net work equal to the change in ½mv². More generally the vector work–energy theorem gives the same result.",
+          "Net work includes every force’s contribution. An actuator’s positive work need not all become kinetic energy if friction also does negative work. Power describes the rate of energy transfer, not an additional kind of energy. Instantaneous power is F·v; average power is work divided by elapsed time."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "W_net = ∫ F_net · dr = ΔK;    K=½mv²",
+          "For a straight path: W=∫[a to b] F_x(x) dx.",
+          "P_average=W/Δt;    P_instantaneous=F·v. Units: N m=J; J/s=W (watt)."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Inspect the representation",
+        "body": [
+          "The actuator force rises with position. The triangular area under this graph is work, measured in joules."
+        ],
+        "visual": {
+          "type": "plot",
+          "xLabel": "Position (m)",
+          "yLabel": "Force (N)",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "An ideal launcher pushes a 2 kg carriage from rest along x=0 to x=3 m with F_x(x)=4x N when x is in metres. Neglect resistance. The work is ∫₀³4x dx=[2x²]₀³=18 J. Thus ½(2)v²=18, giving final speed √18≈4.24 m/s. The force–position graph is a triangle with base 3 m and height 12 N, also giving area 18 J.",
+          "Now include constant 2 N resistance over the same distance. Its work is −6 J, so net work is 12 J and final speed is √12≈3.46 m/s. The actuator still delivers 18 J; the kinetic-energy increase is smaller.",
+          "If a different launcher delivers the same net work in less time, final kinetic energy is unchanged but average power is larger. The work calculation alone does not provide the launch duration or peak force. Several histories can deliver the same total."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "An inward force on a constant-speed circular trajectory is perpendicular to the displacement at each instant, so it does no work despite producing acceleration. This is not an exception to Newton’s law. Work tracks changes in speed through kinetic energy; it does not preserve all information about changes in velocity direction."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: integrating force over displacement can determine a change in kinetic energy while leaving the detailed trajectory unknown. Numerical accumulation becomes useful when the force is available only as measured samples."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-substitution",
+        "relationship": "Substitution makes the chain rule behind a change of integration variable precise."
+      },
+      {
+        "lessonId": "calculus-estimate",
+        "relationship": "Sampled force measurements can estimate work without an exact force formula."
+      },
+      {
+        "lessonId": "physics-turning",
+        "relationship": "A perpendicular force changes direction while doing no work."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Work–energy theorem",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/7-3-work-energy-theorem",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "physics-boundary",
+    "topicId": "physics-i",
+    "title": "What crossed the boundary?",
+    "subtitle": "A capture can conserve momentum while changing kinetic energy.",
+    "centralQuestion": "How does the choice of system determine whether momentum is conserved?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "YARROW: The probe has been caught. Which quantity should we compare before and after?",
+          "CASSAVA: Energy, surely.",
+          "DAZ: Total energy, yes, if we account for every form and transfer. But is the kinetic energy unchanged?",
+          "CASSAVA: The catcher warmed and deformed. That seems inconvenient.",
+          "DAZ: Perhaps momentum answers our question with fewer unknowns. First, draw the boundary.",
+          "YARROW: Around the probe alone, or around the probe and catcher together?",
+          "DAZ: That choice determines which forces remain external."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Linear momentum is p=mv. Newton’s second law in momentum form is ΣF_external=dp/dt. Integrating over a time interval gives impulse equal to momentum change. A large force acting briefly can deliver the same impulse as a small force acting longer.",
+          "For a system of interacting bodies, internal forces cancel in the total momentum balance under the classical assumptions used here. Total momentum is conserved when net external impulse is zero, or approximately conserved when that impulse is negligible over the event. The forces between bodies can be enormous without violating this condition.",
+          "Kinetic energy is not conserved in a perfectly inelastic collision, where the bodies stick together. Total energy remains accountable through internal energy, deformation, sound, and transfer across the chosen boundary. “Energy was lost” is incomplete unless it specifies kinetic energy or an identified transfer."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "p_total = Σ m_i v_i",
+          "J_external = ∫[t₁ to t₂] ΣF_external dt = p_final − p_initial",
+          "For a sticking collision with negligible external impulse: m₁u₁+m₂u₂=(m₁+m₂)v."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "A 2 kg probe moving at +6 m/s is captured by a 4 kg catcher initially at rest on an ideal horizontal frictionless track. Choose both bodies as the system. Their horizontal external impulse is negligible. Initial momentum is 12 kg m/s, so their common final velocity is 12/6=2 m/s.",
+          "Initial kinetic energy is ½(2)(6²)=36 J. Final kinetic energy is ½(6)(2²)=12 J. The 24 J difference goes into other forms of energy in this idealized closed capture model. Momentum conservation did not imply kinetic-energy conservation.",
+          "For the probe alone, momentum changes from 12 to 4 kg m/s, so its impulse is −8 N s. For the catcher alone, the impulse is +8 N s. If capture lasts 0.20 s, the average horizontal force on the probe is −40 N. This average does not reveal the peak force.",
+          "If you choose only the probe, the catcher’s force is external and probe momentum is not conserved. Redrawing a boundary does not change the event; it changes the accounting."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "Now bolt the catcher to a station. The station provides external impulse to the probe–catcher system, so its horizontal momentum need not be conserved. Expanding the boundary to include the station and ultimately its support can restore a larger accounting, but does not justify using the earlier two-body formula unchanged. State which external impulse is negligible and why."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: a conservation law is a claim about a specified system over a specified interval. You can now compare force, energy, and momentum methods by the information each requires and preserves. Rotation will later add angular momentum, with a similar need to examine external influence."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-floor",
+        "relationship": "Contact interactions become internal or external according to the selected boundary."
+      },
+      {
+        "lessonId": "physics-launch",
+        "relationship": "Work changes kinetic energy; impulse changes momentum. Integrating different quantities answers different questions."
+      },
+      {
+        "lessonId": "calculus-total",
+        "relationship": "Equal accumulated totals can conceal different force histories."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax University Physics 1 • Conservation of momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/9-3-conservation-of-linear-momentum",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-total",
+    "topicId": "calculus-ii",
+    "title": "The instrument remembers only the total",
+    "subtitle": "Accumulation preserves a result while concealing its history.",
+    "centralQuestion": "What does a definite integral preserve, and what information can it discard?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "PHLOX: This instrument records how much has crossed the boundary. Can we reconstruct when it crossed?",
+          "DAZ: Not from the final reading alone. We could invent several histories consistent with it.",
+          "PHLOX: Then let us try. If our accounts disagree but both match the instrument, the ambiguity belongs to the evidence.",
+          "DAZ: We should also ask whether reverse flow subtracts from this reading.",
+          "PHLOX: A small design decision with a rather large effect on what “total” means.",
+          "Before continuing, draw two different nonnegative flow-rate graphs with equal area over the same interval."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Accumulation begins with small contributions. If a rate is roughly constant over a short interval Δt, the contribution is approximately rate times Δt. Adding these products gives a Riemann sum. For an integrable function, refining the partition yields a definite integral. Continuous functions on closed bounded intervals are integrable.",
+          "An integral is signed accumulation. A positive rate adds and a negative rate subtracts. Geometric area between a graph and an axis requires absolute values where the function is negative. The distinction has physical consequences: integrate velocity for displacement and speed for distance.",
+          "Dimensions travel through the construction. A velocity in m/s multiplied by a time interval in s contributes metres. A force in N multiplied by a displacement in m contributes joules. “Area under a graph” is a geometric representation; the axes determine the physical meaning.",
+          "The integral can be identical for very different functions. That is not a defect. It is what a total does: preserves one aspect of a history while discarding others. Do not infer peak rate or duration of individual events from a single total."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "Riemann sum: Σ f(t_i*) Δt_i",
+          "Signed accumulation: ∫[a to b] f(t) dt",
+          "Displacement=∫v(t)dt; distance=∫|v(t)|dt. For a<b, reversing limits changes the sign."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Inspect the representation",
+        "body": [
+          "The positive and negative triangular regions cancel for displacement. They add for total distance."
+        ],
+        "visual": {
+          "type": "plot",
+          "xLabel": "Time (s)",
+          "yLabel": "Velocity (m/s)",
+          "points": [
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              4,
+              -2
+            ]
+          ]
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "A probe travels at +3 m/s for 0≤t<2 s and −1 m/s for 2≤t≤5 s. The signed integral is 3(2)+(−1)(3)=3 m. The distance is 3(2)+1(3)=9 m. If x(0)=4 m, then x(5)=7 m. The integral supplies the change; the initial condition supplies the starting state.",
+          "For a smooth example, ∫₀² t dt=[t²/2]₀²=2. A constant function f(t)=1 over the same interval also integrates to 2. One rises while the other stays level. Their endpoint totals agree, but their pointwise behavior does not.",
+          "You can test additivity by splitting the interval at any intermediate point c: the total over [a,b] equals the total over [a,c] plus [c,b]. The pieces must retain their signs. This will become important when a velocity crosses zero or when a measurement changes regime."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "A meter may report cumulative throughput rather than signed net flow. In that case its rate is |q(t)|, not q(t), if q is the signed flow. Before evaluating an integral, determine what the instrument actually records. Correct integration cannot repair an incorrectly modeled quantity."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: an integral accumulates specified contributions over a specified variable. You can now investigate how the accumulated total itself changes when its endpoint moves. That question leads directly to the Fundamental Theorem of Calculus."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-record",
+        "relationship": "Both endpoint displacement and integrated velocity summarize net change while concealing the path."
+      },
+      {
+        "lessonId": "calculus-rate",
+        "relationship": "Moving the endpoint turns a definite total into a function whose derivative can recover the rate."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Definite integral",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/1-2-the-definite-integral",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-rate",
+    "topicId": "calculus-ii",
+    "title": "Can the record reveal its own rate?",
+    "subtitle": "A moving endpoint connects accumulation to instantaneous change.",
+    "centralQuestion": "Why does differentiating an accumulation function recover its integrand?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "RAMIE: At each instant, I have a new accumulated total. It is no longer a single number.",
+          "POKE: Then compare two nearby totals. What differs between them?",
+          "RAMIE: Only the contribution from the short new interval.",
+          "POKE: Divide that contribution by the interval length. What happens as the interval shrinks?",
+          "RAMIE: If the rate is continuous there, the average over that interval approaches the rate at its endpoint.",
+          "POKE: Now we have a reason for the theorem, rather than a password for using it."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Define A(x)=∫ₐˣ f(t)dt. The symbol t is a dummy integration variable; x determines the upper endpoint. For small h, A(x+h)−A(x)=∫ₓˣ⁺ʰ f(t)dt. Dividing by h gives the average value of f over that short interval. If f is continuous at x, the average tends to f(x), so A′(x)=f(x).",
+          "This explains one part of the Fundamental Theorem. Another part evaluates a definite integral using any antiderivative F: ∫ₐᵇf(x)dx=F(b)−F(a), under the usual continuity assumptions here. The endpoint subtraction is justified by the derivative–accumulation relationship, not by a definition that every integral must possess an elementary antiderivative.",
+          "If the upper endpoint is g(x), apply the chain rule: the rate at the moving endpoint is multiplied by the rate at which that endpoint moves. If both endpoints move, subtract the lower endpoint’s contribution.",
+          "A is not generally equal to f. A can increase while f decreases, provided f remains positive. A′ determines rising or falling; A″=f′ determines concavity where the derivatives exist."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "A(x)=∫[a to x] f(t)dt;    A′(x)=f(x), when f is continuous at x.",
+          "d/dx ∫[a to g(x)] f(t)dt = f(g(x))g′(x)",
+          "d/dx ∫[h(x) to g(x)] f(t)dt = f(g(x))g′(x)−f(h(x))h′(x)."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Let f(t)=2−t and A(x)=∫₀ˣ(2−t)dt on [0,4]. Evaluating gives A(x)=2x−x²/2. It rises until x=2, where A=2, then falls to A(4)=0. The accumulated function is concave down throughout because A″=−1. A(0)=0 follows from its construction, not from differentiating.",
+          "Consider B(x)=∫₀ˣ²(1+t²)dt. The endpoint is x², so B′(x)=(1+x⁴)2x. You do not need to evaluate B first. Check by evaluating: B=x²+x⁶/3, whose derivative is 2x+2x⁵.",
+          "A rate law alone leaves a family of possible states. If x′(t)=2−t, then x(t)=2t−t²/2+C. The observation x(0)=5 fixes C=5. An initial condition selects a member of the family."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "If f jumps, do not assume the derivative identity holds at the jump. For f=1 before x=1 and f=3 after x=1, its accumulation function is continuous but has a corner at 1. The one-sided slopes differ. The integral still exists; the differentiability conclusion needs its hypotheses."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: local change and accumulated change are connected through a limit. You can now justify changing variables in an integral, rather than treating substitution as symbol replacement."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-substitution",
+        "relationship": "The chain rule for moving endpoints supplies the structure behind substitution."
+      },
+      {
+        "lessonId": "physics-slope",
+        "relationship": "Initial conditions restore the state information discarded by differentiation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Fundamental Theorem",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/1-3-the-fundamental-theorem-of-calculus",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-substitution",
+    "topicId": "calculus-ii",
+    "title": "Choose a coordinate that follows the change",
+    "subtitle": "Substitution changes the description without changing the accumulated quantity.",
+    "centralQuestion": "Why does a change of variable require both a differential factor and transformed bounds?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "CLARY: The expression contains a function inside another function, and beside it something resembling its derivative.",
+          "POKE: Then the inner function may be a better coordinate.",
+          "CLARY: May I simply replace the inner expression with u?",
+          "POKE: Only if you also account for how a small change in x becomes a change in u.",
+          "CLARY: So du is doing work. It is not a decorative ending.",
+          "POKE: And a definite journey needs endpoints in the new coordinate."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Substitution reverses the chain rule. If u=g(x), then differentiating F(g(x)) gives F′(g(x))g′(x). Integrating that product therefore recovers F(g(x)). The shorthand du=g′(x)dx keeps the change in small contributions visible. It is justified by the substitution theorem, not by unrestricted cancellation of symbols.",
+          "For a definite integral, either transform both bounds to u and complete the calculation there, or find an antiderivative, substitute back to x, and then use the original bounds. Mixing u expressions with x endpoints loses the meaning of the definite integral.",
+          "A good substitution reduces structure: an inner expression and its derivative become one variable and one differential. A constant mismatch is repairable by factoring. A variable mismatch may mean the proposed substitution is unhelpful, although it is sometimes possible to express the remaining variable in u.",
+          "With nonmonotonic substitutions, signed bounds and the differential still matter. The direct chain-rule form works under suitable differentiability and continuity conditions even if g turns; more general variable changes may require splitting branches. For our first exercises, choose clear single-interval cases."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "∫ f(g(x))g′(x)dx = F(g(x))+C, where F′=f.",
+          "∫[a to b] f(g(x))g′(x)dx = ∫[g(a) to g(b)] f(u)du",
+          "Differentiate the result to check an indefinite integral. For a definite integral, also check sign, units where relevant, and endpoint order."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Evaluate I=∫₀¹2x(x²+1)³dx. Choose u=x²+1, so du=2x dx. At x=0, u=1; at x=1, u=2. Thus I=∫₁²u³du=[u⁴/4]₁²=15/4. The new bounds are not 0 and 1: those were positions in the old coordinate.",
+          "For ∫x e^(x²)dx, the derivative of x² is 2x. Write x dx=du/2, obtaining ½e^(x²)+C. Differentiate: ½e^(x²)·2x=x e^(x²), confirming the factor.",
+          "For ∫₀¹ x/(1+x²)dx, the same u=1+x² gives ½∫₁² du/u=½ln2. Different outer functions produce different antiderivatives even when the inner coordinate is the same."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "Try u=x² for ∫x²e^(x²)dx on x≥0. Since du=2x dx, a remaining factor of x becomes √u, giving ½∫√u e^u du. The change is legitimate on this branch but has not simplified the integral into a basic form. “I found a substitution” and “I found a useful substitution” are different achievements."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: a change of variable preserves an accumulation by transforming both the contribution and the interval. Integration by parts will use a different differentiation identity to move difficulty between factors."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-rate",
+        "relationship": "Substitution follows the chain rule that also governs moving accumulation endpoints."
+      },
+      {
+        "lessonId": "calculus-parts",
+        "relationship": "The product rule offers a second way to reverse differentiation."
+      },
+      {
+        "lessonId": "physics-launch",
+        "relationship": "The work–energy derivation changes from position to velocity through a chain-rule relationship."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Substitution",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/1-5-substitution",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-parts",
+    "topicId": "calculus-ii",
+    "title": "Move the difficulty somewhere useful",
+    "subtitle": "A product can become easier when one factor is differentiated.",
+    "centralQuestion": "How can the product rule exchange a difficult integral for a simpler one?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "POKE: Neither factor invites a useful substitution.",
+          "ROOT: One becomes simpler when differentiated. The other is easy to integrate.",
+          "POKE: Then perhaps the product rule tells us how to trade their roles.",
+          "ROOT: Does any choice work?",
+          "POKE: The identity works when its conditions do. Our choice determines whether the new integral is an improvement.",
+          "Before the derivation, differentiate x eˣ. Locate the term whose integral we want and the extra term we would need to remove."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "The product rule says (uv)′=u′v+uv′. Rearranging and integrating gives ∫u dv=uv−∫v du. The boundary term uv is part of the answer. It records what must be subtracted after moving the derivative from one factor to the other.",
+          "Choose u so differentiation simplifies it, and choose dv so its antiderivative v is available. This is a strategy, not a theorem guaranteeing every integral will simplify. Logarithms and inverse trigonometric functions often make useful u choices because their derivatives become algebraic. Polynomials paired with exponentials or trigonometric functions can simplify after repeated applications.",
+          "For definite integrals, keep the boundary term evaluated at both endpoints and keep the remaining integral definite over the same interval. For indefinite integrals, one final arbitrary constant is sufficient; constants from intermediate choices of v can be absorbed into it.",
+          "A useful check is structural: if your result has a product term but no compensating integral, differentiate it and inspect the unwanted extra term."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "∫u dv = uv − ∫v du",
+          "∫[a to b]u(x)v′(x)dx = [u(x)v(x)]_a^b − ∫[a to b]v(x)u′(x)dx",
+          "Derivation: integrate (uv)′=u′v+uv′, then rearrange."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "For ∫x eˣdx, choose u=x and dv=eˣdx. Then du=dx and v=eˣ, so the result is x eˣ−eˣ+C. Its derivative is eˣ+x eˣ−eˣ=x eˣ. Choosing u=eˣ and dv=x dx instead would produce an integral with x²eˣ, increasing polynomial complexity.",
+          "For ∫ln x dx on x>0, treat the integrand as ln x·1. Choose u=ln x and dv=dx. Then du=dx/x and v=x, giving x ln x−∫1 dx=x ln x−x+C. The invisible factor 1 was the useful second factor.",
+          "For ∫₀¹x eˣdx, use [x eˣ]₀¹−∫₀¹eˣdx=e−(e−1)=1. The definite result can be simple even when intermediate terms are not.",
+          "Repeated parts gives ∫x²eˣdx=x²eˣ−2∫x eˣdx=eˣ(x²−2x+2)+C. Each differentiation lowered the polynomial degree until the remaining integration became immediate."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "With ∫eˣcos x dx, repeated parts eventually returns the original integral. That need not be failure. If I=eˣcos x+eˣsin x−I, then 2I=eˣ(cos x+sin x), so I=½eˣ(cos x+sin x)+C. A cycle can yield an algebraic equation. Track signs carefully and verify the result."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: integration techniques are reversible differentiation structures, not unrelated tricks. You can now ask whether an identity can first transform an integrand into a form suitable for one of those structures."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-substitution",
+        "relationship": "Compare reverse-chain-rule and reverse-product-rule structures before choosing a method."
+      },
+      {
+        "lessonId": "calculus-identities",
+        "relationship": "An identity can expose a substitution or direct antiderivative that was previously hidden."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Integration by parts",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-identities",
+    "topicId": "calculus-ii",
+    "title": "When an identity changes the problem",
+    "subtitle": "The same periodic quantity can have a more useful representation.",
+    "centralQuestion": "How do trigonometric identities expose integrable structure?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "CONOY: We have measured a periodic signal, then squared its amplitude. Averaging the original signal gives zero.",
+          "RAMIE: But squaring should not preserve that cancellation.",
+          "CONOY: Our expression is sin²x. A substitution seems to leave an unwanted factor.",
+          "RAMIE: Perhaps we should change the expression before changing the variable.",
+          "CONOY: A useful distinction. An identity preserves every value, while revealing a different structure.",
+          "Predict the average of sin²x over a full cycle before calculating. It must lie between zero and one; is there a symmetry that narrows it further?"
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Trigonometric integrals often become simple when we reserve a factor that is the derivative of another function. In sin^m x cos^n x, an odd sine power lets us reserve sin x dx and convert the remaining sine squares using sin²x=1−cos²x. An odd cosine power similarly supplies cos x dx for u=sin x.",
+          "When both powers are even, neither reserved derivative is available immediately. Half-angle identities reduce squares to constants and double-angle terms. Apply identities until the remaining terms are integrable; do not assume sin²x integrates like a plain power of x.",
+          "For secant and tangent families, d(tan x)=sec²x dx and d(sec x)=sec x tan x dx suggest useful reserved factors. The identity sec²x=1+tan²x can convert remaining powers. This is another instance of matching a function and its derivative.",
+          "These patterns guide a choice; they do not replace checking algebra, domains, and the derivative of the final expression. Trigonometric functions require angles in radians for the familiar derivative rules."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "sin²x+cos²x=1",
+          "sin²x=(1−cos 2x)/2;    cos²x=(1+cos 2x)/2",
+          "d(cos x)=−sin x dx; d(sin x)=cos x dx; d(tan x)=sec²x dx."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "For ∫sin³x cos²x dx, reserve sin x dx and rewrite sin²x=1−cos²x. Put u=cos x, du=−sin x dx. The integral becomes −∫(1−u²)u²du=−u³/3+u⁵/5+C. Substitute back to get −cos³x/3+cos⁵x/5+C.",
+          "For ∫sin²x dx, use ½∫(1−cos 2x)dx=x/2−sin 2x/4+C. The factor 1/4 includes both the half-angle coefficient and the chain-rule factor from integrating cos 2x. Over [0,2π], the integral is π, so the average value is π/(2π)=1/2.",
+          "The same average follows from symmetry: sine squared and cosine squared have equal full-cycle integrals and sum to 1 pointwise. Each contributes half the cycle’s total length. This is a structural check independent of the antiderivative.",
+          "For ∫tan³x sec²x dx, u=tan x gives ∫u³du=tan⁴x/4+C on any interval avoiding tangent’s singularities."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "For sin²x cos²x, both exponents are even. Use sin x cos x=½sin 2x, then square and apply a half-angle identity: sin²x cos²x=(1−cos 4x)/8. The integration is now direct. Similar-looking exponents can therefore require different first moves."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: an exact identity can expose a simpler accumulation without approximating the original quantity. The next lesson uses an identity geometrically, choosing a trigonometric coordinate to simplify a radical."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-substitution",
+        "relationship": "Each reserved factor is chosen to make a complete variable change possible."
+      },
+      {
+        "lessonId": "calculus-triangle",
+        "relationship": "The same identities simplify square roots when a geometric coordinate is chosen."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Trigonometric integrals",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/3-2-trigonometric-integrals",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-triangle",
+    "topicId": "calculus-ii",
+    "title": "A triangle hidden inside a radical",
+    "subtitle": "A geometric coordinate can simplify an algebraic obstacle.",
+    "centralQuestion": "Why do quadratic radicals suggest different trigonometric substitutions?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "CLARY: The boundary is circular, but the integral looks like a square root.",
+          "POKE: Perhaps our Cartesian coordinate conceals the geometry.",
+          "CLARY: If x=a sin θ, then the remaining height resembles a cos θ.",
+          "POKE: Provided we choose a range where its sign is correct. A square root returns a nonnegative value.",
+          "CLARY: Then √(cos²θ) is |cos θ|, not automatically cos θ.",
+          "POKE: That small distinction will spare us a larger error when we return to x."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "Trigonometric substitution chooses a coordinate that matches a quadratic identity. For √(a²−x²), use x=a sin θ so the radical becomes a|cos θ|. For √(a²+x²), x=a tan θ gives a|sec θ|. For √(x²−a²), x=a sec θ gives a|tan θ|, with branch choices controlling signs. Assume a>0.",
+          "The differential transforms too. For x=a sin θ, dx=a cos θ dθ. Simplifying only the radical while leaving dx unchanged does not produce an equivalent integral. Definite bounds must be transformed, and an indefinite result must return to the original variable.",
+          "Choose ranges that make the substitution one-to-one on the interval being considered and make the relevant signs explicit. A right triangle is a convenient record for back-substitution, but the algebraic relationships are what justify it. Negative x or a different branch may require additional sign care.",
+          "Before using trigonometry, complete the square if necessary. Expressions such as 9−(x−2)² reveal a shifted circular geometry. A substitution cannot eliminate the need to understand the original domain."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "√(a²−x²): x=a sin θ, usually −π/2≤θ≤π/2.",
+          "√(a²+x²): x=a tan θ, usually −π/2<θ<π/2.",
+          "√(x²−a²): choose a branch; for x≥a, use x=a sec θ with 0≤θ<π/2."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Evaluate ∫₀¹√(4−x²)dx. Choose x=2sin θ, so dx=2cos θ dθ. Bounds become θ=0 and θ=π/6. On this interval cos θ≥0, so the radical is 2cos θ. The integral becomes 4∫₀^(π/6)cos²θ dθ.",
+          "Using the half-angle identity gives [2θ+sin 2θ]₀^(π/6)=π/3+√3/2. The result is positive and smaller than the bounding rectangle of width 1 and height 2, whose area is 2. That independent geometric bound catches some coefficient errors.",
+          "For an indefinite form, the same calculation gives (x/2)√(4−x²)+2arcsin(x/2)+C on −2<x<2. The triangle or identity gives sin θ=x/2 and cos θ=√(4−x²)/2.",
+          "Now consider ∫dx/√(x²+9). With x=3tan θ, the radical is 3sec θ on the chosen range and dx=3sec²θ dθ. The integral becomes ∫sec θ dθ=ln|sec θ+tan θ|+C, hence ln(x+√(x²+9))+C after absorbing a constant. The logarithm’s argument is positive for real x."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "The expression √(x²−4) is real only when |x|≥2. A substitution chosen for x≥2 does not silently describe x≤−2 using the same sign assumptions. This is why domain statements are part of a derivation. For a definite interval on the negative branch, explicitly choose a suitable substitution and inspect absolute values."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: a geometric identity and a carefully chosen domain can simplify a radical exactly. This opens later arc-length and volume investigations, where constructing the integral will matter as much as evaluating it."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-identities",
+        "relationship": "Half-angle identities finish the integral after the radical is simplified."
+      },
+      {
+        "lessonId": "calculus-substitution",
+        "relationship": "The geometric coordinate still obeys the same differential and endpoint rules."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Trigonometric substitution",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/3-3-trigonometric-substitution",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-fractions",
+    "topicId": "calculus-ii",
+    "title": "One fraction, several simpler mechanisms",
+    "subtitle": "A complicated rational function can conceal simpler contributions.",
+    "centralQuestion": "How can a rational function be decomposed into pieces with recognizable antiderivatives?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "DAZ: We can add these fractions easily. Can we reverse the process?",
+          "CASSAVA: Only if we know what forms the pieces should have. An arbitrary guess could miss a term.",
+          "DAZ: Then let the denominator’s factorization determine the possible pieces.",
+          "CASSAVA: And multiply them back together before trusting the result.",
+          "DAZ: A reconstruction test. I approve.",
+          "Try to combine 1/x−1/(x+1) into one fraction. Notice that a rational function with two factors in its denominator may be simpler as a sum."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "For a rational function P(x)/Q(x), first compare polynomial degrees. If the numerator degree is at least the denominator degree, perform polynomial division. Decompose the remaining proper fraction after factoring its denominator over the reals.",
+          "A distinct linear factor x−r requires a term A/(x−r). A repeated linear factor (x−r)^k requires all powers from 1 through k, each with its own constant numerator. An irreducible quadratic factor requires a linear numerator Ax+B; a constant alone is not general enough. Repeated quadratic factors likewise require a term at every power.",
+          "Multiply the proposed identity by the common denominator, then determine unknown coefficients by matching powers or using convenient x values. The cleared polynomial identity can be evaluated at roots even though the original rational functions are undefined there. The identity is being extended after denominators have been removed.",
+          "After decomposition, integrate each term using logarithms, power rules, substitution, or an inverse-trigonometric form. Keep domain restrictions. Logarithms from ∫dx/(x−r) require ln|x−r| on intervals avoiding the pole. Verify the reconstruction before integrating; verify the antiderivative afterward."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "1/[x(x+1)] = A/x + B/(x+1).",
+          "Repeated factor: …/(x−r)² requires A/(x−r)+B/(x−r)².",
+          "Irreducible quadratic: …/(x²+1) requires (Ax+B)/(x²+1)."
+        ]
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "For (3x+5)/[(x+1)(x+2)], propose A/(x+1)+B/(x+2). Clearing denominators gives 3x+5=A(x+2)+B(x+1). At x=−1, A=2; at x=−2, B=1. Thus the integral is 2ln|x+1|+ln|x+2|+C on intervals avoiding −1 and −2.",
+          "For 1/[x(x+1)²], use A/x+B/(x+1)+C/(x+1)². Clearing gives 1=A(x+1)²+Bx(x+1)+Cx. Setting x=0 gives A=1; x=−1 gives C=−1; matching x² gives B=−1. Integrating gives ln|x|−ln|x+1|+1/(x+1)+C₀.",
+          "For (2x+3)/(x²+1), the denominator is irreducible over the reals. Split the numerator: ∫2x/(x²+1)dx=ln(x²+1), while ∫3/(x²+1)dx=3arctan x. The two numerator terms lead to different antiderivative structures.",
+          "If the numerator were x²+1 and denominator x+1, divide first: x²+1=(x+1)(x−1)+2. The rational function is x−1+2/(x+1). Decomposition works on the remainder; polynomial division supplies the missing polynomial part."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "A pole inside a definite integration interval requires an improper-integral analysis. You cannot apply an antiderivative across the pole as if the function were continuous. For example, ∫₋₁¹1/x dx is not an ordinary convergent improper integral even though symmetric cancellation may suggest zero. We will distinguish such limits carefully in later lessons."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: algebraic reconstruction can reveal several elementary integration structures inside one expression. The existence of these techniques does not guarantee every useful integral has an elementary antiderivative. Approximation remains a mathematical method in its own right."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "calculus-substitution",
+        "relationship": "Logarithmic terms are checked using the chain rule."
+      },
+      {
+        "lessonId": "calculus-estimate",
+        "relationship": "When symbolic methods do not yield a practical exact form, a definite integral can still be approximated with controlled error."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Partial fractions",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/3-4-partial-fractions",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
+  },
+  {
+    "id": "calculus-estimate",
+    "topicId": "calculus-ii",
+    "title": "No exact answer. Still a defensible estimate.",
+    "subtitle": "Refining a calculation is different from improving the evidence.",
+    "centralQuestion": "How can we estimate an integral and distinguish numerical error from measurement uncertainty?",
+    "sections": [
+      {
+        "kind": "narrative",
+        "heading": "The investigation",
+        "body": [
+          "An original educational dialogue using the Nomai characters from Outer Wilds. This imagined investigation is not game canon. The mechanics and mathematics below describe ordinary classical models; fictional warp technology is not evidence for real physics."
+        ]
+      },
+      {
+        "kind": "dialogue",
+        "heading": "At the scroll wall",
+        "body": [
+          "ROOT: The force instrument returned five readings. No exact formula accompanied them.",
+          "RAMIE: We can connect neighboring readings and integrate those straight segments.",
+          "PRIVET: That estimates a chosen interpolation. What justifies assuming nothing happened between samples?",
+          "ROOT: We should distinguish a better calculation from better knowledge of the force.",
+          "RAMIE: Then let us first test our numerical method on a function whose integral we know.",
+          "Predict whether straight-line chords lie above or below a convex curve. That prediction should inform the sign of the trapezoidal error."
+        ]
+      },
+      {
+        "kind": "mechanism",
+        "heading": "Build the model",
+        "body": [
+          "The trapezoidal rule approximates a function between equally spaced samples with straight lines. Each segment contributes width times average endpoint height. Composite Simpson’s rule uses quadratic interpolation across pairs of equal-width subintervals; it requires an even number n of subintervals. Neither rule is an arbitrary average: its weights come from integrating the interpolating shapes.",
+          "For a convex function, chords lie above the graph, so the trapezoidal approximation overestimates its integral. For a concave function it underestimates. Mixed curvature requires more careful analysis. Simpson’s rule is exact for polynomials of degree at most three, although it is constructed through quadratic interpolation.",
+          "For a sufficiently smooth known function, derivative bounds provide guaranteed error bounds. If |f″|≤M₂ on [a,b], trapezoidal error magnitude is at most M₂(b−a)³/(12n²). If |f⁽⁴⁾|≤M₄, Simpson error magnitude is at most M₄(b−a)⁵/(180n⁴). These bounds need justified derivative bounds, not merely a smooth-looking plot.",
+          "Two refined approximations agreeing is evidence of numerical stability, not a universal proof of accuracy. Sparse sampling can miss oscillation or a narrow spike. Data uncertainty, model uncertainty, and quadrature error are different sources of uncertainty."
+        ]
+      },
+      {
+        "kind": "equation",
+        "heading": "The mathematical record",
+        "body": [
+          "h=(b−a)/n",
+          "T_n=h[f₀/2+f₁+…+f_(n−1)+f_n/2]",
+          "S_n=(h/3)[f₀+4f₁+2f₂+4f₃+…+4f_(n−1)+f_n], with even n.",
+          "Absolute error=|approximation−exact value|. Relative error divides this by |exact value| when it is nonzero."
+        ]
+      },
+      {
+        "kind": "figure",
+        "heading": "Inspect the representation",
+        "body": [
+          "Five force measurements. The connecting lines show the trapezoidal reconstruction, not additional measured values."
+        ],
+        "visual": {
+          "type": "plot",
+          "xLabel": "Position (m)",
+          "yLabel": "Force (N)",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "kind": "worked",
+        "heading": "Follow one case",
+        "body": [
+          "Use f(x)=x² on [0,2], with exact integral 8/3. For n=2, h=1 and samples are 0,1,4. T₂=1(0/2+1+4/2)=3. Its error is 1/3, an overestimate consistent with convexity. For n=4, samples are 0,0.25,1,2.25,4 and h=0.5. T₄=0.5(0+0.25+1+2.25+2)=2.75, with error 1/12.",
+          "Halving h reduced this error by a factor of four. With f″=2, the bound is 2(2³)/(12n²), giving 1/3 for n=2 and 1/12 for n=4. Simpson with n=2 gives (1/3)(0+4·1+4)=8/3 exactly.",
+          "Now treat the samples as forces in newtons at positions in metres. The same weighted sum estimates work in joules. Suppose readings at x=0,1,2,3,4 m are 0,3,5,6,6 N. T₄=0+3+5+6+3=17 J. This integrates the piecewise-linear reconstruction, not an experimentally proven true force function.",
+          "If every force reading has bounded error ±0.2 N, the trapezoidal weights are nonnegative and sum to 4 m. Their measurement contribution is bounded by ±0.8 J. This does not bound unknown between-sample behavior. Collecting intermediate readings helps investigate that separate uncertainty."
+        ]
+      },
+      {
+        "kind": "challenge",
+        "heading": "Change a condition",
+        "body": [
+          "A smooth curve can pass through every sample and still contain an unobserved narrow bump. A refinement that adds no actual measurements cannot discover it. Conversely, if a known analytic function has a justified curvature bound, you can choose n to guarantee a specified trapezoidal tolerance. The source of the function determines which accuracy claims are warranted."
+        ]
+      },
+      {
+        "kind": "record",
+        "heading": "What this opens",
+        "body": [
+          "Established: approximation can carry a precise justification, but only when its assumptions are available. You can now investigate integrals lacking elementary antiderivatives, numerical motion models, and eventually convergence of infinite processes. Those are newly approachable questions, not claims that this one session establishes mastery."
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "lessonId": "physics-launch",
+        "relationship": "Integrating sampled force over position estimates the work used in an energy prediction."
+      },
+      {
+        "lessonId": "calculus-total",
+        "relationship": "Both quadrature and exact integration accumulate small contributions; the difference is how the limiting quantity is accessed."
+      },
+      {
+        "lessonId": "calculus-fractions",
+        "relationship": "An exact symbolic result can serve as a benchmark for a numerical method."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OpenStax Calculus 2 • Numerical integration",
+        "url": "https://openstax.org/books/calculus-volume-2/pages/3-6-numerical-integration",
+        "accessed": "2026-11-14",
+        "note": "Free companion reading. Read the explanation and compare its representations with this original investigation."
+      }
+    ]
   }
 ];

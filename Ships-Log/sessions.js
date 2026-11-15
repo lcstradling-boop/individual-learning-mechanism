@@ -439,5 +439,505 @@ const voyages = {
       "license": "OpenStax American Government 4e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/). Cropped and resized.",
       "sourceUrl": "https://github.com/openstax/osbooks-american-government/blob/a2677245241954039c7ebc996e82a8f3b0b4376f/media/OSC_AmGov_12_01_ObamaMerk.jpg"
     }
+  },
+  "physics-record": {
+    "minutes": 40,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Draw three position–time histories lasting 12 s with endpoints 0 m and 12 m. Give one constant velocity, one rest interval, and one reversal. Calculate distance and average velocity for each.",
+        "evidence": "Coordinates, elapsed times, and path lengths are mutually consistent."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "A colleague says, “The probe has zero average velocity, so it was stationary.” Write a counterexample and specify one measurement that distinguishes it from rest.",
+        "evidence": "A claim about an average is separated from a claim about every instant."
+      }
+    ],
+    "feedback": [
+      "Many answers work. A constant +1 m/s journey travels 12 m. A journey that moves 12 m in 6 s then rests also travels 12 m. Traveling to 18 m then back to 12 m travels 24 m. All have average velocity +1 m/s.",
+      "An out-and-back trip has zero average velocity. An intermediate position away from the origin disproves rest, although one sample at the origin would not prove rest."
+    ],
+    "thumbnail": {
+      "file": "images/physics-record.jpg",
+      "alt": "An overhead view of traffic following several intersecting streets.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_03_01_00.jpg",
+      "creator": "Margaret W. Carruthers",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-slope": {
+    "minutes": 55,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "For x(t)=4t−t² metres on 0≤t≤5 s, derive v and a, sketch all three graphs, and identify slowing, turning, and speeding intervals. Calculate displacement and distance.",
+        "evidence": "Graph slopes and sign reasoning agree with the derivatives."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Two probes share a(t)=−2 m/s² but have initial velocities +6 and −1 m/s. Compare their first two seconds. Explain why acceleration alone cannot reconstruct motion.",
+        "evidence": "Initial conditions are used as information, not guessed."
+      }
+    ],
+    "feedback": [
+      "v=4−2t and a=−2. The turn is at 2 s, x=4 m. Final x=−5 m, so displacement is −5 m and distance is 4+9=13 m. It slows on 0<t<2 and speeds up on 2<t<5.",
+      "The +6 m/s probe slows to +2 m/s; the −1 m/s probe speeds up to −5 m/s. Both have the same change in velocity, −4 m/s."
+    ],
+    "thumbnail": {
+      "file": "images/physics-slope.jpg",
+      "alt": "A steam locomotive and its train pass through a wooded landscape.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_15_00_01-d3d5.jpg",
+      "creator": "Gerald Friedrich, Pixabay",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-observers": {
+    "minutes": 65,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Repeat the launch with platform speed 5 m/s and upward launch speed 8 m/s, using g=10. Find flight time, maximum height, and landing position in both frames.",
+        "evidence": "A shared flight time is used consistently across components."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "A probe launches at 10 m/s at 30° above horizontal from ground level. Resolve its initial velocity, find its return time, and explain why its speed at the top is not zero.",
+        "evidence": "Vector components are distinguished from speed."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Explain which conclusions fail if the platform accelerates, and which fail if air resistance matters.",
+        "evidence": "The altered assumption is connected to a specific equation."
+      }
+    ],
+    "feedback": [
+      "Flight time 1.6 s; maximum height 3.2 m; ground landing x=8 m, platform landing x′=0.",
+      "Components are (5√3,5) m/s. Flight time is 1 s; top speed is 5√3 m/s in the ground frame.",
+      "An accelerating platform changes relative acceleration; drag can couple the component equations through speed and direction."
+    ],
+    "thumbnail": {
+      "file": "images/physics-observers.jpg",
+      "alt": "Intersecting urban streets and traffic seen from a high viewpoint.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_03_01_00.jpg",
+      "creator": "Margaret W. Carruthers",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-coasting": {
+    "minutes": 60,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "A 3 kg cart moving at +4 m/s experiences a net force of −6 N for 3 s. Draw the force and motion diagrams separately; find acceleration, final velocity, displacement, and the turning time.",
+        "evidence": "Forces determine acceleration and initial conditions determine the resulting motion."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Explain why a probe and the exhaust can exert equal opposite forces while the probe accelerates. Draw a boundary around the probe alone.",
+        "evidence": "Third-law partners are assigned to different bodies."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Design a measurement that could detect an unmodeled small resistive force during coasting. State what you would measure and how you would infer net force.",
+        "evidence": "An observation is connected to a quantitative model."
+      }
+    ],
+    "feedback": [
+      "a=−2 m/s²; final v=−2 m/s; displacement 12−9=3 m. It turns at t=2 s. A net-force arrow is a summary; a full free-body diagram must also identify the actual external force sources.",
+      "Equal opposite interactions cancel only when both interacting bodies belong to the chosen combined system.",
+      "Estimate acceleration from changes in measured velocity over known time intervals; multiply by the known mass, with measurement uncertainty acknowledged."
+    ],
+    "thumbnail": {
+      "file": "images/physics-coasting.jpg",
+      "alt": "A road bicycle stands in profile against a red doorway.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_11_03_04a.jpg",
+      "creator": "Jesús Rodriguez",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-floor": {
+    "minutes": 70,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "For the worked sled, find friction and acceleration at horizontal pulls of 0, 15, and 50 N, starting from rest each time.",
+        "evidence": "The static and kinetic models are chosen from the physical state."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "A 5 kg block rests on a 15° incline with μ_s=0.4 and g=10. Find N, required friction, and maximum available static friction. Does it slip?",
+        "evidence": "Resolved components and an inequality justify the conclusion."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "A 10 kg stationary sled is pulled with 30 N at 30° above horizontal. Find N and required static friction, and test equilibrium using μ_s=0.4.",
+        "evidence": "The normal force is derived rather than assumed equal to weight."
+      }
+    ],
+    "feedback": [
+      "At 0 and 15 N pulls, static friction magnitudes are 0 and 15 N; acceleration is zero. At 50 N it slides, friction is about 30 N and a=2 m/s².",
+      "N≈48.3 N; required friction≈12.9 N; maximum≈19.3 N. It can remain stationary.",
+      "N=85 N; required horizontal friction≈26.0 N; maximum=34 N, so equilibrium is possible."
+    ],
+    "thumbnail": {
+      "file": "images/physics-floor.jpg",
+      "alt": "A bicycle wheel and frame rest on the ground beside a red door.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_11_03_04a.jpg",
+      "creator": "Jesús Rodriguez",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-turning": {
+    "minutes": 65,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Draw a circle and tangent velocity arrows at two nearby points. Reposition the arrows tail-to-tail and construct Δv. Explain the inward limit.",
+        "evidence": "The direction of acceleration follows from a vector difference."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "A 0.5 kg object circles at 3 m/s on radius 1.5 m. Find inward acceleration and force; repeat at double speed.",
+        "evidence": "The square dependence on speed is explicit."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Compare doubling radius at fixed speed with doubling radius at fixed angular speed. Then describe the motion just after an ideal string breaks.",
+        "evidence": "Controlled variables and remaining forces are identified."
+      }
+    ],
+    "feedback": [
+      "The two velocity vectors have equal lengths but different directions; their difference approaches the inward direction as their angular separation tends to zero.",
+      "Initially a=6 m/s² and F=3 N. At 6 m/s, a=24 m/s² and F=12 N.",
+      "At fixed v, acceleration halves; at fixed ω, it doubles. After release, initial motion is tangent, followed by whatever remaining forces produce."
+    ],
+    "thumbnail": {
+      "file": "images/physics-turning.jpg",
+      "alt": "A race car rounds a bend on a paved circuit.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_07_00_01a.jpg",
+      "creator": "Richard Munckton",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-launch": {
+    "minutes": 70,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Integrate F(x)=6x N from 0 to 2 m for a 3 kg carriage initially at rest. Find final speed without resistance, then with a constant 2 N opposing force.",
+        "evidence": "Net work includes the contribution of each force."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "How much net work is needed to change a 2 kg probe from 3 to 6 m/s? Compare with the work from rest to 3 m/s.",
+        "evidence": "The initial kinetic energy is retained in the subtraction."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Draw two nonnegative force–position graphs with equal work over 3 m but different peak forces. Explain why work alone cannot determine peak force or power.",
+        "evidence": "A total is separated from the history that produces it."
+      }
+    ],
+    "feedback": [
+      "Actuator work is 12 J; speed is √8≈2.83 m/s. With resistance, net work is 8 J and speed is √(16/3)≈2.31 m/s.",
+      "The change is 36−9=27 J, compared with 9 J from rest to 3 m/s.",
+      "For example, a constant 6 N force over 3 m and a linear rise from 0 to 12 N both deliver 18 J. Power also requires timing."
+    ],
+    "thumbnail": {
+      "file": "images/physics-launch.jpg",
+      "alt": "Steam billows beside a working locomotive and its train.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_15_00_01-d3d5.jpg",
+      "creator": "Gerald Friedrich, Pixabay",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "physics-boundary": {
+    "minutes": 75,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "A 1 kg probe at +8 m/s sticks to a 3 kg free catcher moving at −2 m/s. Find their final velocity and the change in total kinetic energy.",
+        "evidence": "Signs and the system boundary are explicit."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "The probe’s capture lasts 0.05 s. Find its impulse and average force. Explain why the peak force remains unknown.",
+        "evidence": "Impulse is calculated for one body, not confused with total system momentum."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Redesign the boundary for a catcher bolted to a station. Explain which earlier equation fails and what additional information or enlarged system would help.",
+        "evidence": "Conservation is justified by external interactions, not declared by habit."
+      }
+    ],
+    "feedback": [
+      "Initial momentum is 8−6=2 kg m/s; final v=0.5 m/s. Initial K=32+6=38 J; final K=0.5 J; kinetic-energy change is −37.5 J.",
+      "Probe impulse is 1(0.5−8)=−7.5 N s; average force is −150 N. A force–time history is needed for peak force.",
+      "The two-body momentum conservation equation fails because the support supplies external impulse. Include its impulse or use a suitably enlarged system."
+    ],
+    "thumbnail": {
+      "file": "images/physics-boundary.jpg",
+      "alt": "A race car travels across the track with its body and wheels visible.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_07_00_01a.jpg",
+      "creator": "Richard Munckton",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-total": {
+    "minutes": 45,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "A probe has v(t)=2−t m/s for 0≤t≤4 s. Sketch the graph and calculate displacement and distance. State why the two totals differ.",
+        "evidence": "The zero crossing is used to split the absolute-value integral."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Construct two nonnegative continuous rate functions on [0,2] that integrate to 4 but have different peaks. Verify both totals.",
+        "evidence": "An integral is used to demonstrate non-uniqueness of the history."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "For the probe, choose x(0)=5 m and determine x(4). Explain why the definite integral alone could not supply that position.",
+        "evidence": "Accumulated change is distinguished from state."
+      }
+    ],
+    "feedback": [
+      "The velocity crosses zero at 2 s. Displacement is 0 m; distance is 2+2=4 m.",
+      "For example f(t)=2 and g(t)=2t both integrate to 4 on [0,2], with peaks 2 and 4.",
+      "Final position is 5 m because the net change is zero. The integral provides no initial position."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-total.jpg",
+      "alt": "A long concrete dam holds back a broad body of water.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_12_02_02a.jpg",
+      "creator": "Le Grand Portage",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-rate": {
+    "minutes": 60,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "For A(x)=∫₀ˣ(3−t)dt on [0,6], determine increasing and decreasing intervals, maximum value, and concavity. Sketch f and A separately.",
+        "evidence": "The sign of f is used for A’s slope, while the slope of f determines A’s concavity."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Differentiate ∫₁ˣ³ cos(t)dt and ∫ₓˣ²(1+t²)dt. Explain every endpoint factor and sign.",
+        "evidence": "The chain rule and lower-limit subtraction are explicit."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Construct a rate with a jump and sketch its continuous accumulated total. Explain why that total lacks a derivative at the jump.",
+        "evidence": "A theorem’s hypotheses are tested against an example."
+      }
+    ],
+    "feedback": [
+      "A=3x−x²/2. It increases to x=3, decreases afterward, has maximum 4.5, and is concave down.",
+      "First derivative: 3x²cos(x³). Second: 2x(1+x⁴)−(1+x²).",
+      "A step from 1 to 3 produces a continuous piecewise-linear total with slopes 1 and 3."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-rate.jpg",
+      "alt": "White water rushes through a narrow channel bordered by trees.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_13_01_04a.jpg",
+      "creator": "RaviGogna, Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-substitution": {
+    "minutes": 65,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Evaluate ∫₀² 3x²(1+x³)²dx. State u, du, both transformed bounds, and the final value.",
+        "evidence": "Every part of the variable change belongs to the same coordinate."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Find antiderivatives of x cos(x²), 1/(3x+2) on x>−2/3, and eˣ/(1+eˣ). Verify each by differentiation.",
+        "evidence": "Constant derivative factors are preserved."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "A researcher transforms ∫₀¹2x(x²+1)³dx into ∫₀¹u³du. Diagnose the precise error and describe two valid repair routes.",
+        "evidence": "Endpoint meaning is explained, not merely corrected."
+      }
+    ],
+    "feedback": [
+      "u=1+x³; du=3x²dx; bounds 1 and 9. The result is (9³−1)/3=728/3.",
+      "½sin(x²)+C; (1/3)ln(3x+2)+C on the stated domain; ln(1+eˣ)+C.",
+      "Use u bounds 1 and 2, or substitute back to x before applying x bounds 0 and 1."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-substitution.jpg",
+      "alt": "Water droplets collect along the parallel ridges of a green leaf.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_14_06_00.jpg",
+      "creator": "Aaron Escobar, Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-parts": {
+    "minutes": 75,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Find ∫x cos x dx and verify it. Then evaluate ∫₀^(π/2)x cos x dx.",
+        "evidence": "The boundary product and remaining integral both have correct signs."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Find ∫x ln x dx for x>0. Compare a useful u choice with the reversed choice and explain the difference.",
+        "evidence": "Method selection is justified by simplification."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Derive ∫x²sin x dx using repeated parts. Differentiate the full answer and identify which terms cancel.",
+        "evidence": "Repeated operations remain connected to the original product rule."
+      }
+    ],
+    "feedback": [
+      "x sin x+cos x+C; definite result π/2−1.",
+      "(x²/2)ln x−x²/4+C. Differentiating ln x simplifies it, whereas integrating it first creates extra work.",
+      "−x²cos x+2x sin x+2cos x+C. Differentiation cancels the −2x cos x and +2x cos x terms, and the +2sin x and −2sin x terms."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-parts.jpg",
+      "alt": "Wood framing and insulation divide an unfinished wall into sections.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_15_05_01a.jpg",
+      "creator": "Giles Douglas",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-identities": {
+    "minutes": 75,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Integrate sin³x and sin²x separately. Explain why the same first step is not equally useful for both.",
+        "evidence": "Odd powers supply a derivative factor; even powers invite a half-angle identity."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Evaluate ∫₀^π sin²x dx and find its average value on that interval. Then integrate sin²x cos²x.",
+        "evidence": "A definite integral and an average are distinguished."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Integrate sec⁴x by reserving sec²x dx and converting the remaining factor. Differentiate your result on an interval avoiding singularities.",
+        "evidence": "The identity and substitution form one coherent change."
+      }
+    ],
+    "feedback": [
+      "∫sin³x dx=−cos x+cos³x/3+C. ∫sin²x dx=x/2−sin 2x/4+C.",
+      "The definite integral is π/2 and average is 1/2. The product integral is x/8−sin 4x/32+C.",
+      "sec⁴x=sec²x(1+tan²x), giving tan x+tan³x/3+C."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-identities.jpg",
+      "alt": "The circular wheels and triangular frame of a road bicycle stand against a red door.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_11_03_04a.jpg",
+      "creator": "Jesús Rodriguez",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-triangle": {
+    "minutes": 80,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Evaluate ∫₀¹ dx/√(4−x²), stating the substitution, transformed bounds, and sign choice.",
+        "evidence": "The radical and differential are both transformed."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "For ∫x²/√(9−x²) dx on −3<x<3, use x=3sin θ, derive an antiderivative, and differentiate it.",
+        "evidence": "Back-substitution and the square-root domain agree."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Match each radical √(16−x²), √(x²+16), and √(x²−16) to a useful substitution. State a valid branch for each and explain the identity it exploits.",
+        "evidence": "Substitutions follow quadratic structure rather than memorized surface similarity."
+      }
+    ],
+    "feedback": [
+      "x=2sin θ, θ from 0 to π/6. The quotient simplifies to dθ, giving π/6.",
+      "(9/2)arcsin(x/3)−(x/2)√(9−x²)+C.",
+      "Use x=4sin θ with θ in [−π/2,π/2]; x=4tan θ with θ in (−π/2,π/2); x=4sec θ on x≥4 with θ in [0,π/2)."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-triangle.jpg",
+      "alt": "Timber supports form intersecting lines within an unfinished building wall.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_15_05_01a.jpg",
+      "creator": "Giles Douglas",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-fractions": {
+    "minutes": 85,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Decompose and integrate (5x+7)/[(x+1)(x+2)]. Verify by recombining the fractions.",
+        "evidence": "Coefficient equations reconstruct the original numerator."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Decompose and integrate 1/[x(x+1)²]. Do the calculation independently before opening feedback. Explain why omitting the first-power (x+1) term is unjustified.",
+        "evidence": "Every repeated-factor term is included."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "Integrate (x²+1)/(x+1) and (4x+1)/(x²+4). State intervals or domains on which your results apply.",
+        "evidence": "Polynomial division and an irreducible quadratic receive different treatment."
+      }
+    ],
+    "feedback": [
+      "2/(x+1)+3/(x+2), giving 2ln|x+1|+3ln|x+2|+C.",
+      "1/x−1/(x+1)−1/(x+1)²; integral ln|x|−ln|x+1|+1/(x+1)+C. The full repeated-factor form is needed to represent the general numerator.",
+      "x²/2−x+2ln|x+1|+C for x≠−1 on each interval; 2ln(x²+4)+(1/2)arctan(x/2)+C for all real x."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-fractions.jpg",
+      "alt": "A worker uses a laptop beside repeated rows of server cabinets.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/OSX_CP2e_Figure_22_00_01.jpg",
+      "creator": "WOCinTech Chat/Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
+  },
+  "calculus-estimate": {
+    "minutes": 80,
+    "activities": [
+      {
+        "kind": "investigate",
+        "prompt": "Approximate ∫₀¹x²dx with trapezoidal n=2 and n=4, then Simpson n=2. Compare with 1/3 and explain the error signs and ratios.",
+        "evidence": "Numerical results are interpreted through curvature and refinement."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "For the force readings 0,3,5,6,6 N at positions 0 through 4 m, compute Simpson’s estimate as well as the trapezoidal one. State what their disagreement does and does not establish.",
+        "evidence": "A comparison of methods is not presented as a guaranteed error bar."
+      },
+      {
+        "kind": "investigate",
+        "prompt": "For f(x)=x² on [0,1], choose n to guarantee trapezoidal error at most 0.001 using the derivative bound. Separately explain why ±0.2 N sample errors do not bound unseen force spikes.",
+        "evidence": "A proved numerical bound is distinguished from a data assumption."
+      }
+    ],
+    "feedback": [
+      "T₂=0.375; T₄=0.34375; errors 1/24 and 1/96, both positive. Simpson gives 1/3 exactly.",
+      "Simpson gives (1/3)(0+12+10+24+6)=52/3≈17.333 J. The difference indicates sensitivity to interpolation; it is not a certified error bound for the true force.",
+      "The bound is 1/(6n²)≤0.001, so n≥13 suffices. Measurement errors constrain values at sample points, not all possible values between them."
+    ],
+    "thumbnail": {
+      "file": "images/calculus-estimate.jpg",
+      "alt": "Turbulent white water breaks into varied streams in a tree-lined channel.",
+      "sourceUrl": "https://github.com/openstax/osbooks-college-physics-bundle/blob/main/media/Figure_13_01_04a.jpg",
+      "creator": "RaviGogna, Flickr",
+      "license": "OpenStax College Physics 2e, CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); cropped and resized. Reused from an existing local photograph with an additional crop for this lesson."
+    }
   }
 };
