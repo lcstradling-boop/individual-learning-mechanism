@@ -5,7 +5,7 @@ These are invariants across every Ship's Log channel.
 1. **Learning is a valid payoff.** Career relevance may matter, but it is not
    required to justify a lesson.
 2. **A lesson is finite; a voyage may continue.** Each lesson has one central
-   question and a fixed estimate for its work. A meaningful next question may
+   question and an estimate for its work, calibrated by saved topic visits. A meaningful next question may
    lead into another lesson without requiring Liam to end an absorbing session.
 3. **Investigation changes the model.** Introduce an unfamiliar system and a
    short provisional map; let Liam probe its parts and build theories, including
