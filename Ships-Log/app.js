@@ -10,12 +10,50 @@ const isLegacy=l=>legacyLessonIds.has(l.id);
 const entries=()=>Object.keys(localStorage).filter(k=>k.startsWith('fieldnotes.entry.')).flatMap(k=>{try{return [JSON.parse(localStorage[k])]}catch{return []}}).sort((a,b)=>b.at-a.at);
 const title=id=>lessons.find(l=>l.id===id)?.title||id;
 const duration=n=>n<60?n+' min':Math.floor(n/60)+' hr'+(n%60?' '+n%60+' min':'');
+
+const wordCount=text=>(String(text).match(/[\p{L}\p{N}]+(?:[’'-][\p{L}\p{N}]+)*/gu)||[]).length;
+// The same lesson-facing text is counted in both reference and target lessons.
+function lessonWords(l){
+ const session=voyages[l.id],parts=[l.title,l.subtitle,l.centralQuestion||l.question,l.anchor];
+ for(const section of l.sections||[]){
+  if(Array.isArray(section))parts.push(...section);
+  else parts.push(section.heading,...(Array.isArray(section.body)?section.body:[section.body]),section.probe,section.diagramDescription);
+ }
+ for(const material of l.materials||[])parts.push(material.label,material.access);
+ for(const activity of session?.activities||[])parts.push(typeof activity==='string'?activity:activity.prompt,activity.evidence);
+ return wordCount(parts.filter(Boolean).join(' '));
+}
+// One first saved visit per lesson avoids giving repeated reviews extra weight.
+// This is an effective lesson pace, including thought and required activities.
+function topicPaces(log){
+ const byTopic=new Map(),seen=new Set();
+ for(const visit of [...log].reverse()){
+  if(seen.has(visit.id))continue;
+  seen.add(visit.id);
+  const lesson=lessons.find(l=>l.id===visit.id);
+  const minutes=Number(visit.ms)/60000,words=lesson&&lessonWords(lesson);
+  if(!lesson||!Number.isFinite(minutes)||minutes<1||!words)continue;
+  if(!byTopic.has(lesson.topicId))byTopic.set(lesson.topicId,[]);
+  byTopic.get(lesson.topicId).push(words/minutes);
+ }
+ return new Map([...byTopic].map(([topicId,rates])=>{
+  rates.sort((a,b)=>a-b);
+  const mid=Math.floor(rates.length/2);
+  return [topicId,{wpm:rates.length%2?rates[mid]:(rates[mid-1]+rates[mid])/2,samples:rates.length}];
+ }));
+}
+let paceByTopic=new Map();
+function estimatedMinutes(l){
+ const pace=paceByTopic.get(l.topicId);
+ return pace?Math.max(1,Math.round(lessonWords(l)/pace.wpm)):voyages[l.id].minutes;
+}
+
 function theme(dark){document.documentElement.dataset.theme=dark?'dark':'light';$('#theme').textContent=dark?'Light mode':'Dark mode';$('#theme').setAttribute('aria-pressed',String(dark))}
 theme((localStorage.getItem('ship.theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark');
 $('#theme').onclick=()=>{const dark=document.documentElement.dataset.theme!=='dark';theme(dark);localStorage.setItem('ship.theme',dark?'dark':'light')};
 function card(l){
- const session=voyages[l.id],topic=channel(l.topicId);
- return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb channel-art"><span class="badge">Est. '+duration(session.minutes)+'</span><img alt="" src="'+esc(topic?.logo||'images/pine-tree.svg')+'"></div><small>'+esc(topicName(l))+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
+ const topic=channel(l.topicId);
+ return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb channel-art"><span class="badge">Est. '+duration(estimatedMinutes(l))+'</span><img alt="" src="'+esc(topic?.logo||'images/pine-tree.svg')+'"></div><small>'+esc(topicName(l))+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
 }
 const grid=list=>'<div class="grid">'+list.map(card).join('')+'</div>';
 // Saved visits provide the only ranking signal. Keep the published order inside
@@ -122,7 +160,9 @@ function dataPage(log) {
  const total = Object.values(byTopic).reduce((sum,time)=>sum+time,0);
  const recentFeedback=log.filter(r=>r.feedbackVersion===2&&r.ratings);
  const feedbackRows=recentFeedback.map(r=>'<tr><th scope="row">'+esc(title(r.id))+'<small>'+new Date(r.at).toLocaleDateString()+'</small></th>'+Object.keys(measures).map(key=>'<td>'+esc(r.ratings[key]??'—')+'</td>').join('')+'</tr>').join('');
- main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing includes earlier lessons; new feedback measures apply only to new visits.</p>'+(recentFeedback.length?'<section class="data-card"><h2>How your model changes</h2><div class="feedback-scroll"><table class="feedback-table"><thead><tr><th>Lesson</th>'+Object.keys(measures).map(key=>'<th>'+esc(key)+'</th>').join('')+'</tr></thead><tbody>'+feedbackRows+'</tbody></table></div></section>':'')+'<section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+activityCalendars(byDay)+'</section>';
+ const paceRows=[...paceByTopic].map(([id,pace])=>'<tr><th scope="row">'+esc(channel(id)?.name||id)+'</th><td>'+Math.round(pace.wpm)+'</td><td>'+pace.samples+'</td></tr>').join('');
+ const paceSummary=paceRows?'<section class="data-card"><h2>Effective lesson pace</h2><p>Words per minute includes thinking and activities. Based on the first saved visit for each lesson; a saved visit does not confirm completion.</p><div class="feedback-scroll"><table class="feedback-table"><thead><tr><th>Topic</th><th>Words/min</th><th>Lessons sampled</th></tr></thead><tbody>'+paceRows+'</tbody></table></div></section>':'';
+ main.innerHTML='<h1>Data</h1><p>Saved visits only. Timing includes earlier lessons; new feedback measures apply only to new visits.</p>'+(recentFeedback.length?'<section class="data-card"><h2>How your model changes</h2><div class="feedback-scroll"><table class="feedback-table"><thead><tr><th>Lesson</th>'+Object.keys(measures).map(key=>'<th>'+esc(key)+'</th>').join('')+'</tr></thead><tbody>'+feedbackRows+'</tbody></table></div></section>':'')+paceSummary+'<section class="data-card"><h2>Topic share</h2><p>'+minutesText(total)+' across '+Object.keys(byTopic).length+' topics.</p>'+barChart(byTopic,total)+'</section><section class="data-card"><h2>Usage over time</h2><label>Group by <select id="trend-period"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option><option value="year">Year</option></select></label><div id="trend">'+lineChart(groupedDays(byDay,'day'))+'</div></section><section class="data-card"><h2>Active days</h2>'+activityCalendars(byDay)+'</section>';
  $('#trend-period').onchange = event => {$('#trend').innerHTML = lineChart(groupedDays(byDay,event.target.value))};
 }
 function request(active,paused){
@@ -244,11 +284,11 @@ function suggestedReturn(){
  return {date:localDay(date),reason};
 }
 function lessonPage(l,log){
- const {minutes,activities}=voyages[l.id];
+ const {activities}=voyages[l.id];
  const connections=l.connections||l.links||[];
  const sources=l.sources||[];
  const old=isLegacy(l);
- main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(minutes)+'</small>'+(old?'<p class="legacy-notice">Earlier lesson · available to read with your past notes. It is outside current recommendations and reviews.</p>':'')+'<p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+materialsHtml(l.materials)+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+feedbackHtml(voyages[l.id].feedback)+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+(old?'<details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details>':newVisitForm(log,l)+'<details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>');
+ main.innerHTML='<small><a href="#topic/'+esc(l.topicId||'')+'">'+esc(topicName(l))+'</a></small><h1>'+esc(l.title)+'</h1><small>Reading and activities · Est. '+duration(estimatedMinutes(l))+'</small>'+(old?'<p class="legacy-notice">Earlier lesson · available to read with your past notes. It is outside current recommendations and reviews.</p>':'')+'<p class="lead">'+esc(l.subtitle)+'</p>'+(l.anchor?'<aside>'+esc(l.anchor)+'</aside>':'')+materialsHtml(l.materials)+l.sections.map(sectionHtml).join('')+'<blockquote>'+esc(l.centralQuestion||l.question)+'</blockquote><h2>Explore the idea</h2><ol class="activities">'+activities.map(activityHtml).join('')+'</ol>'+feedbackHtml(voyages[l.id].feedback)+(connections.length?'<h2>Connections</h2>'+connections.map(connectionHtml).join(''):'')+(sources.length?'<details class="sources"><summary>Sources and further reading</summary>'+sources.map(source=>'<p><a href="'+esc(source.url)+'">'+esc(source.label)+'</a> · accessed '+esc(source.accessed)+(source.note?'<br><small>'+esc(source.note)+'</small>':'')+'</p>').join('')+'</details>':'')+(old?'<details><summary>Previous notes</summary>'+log.filter(r=>r.id===l.id).map(history).join('')+'</details>':newVisitForm(log,l)+'<details><summary>Lesson options</summary><label>Rotation<select id="rotation"><option value="">In rotation</option>'+Object.entries(states).map(([v,s])=>'<option value="'+v+'">'+esc(s)+'</option>').join('')+'</select></label><button id="apply">Apply rotation choice</button></details>');
  setupDensityLab();
  if(old)return;
  function updateSuggestion(){const suggestion=suggestedReturn();if(suggestion){$('#review-date').value=suggestion.date;$('#review-reason').textContent=suggestion.reason}}
@@ -290,6 +330,7 @@ function topicPage(topic,active){
 }
 function render(){
  const [page,id]=location.hash.slice(1).split('/'),log=entries(),active=lessons.filter(l=>!isLegacy(l)&&!state(l)),paused=lessons.filter(l=>!isLegacy(l)&&state(l)),earlier=lessons.filter(isLegacy);
+ paceByTopic=topicPaces(log);
  discardTiming();
  current = page === 'lesson' && lessons.find(l => l.id === id && !isLegacy(l));
  resumeTiming();
