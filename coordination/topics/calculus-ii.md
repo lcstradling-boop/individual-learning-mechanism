@@ -11,7 +11,7 @@ Concepts used: algebra, trigonometry, limits, derivatives, and basic integration
 ### Current investigative course
 The course is rebuilt around the [expedition map](../courses/calculus-ii.md).
 
-- [What lies between the readings?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/a-mass-between-readings) · `a-mass-between-readings` · 32 minutes · publication recorded by this file’s commit history.
+- [What lies between the readings?](https://lcstradling-boop.github.io/individual-learning-mechanism/Ships-Log/Ships-Log.html#lesson/a-mass-between-readings) · `a-mass-between-readings` · 32 minutes · published in [6d5a371](https://github.com/lcstradling-boop/individual-learning-mechanism/commit/6d5a37160c03e6f15ca2e37db0a0d965b2822345).
 
 ### Earlier collection (archived)
 Opening collection in [ff27cdc](https://github.com/lcstradling-boop/individual-learning-mechanism/commit/ff27cdcbc5bd31af4ae4e2523fa2df583c7a0f35).
