@@ -18,6 +18,23 @@ function card(l){
  return '<a class="card" href="#lesson/'+l.id+'"><div class="thumb"><span class="badge">Est. '+duration(session.minutes)+'</span><img alt="'+esc(thumbnail.alt)+'" src="'+esc(thumbnail.file)+'"></div><small>'+esc(topicName(l))+'</small><h2>'+esc(l.title)+'</h2><p>'+esc(l.subtitle)+'</p></a>';
 }
 const grid=list=>'<div class="grid">'+list.map(card).join('')+'</div>';
+// Saved visits provide the only ranking signal. Keep the published order inside
+// each topic, then rotate topics so one prolific channel cannot fill the desk.
+function deskSelection(active,log){
+ const latest=new Map();
+ for(const record of log)if(!latest.has(record.id))latest.set(record.id,record);
+ const due=active.filter(l=>{const r=latest.get(l.id);return r&&Number.isFinite(Number(r.due))&&Number(r.due)<=Date.now()}).sort((a,b)=>Number(latest.get(a.id).due)-Number(latest.get(b.id).due));
+ const topics=[...new Set(active.map(l=>l.topicId))];
+ const queues=topics.map(id=>active.filter(l=>l.topicId===id&&!latest.has(l.id)));
+ const next=[];
+ while(queues.some(q=>q.length))for(const q of queues)if(q.length)next.push(q.shift());
+ return {due,next,latest};
+}
+function continuation(l,active,log){
+ const visited=new Set(log.map(r=>r.id));
+ const linked=(l.connections||[]).map(c=>active.find(target=>target.id===(Array.isArray(c)?c[0]:c.lessonId))).find(target=>target&&!visited.has(target.id));
+ return linked||active.find(target=>target.topicId===l.topicId&&!visited.has(target.id))||null;
+}
 function channelCard(topic){
  const count=lessons.filter(lesson=>lesson.topicId===topic.id).length;
  return '<a class="channel-card" href="#topic/'+topic.id+'"><span class="channel-logo"><img src="'+esc(topic.logo)+'" alt=""></span><span><small>'+(topic.scale==='larger'?'Continuing channel':'Focused channel')+' · '+count+' lesson'+(count===1?'':'s')+'</small><strong>'+esc(topic.name)+'</strong><span>'+esc(topic.purpose)+'</span></span></a>';
@@ -241,7 +258,19 @@ function render(){
  }else if(page==='journal')main.innerHTML='<h1>Journal</h1><p>'+log.length+' saved visits · '+new Set(log.map(r=>r.topicId||r.topic||lessons.find(l=>l.id===r.id)?.topicId).filter(Boolean)).size+' topics explored</p>'+log.map(r=>'<article><a href="#lesson/'+esc(r.id)+'">'+esc(title(r.id))+'</a>'+history(r)+'</article>').join('');
  else if(page==='data')dataPage(log);
  else if(page==='credits')main.innerHTML='<h1>Image credits</h1><p><a href="https://lucide.dev/">Ship’s Log and channel symbols · Lucide Icons</a> · ISC License</p>'+lessons.map(l=>{const thumbnail=voyages[l.id].thumbnail;return thumbnail?'<p><a href="'+esc(thumbnail.sourceUrl)+'">'+esc(thumbnail.alt)+'</a> · '+esc(thumbnail.creator)+' · '+esc(thumbnail.license)+'</p>':''}).join('');
- else{const continuing=topicRegistry.filter(topic=>topic.scale==='larger'),focused=topicRegistry.filter(topic=>topic.scale==='smaller');main.innerHTML='<h1>Explore</h1><p class="lead">Choose a channel by the kind of question you want to enter. Each channel can develop its own voice while sharing one learning history.</p><h2>Continuing channels</h2>'+channelGrid(continuing)+'<h2>Focused channels</h2>'+channelGrid(focused)+(active.length?'<h2>Latest lessons</h2>'+catalog(active):'<p class="empty-catalog">Lessons will appear inside these channels as they are published.</p>')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';request(active,paused.filter(l=>state(l)==='tools'))}
+ else{
+ const continuing=topicRegistry.filter(topic=>topic.scale==='larger'),focused=topicRegistry.filter(topic=>topic.scale==='smaller');
+ const {due,next}=deskSelection(active,log);
+ const recent=log.length&&active.find(l=>l.id===log[0].id);
+ const follow=recent&&continuation(recent,active,log);
+ const visibleNext=next.filter(l=>l.id!==follow?.id);
+ main.innerHTML='<h1>Explore</h1><p class="lead">Return to an idea, then follow a question into another channel. Each visit is a place to read, test, and make a connection.</p>'+
+ (due.length?'<section class="desk-section"><h2>Due for review</h2><p>Return to the same lesson and see what you can explain now.</p>'+grid(due)+'</section>':'')+
+ (follow?'<section class="desk-section"><h2>Continue your thread</h2><p>From '+esc(recent.title)+' → '+esc(follow.title)+'</p>'+grid([follow])+'</section>':'')+
+ (visibleNext.length?'<section class="desk-section"><h2>Next steps across topics</h2><p>One next unread lesson from each channel comes first; keep exploring as long as the questions carry you.</p>'+grid(visibleNext)+'</section>':'')+
+ '<h2>Continuing channels</h2>'+channelGrid(continuing)+'<h2>Focused channels</h2>'+channelGrid(focused)+(!active.length?'<p class="empty-catalog">Lessons will appear inside these channels as they are published.</p>':'')+'<details><summary>Request a next lesson</summary><p>Copy this request into our conversation.</p><textarea id="request" aria-label="Lesson request"></textarea><button id="copy">Copy request</button></details>';
+ request(active,paused.filter(l=>state(l)==='tools'));
+ }
  const sortControl = $('#catalog-sort');
  if (sortControl) sortControl.onchange = () => {
   localStorage.setItem('ship.catalogSort', sortControl.value);
